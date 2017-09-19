@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_information"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.user.sports.contacts.child.activity.InformationActivity">
+
+    <com.example.user.sports.ui.AppHeadView
+        android:id="@+id/headview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </com.example.user.sports.ui.AppHeadView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/head_information_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_launcher"
+            android:padding="@dimen/space_10"/>
+        <TextView
+            android:id="@+id/nickname_information_tv"
+            android:layout_toRightOf="@+id/head_information_iv"
+            android:layout_marginTop="@dimen/space_20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="爱运动的傻逼"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_40"
+            android:text="等级：LV1000"
+            android:layout_toRightOf="@+id/head_information_iv"/>
+    </RelativeLayout>
+    <View style="@style/ViewLine"></View>
+
+    <View
+        android:layout_marginTop="@dimen/space_20"
+        style="@style/ViewLine"></View>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="设置备注"
+        android:textSize="@dimen/text_size_20"
+        android:padding="@dimen/space_10" />
+    <View style="@style/ViewLine"></View>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="地区：tcl大厦隔壁小巷子进去30米右拐"
+        android:textSize="@dimen/text_size_20"
+        android:padding="@dimen/space_10" />
+    <View style="@style/ViewLine"></View>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="个人相册"
+        android:textSize="@dimen/text_size_20"
+        android:padding="@dimen/space_10" />
+    <View style="@style/ViewLine"></View>
+
+    <Button
+        android:id="@+id/send_information_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="发消息"
+        android:layout_gravity="center"/>
+
+
+</LinearLayout>

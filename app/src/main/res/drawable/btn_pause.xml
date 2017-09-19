@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shape
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval"
+    android:useLevel="false">
+
+    <solid android:color="@color/number_blue"/>
+
+    <size android:width="50dp"
+    android:height="50dp"/>
+
+    <padding
+
+        android:left="@dimen/space_10"
+        android:right="@dimen/space_10"
+        android:top="@dimen/space_10"
+        android:bottom="@dimen/space_10">
+
+
+    </padding>
+
+</shape>

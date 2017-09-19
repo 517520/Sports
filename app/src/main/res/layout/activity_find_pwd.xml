@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_find_pwd"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_welcome"
+    tools:context="com.example.user.sports.main.activity.FindPwdActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_30">
+        <TextView
+            android:id="@+id/cancel_findpwd_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="取消"
+            android:textColor="@color/gray"
+            android:gravity="center_vertical"
+            android:textSize="@dimen/text_size_16"
+            android:padding="@dimen/space_10"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/space_10"
+            android:text="手机找回密码"
+            android:textSize="@dimen/text_size_18"
+            android:textColor="@color/white"
+            android:layout_centerHorizontal="true"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/space_100"
+            android:layout_marginLeft="@dimen/space_30"
+            android:layout_marginRight="@dimen/space_30">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/space_10"
+                android:src="@drawable/ic_phone"/>
+            <EditText
+                android:id="@+id/phone_findpwd_et"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:textSize="@dimen/text_size_16"
+                android:hint="请输入手机号"
+                android:textColor="@color/white"
+                android:layout_gravity="center_vertical"
+                android:padding="@dimen/space_10"
+                android:maxLength="20"
+                android:background= "@null"
+                android:textColorHint="@color/input_hint_gray"/>
+        </LinearLayout>
+        <View style="@style/ViewLine_30dp"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/space_30"
+            android:layout_marginLeft="@dimen/space_30"
+            android:layout_marginRight="@dimen/space_30">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/space_10"
+                android:src="@drawable/ic_verification_code"/>
+
+            <EditText
+                android:id="@+id/confirm_findpwd_et"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:textSize="@dimen/text_size_16"
+                android:hint="请输入验证码"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/white"
+                android:padding="@dimen/space_10"
+                android:maxLength="20"
+                android:background= "@null"
+                android:layout_weight="1"
+                android:textColorHint="@color/input_hint_gray"/>
+            <Button
+                android:id="@+id/confirm_findpwd_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/space_35"
+                android:background="@drawable/btn_white_rectangle_4radius"
+                android:text="获取验证码"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_14"/>
+        </LinearLayout>
+        <View style="@style/ViewLine_30dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/space_30"
+            android:layout_marginLeft="@dimen/space_30"
+            android:layout_marginRight="@dimen/space_30">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/space_10"
+                android:src="@drawable/ic_lock"/>
+            <EditText
+                android:id="@+id/password_findpwd_et"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:textSize="@dimen/text_size_16"
+                android:hint="请输入6-12位登录密码"
+                android:padding="@dimen/space_10"
+                android:maxLength="20"
+                android:textColor="@color/white"
+                android:background= "@null"
+                android:textColorHint="@color/input_hint_gray"/>
+        </LinearLayout>
+        <View style="@style/ViewLine_30dp"/>
+
+        <Button
+            android:id="@+id/commit_findpwd_btn"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/space_45"
+            android:text="提交密码修改"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_16"
+            android:layout_margin="@dimen/space_30"
+            android:background="@drawable/btn_big_blue"/>
+    </LinearLayout>
+</RelativeLayout>

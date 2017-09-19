@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_head"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bg_welcome"
+    tools:context="com.example.user.sports.main.activity.HeadActivity">
+
+    <RelativeLayout
+        android:layout_width="@dimen/space_120"
+        android:layout_height="@dimen/space_120"
+        android:layout_marginTop="@dimen/space_120"
+        android:layout_gravity="center">
+        <com.example.user.sports.ui.CircleImageView
+            android:id="@+id/photo_head_civ"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:border_width="@dimen/space_5"
+            app:border_color="@color/near_black"
+            android:src="@drawable/bg_user_photo" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_camera"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/space_50"
+        android:layout_marginLeft="@dimen/space_30"
+        android:layout_marginRight="@dimen/space_30">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/space_10"
+            android:src="@drawable/ic_nickname"/>
+
+        <EditText
+            android:id="@+id/nickname_head_et"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:textSize="@dimen/text_size_14"
+            android:layout_gravity="center_vertical"
+            android:hint="请输入昵称"
+            android:textColor="@color/white"
+            android:padding="@dimen/space_10"
+            android:maxLength="20"
+            android:background= "@null"
+            android:textColorHint="@color/input_hint_gray"/>
+    </LinearLayout>
+    <View style="@style/ViewLine_30dp"/>
+
+    <Button
+        android:id="@+id/complete_head_btn"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_45"
+        android:text="完成"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_16"
+        android:layout_marginLeft="@dimen/space_30"
+        android:layout_marginRight="@dimen/space_30"
+        android:layout_marginTop="@dimen/space_50"
+        android:background="@drawable/btn_big_blue"/>
+
+</LinearLayout>

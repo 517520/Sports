@@ -1,0 +1,39 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.user.sports.contacts.activity.ContactsFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="@dimen/space_30"
+            android:layout_height="@dimen/space_30"
+            android:src="@mipmap/ic_launcher"/>
+        <TextView
+            android:id="@+id/child_contacts_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="通讯录"/>
+        <TextView
+            android:id="@+id/team_contacts_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="群组"/>
+    </LinearLayout>
+    <View style="@style/ViewLine"></View>
+
+    <FrameLayout
+        android:id="@+id/container_contacts_fl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </FrameLayout>
+
+</LinearLayout>

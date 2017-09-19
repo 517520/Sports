@@ -1,0 +1,5 @@
+<device-admin xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-policies>
+        <force-lock />  //强制锁屏,这里还可以配置其他的如恢复出厂设置、设置密码
+    </uses-policies>
+</device-admin>

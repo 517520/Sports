@@ -1,0 +1,67 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.user.sports.athletics.activity.WalkFragment">
+
+    <com.example.user.sports.ui.StepArcView
+        android:id="@+id/step_walk_arv"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="@dimen/space_40"
+        android:layout_gravity="center"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/ic_rectangle_right"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_15"
+                android:layout_marginRight="@dimen/space_15"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/ic_run"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/begin_walk_ll"
+        android:layout_marginTop="@dimen/space_30"
+        android:layout_width="200dp"
+        android:layout_height="@dimen/space_40"
+        android:layout_gravity="center"
+        android:background="@drawable/btn_small_blue"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/space_10"
+            android:visibility="invisible"
+            android:src="@drawable/ic_walk"/>
+        <TextView
+            android:id="@+id/begin_walk_tv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="开始步行"
+            android:textSize="@dimen/text_size_16"
+            android:textColor="@color/white"
+            android:gravity="center"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/space_10"
+            android:src="@drawable/ic_walk"/>
+    </LinearLayout>
+
+</LinearLayout>

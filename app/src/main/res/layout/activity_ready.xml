@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_ready"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/bg_main"
+    android:fitsSystemWindows="true"
+    android:clipToPadding="true"
+    tools:context="com.example.user.sports.athletics.activity.ReadyActivity">
+
+    <TextView
+        android:id="@+id/number_ready_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="3"
+        android:textSize="150sp"
+        android:textColor="@color/number_blue"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/space_100"/>
+
+    <Button
+        android:id="@+id/pass_ready_btn"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:text="跳过"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_16"
+        android:gravity="center"
+        android:background="@drawable/btn_pass"/>
+</RelativeLayout>

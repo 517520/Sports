@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Sports</string>
+
+    <string name="analysis">分析</string>
+    <string name="athletics">运动</string>
+    <string name="cycle">运动圈</string>
+    <string name="contacts">联系人</string>
+    <string name="mine">我的</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="chooseIfDeleteCache">确定清楚缓存?</string>
+    <string name="cancel">取消</string>
+    <string name="determine">确定</string>
+    <string name="determineExit">退出</string>
+    <string name="chooseIfExit">确定退出?</string>
+
+    //contacts
+    <string name="address_book">通讯录</string>
+    <string name="detail_information">详细资料</string>
+    <string name="new_friend">新的朋友</string>
+    <string name="add_friend">添加朋友</string>
+    <string name="new_team">新建群组</string>
+    <string name="choose_team_background">选择群组封面</string>
+    <string name="recommend_team">推荐群组</string>
+    <string name="team_detail">群组详情</string>
+    <string name="control_team">管理群组</string>
+</resources>

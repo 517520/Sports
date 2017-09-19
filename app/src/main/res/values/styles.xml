@@ -1,0 +1,66 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="MyTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:listDivider">@drawable/bg_divider</item>
+    </style>
+
+    //the MainActivity RadioButton style
+    <style name="RadioButton">
+        <item name="android:layout_width">@dimen/space_0</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:button">@null</item>
+        <item name="android:layout_marginTop">@dimen/space_5</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/space_10</item>
+        <item name="android:textColor">@color/selector_bar_white</item>
+        <item name="android:drawablePadding">@dimen/space_5</item>
+    </style>
+
+    //the Child fragment's text
+    <style name="Text_fragment">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/text_size_16</item>
+        <item name="android:textColor">@color/false_white</item>
+        <item name="android:padding">@dimen/space_10</item>
+    </style>
+
+    //line
+    <style name="ViewLine">
+        <item name="android:layout_height">@dimen/space_0.1</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@color/gray</item>
+    </style>
+
+    //line
+    <style name="ViewLine_30dp">
+        <item name="android:layout_height">@dimen/space_0.1</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@color/gray</item>
+        <item name="android:layout_marginLeft">@dimen/space_30</item>
+        <item name="android:layout_marginRight">@dimen/space_30</item>
+        <item name="android:layout_marginTop">@dimen/space_5</item>
+    </style>
+    <style name="MyTabLayoutTextApperarance" parent="TextAppearance.AppCompat.Widget.ActionBar.Title"><item name="android:textColor">#345678</item></style>
+
+    <!--加载进度对话框样式-->
+    <style name="Dialog_Fullscreen">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item><!--是否浮现在activity之上-->
+        <item name="android:windowIsTranslucent">false</item><!--半透明-->
+        <item name="android:windowBackground">@android:color/transparent</item><!--背景透明-->
+        <item name="android:backgroundDimEnabled">true</item><!--模糊-->
+    </style>
+</resources>

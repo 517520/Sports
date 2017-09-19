@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_recommend"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.user.sports.contacts.team.recommend.RecommendActivity">
+
+    <com.example.user.sports.ui.AppHeadView
+        android:id="@+id/headview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </com.example.user.sports.ui.AppHeadView>
+
+    <android.support.v7.widget.SearchView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </android.support.v7.widget.SearchView>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recommend_rv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+</LinearLayout>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:clipToPadding="true"
+    android:background="@mipmap/bg_main"
+    tools:context="com.example.user.sports.main.activity.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <FrameLayout
+            android:id="@+id/container_main_fl"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+        </FrameLayout>
+
+        <RadioGroup
+            android:id="@+id/main_RadioGroup"
+            android:layout_width="match_parent"
+            android:layout_alignParentBottom="true"
+            android:background="@color/black_actionbar"
+            android:orientation="horizontal"
+            android:padding="@dimen/space_5"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/contacts_main_Rbtn"
+                android:text="@string/contacts"
+                android:checked="false"
+                android:drawableTop="@drawable/ic_contact"
+                style="@style/RadioButton" />
+
+            <RadioButton
+                android:id="@+id/analysis_main_Rbtn"
+                android:text="@string/analysis"
+                android:checked="false"
+                android:drawableTop="@drawable/ic_analysis"
+                style="@style/RadioButton" />
+
+            <RadioButton
+                android:id="@+id/athletics_main_Rbtn"
+                android:text="@string/athletics"
+                android:checked="true"
+                android:drawableTop="@drawable/ic_mine"
+                style="@style/RadioButton" />
+
+            <RadioButton
+                android:id="@+id/cycle_main_Rbtn"
+                android:text="@string/cycle"
+                android:checked="false"
+                android:drawableTop="@drawable/ic_cycle"
+                style="@style/RadioButton" />
+
+            <RadioButton
+                android:id="@+id/mine_main_Rbtn"
+                android:text="@string/mine"
+                android:checked="false"
+                android:drawableTop="@drawable/ic_mine"
+                style="@style/RadioButton" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/space_20"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+        <Button
+            android:id="@+id/athletics_main_btn"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/ic_athletics" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+    </LinearLayout>
+</RelativeLayout>

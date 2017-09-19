@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_welcome"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bg_welcome"
+    tools:context="com.example.user.sports.main.activity.WelcomeActivity">
+
+    <ImageView
+        android:layout_marginTop="@dimen/space_150"
+        android:layout_width="@dimen/space_120"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_runman_large"
+        android:layout_gravity="center" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="爱运动"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_20"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_230"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/regist_welcome_btn"
+            android:layout_width="@dimen/space_80"
+            android:layout_height="@dimen/space_40"
+            android:background="@drawable/btn_small_blue"
+            android:text="注册"
+            android:layout_weight="1"
+            android:layout_marginLeft="@dimen/space_30"
+            android:layout_marginRight="@dimen/space_30"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_14"/>
+
+        <Button
+            android:id="@+id/login_welcome_btn"
+            android:layout_width="@dimen/space_80"
+            android:layout_height="@dimen/space_40"
+            android:layout_weight="1"
+            android:layout_marginLeft="@dimen/space_30"
+            android:layout_marginRight="@dimen/space_30"
+            android:background="@drawable/btn_small_blue"
+            android:text="登录"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_14"/>
+    </LinearLayout>
+</LinearLayout>

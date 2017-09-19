@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_team_detail"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.user.sports.contacts.team.recommend.TeamDetailActivity">
+
+    <com.example.user.sports.ui.AppHeadView
+        android:id="@+id/headview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </com.example.user.sports.ui.AppHeadView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_150">
+
+        <ImageView
+            android:id="@+id/background_team_detail_iv"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/space_120"
+            android:src="@color/colorAccent"/>
+        <com.example.user.sports.ui.CircleImageView
+            android:id="@+id/head_team_detail_civ"
+            android:layout_width="@dimen/space_80"
+            android:layout_height="@dimen/space_80"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/bg_user_photo"/>
+
+        <TextView
+            android:layout_toRightOf="@id/head_team_detail_civ"
+            android:id="@+id/people_team_detail_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/ic_launcher"
+            android:layout_alignParentBottom="true"/>
+        <TextView
+            android:layout_toRightOf="@id/people_team_detail_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/ic_launcher"
+            android:layout_alignParentBottom="true"/>
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="群组名字"
+        android:padding="@dimen/space_10"
+        android:textSize="@dimen/text_size_18"/>
+    <View style="@style/ViewLine"></View>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="成员"
+        android:padding="@dimen/space_10"/>
+    <View style="@style/ViewLine"></View>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/space_10"
+        android:textSize="@dimen/text_size_16"
+        android:text="这阿三基督教把我健康不大健康的把我卡杯具啊完毕空间啊不大开不完的毕竟我看到把我金卡不断加快哇不大金卡我不断加快啊我不断加快把我健康的不哇加快的把我健康不断加快哇版的加快哇版的加快哇部队金卡我比较快的不哇就"/>
+
+    <Button
+        android:id="@+id/add_team_detail_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="加入群组"
+        android:layout_gravity="center"/>
+</LinearLayout>
