@@ -2,38 +2,149 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
+    android:background="@color/background_black"
     tools:context="com.example.user.sports.contacts.activity.ContactsFragment">
 
-    <LinearLayout
+    <com.example.user.sports.ui.AppHeadView
+        android:id="@+id/headview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content">
+    </com.example.user.sports.ui.AppHeadView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/search_contacts_et"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:textColor="@color/white"
+            android:layout_marginLeft="@dimen/space_20"
+            android:layout_marginRight="@dimen/space_20"
+            android:background="@drawable/bg_search_edittext"/>
         <ImageView
-            android:layout_width="@dimen/space_30"
-            android:layout_height="@dimen/space_30"
-            android:src="@mipmap/ic_launcher"/>
-        <TextView
-            android:id="@+id/child_contacts_tv"
+            android:id="@+id/search_contacts_iv"
+            android:layout_marginRight="@dimen/space_10"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="通讯录"/>
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_search"
+            android:layout_alignRight="@id/search_contacts_et"
+            android:layout_centerVertical="true"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/space_10"
+        android:layout_height="120dp"
+        android:background="@color/background_gray">
+
+        <RelativeLayout
+            android:id="@+id/new_friend_contacts_rl"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="@dimen/space_20"
+            android:layout_marginLeft="@dimen/space_50"
+            android:background="@drawable/btn_cycle_contacts">
+            <ImageView
+                android:layout_centerInParent="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_person_add"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/team_contacts_rl"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/space_20"
+            android:background="@drawable/btn_cycle_contacts">
+            <ImageView
+                android:layout_centerInParent="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_group"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/create_team_contacts_rl"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/space_20"
+            android:layout_marginRight="@dimen/space_50"
+            android:background="@drawable/btn_cycle_contacts">
+            <ImageView
+                android:layout_centerInParent="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_group_add"/>
+        </RelativeLayout>
+
         <TextView
-            android:id="@+id/team_contacts_tv"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="群组"/>
-    </LinearLayout>
-    <View style="@style/ViewLine"></View>
+            android:layout_height="wrap_content"
+            android:text="群组"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_14"
+            android:layout_below="@+id/team_contacts_rl"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/space_10"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="新的朋友"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_14"
+            android:layout_below="@+id/team_contacts_rl"
+            android:layout_marginLeft="47dp"
+            android:layout_marginTop="@dimen/space_10"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="创建群组"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_14"
+            android:layout_below="@+id/team_contacts_rl"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="47dp"
+            android:layout_marginTop="@dimen/space_10"/>
+    </RelativeLayout>
 
     <FrameLayout
-        android:id="@+id/container_contacts_fl"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    </FrameLayout>
+        android:layout_height="wrap_content">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/friend_contacts_rv"
+            android:overScrollMode="never"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
+        </android.support.v7.widget.RecyclerView>
+
+        <com.example.user.sports.ui.IndexBar
+            android:id="@+id/contacts_indexBar"
+            android:layout_width="24dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            />
+
+        <TextView
+            android:id="@+id/sideBar_contacts_tv"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:background="@color/background_transparent"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:textSize="48sp"
+            android:visibility="gone"
+            tools:text="A"
+            tools:visibility="visible" />
+    </FrameLayout>
 </LinearLayout>

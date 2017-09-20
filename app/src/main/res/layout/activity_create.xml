@@ -105,7 +105,7 @@
         android:layout_height="wrap_content"
         android:minLines="5"
         android:layout_margin="@dimen/space_20"
-        android:background="@drawable/border_edittext_gray"/>
+        android:background="@drawable/bg_border_edittext_gray"/>
 
     <Button
         android:id="@+id/create_btn"

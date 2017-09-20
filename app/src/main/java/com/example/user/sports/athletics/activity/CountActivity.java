@@ -57,7 +57,6 @@ public class CountActivity extends BaseActivity implements View.OnClickListener 
 
     //锁屏
     final static int ENABLE_ADMIN = 1;
-    final static int SUCESS = -1;
     private ComponentName mAdminName = null;
 
     private int state;

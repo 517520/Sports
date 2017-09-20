@@ -35,21 +35,21 @@ public class RecommendActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recommend);
         
-        initHeadView();
+//        initHeadView();
         initView();
         initData();
     }
 
-    private void initHeadView() {
-        headView = (AppHeadView) findViewById(R.id.headview);
-        headView.setTvName(R.string.recommend_team);
-        headView.setOnClickListenerBack(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
-    }
+//    private void initHeadView() {
+//        headView = (AppHeadView) findViewById(R.id.headview);
+//        headView.setTvName(R.string.recommend_team);
+//        headView.setOnClickListenerBack(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                finish();
+//            }
+//        });
+//    }
     
     private void initView() {
         mRecommendRv = (RecyclerView) findViewById(R.id.recommend_rv);

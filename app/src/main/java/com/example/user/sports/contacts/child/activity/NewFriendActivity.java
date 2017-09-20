@@ -35,29 +35,29 @@ public class NewFriendActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_friend);
 
-        initHeadView();
+//        initHeadView();
         initView();
         initData();
     }
 
-    private void initHeadView() {
-        headView = (AppHeadView) findViewById(R.id.headview);
-        headView.setTvName(R.string.new_friend);
-        headView.setTvRight(R.string.add_friend);
-        headView.setOnClickListenerBack(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
-
-        headView.setOnClickListenerRight(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                IntentUtils.turnTo(NewFriendActivity.this, AddFriendActivity.class, false);
-            }
-        });
-    }
+//    private void initHeadView() {
+//        headView = (AppHeadView) findViewById(R.id.headview);
+//        headView.setTvName(R.string.new_friend);
+//        headView.setTvRight(R.string.add_friend);
+//        headView.setOnClickListenerBack(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                finish();
+//            }
+//        });
+//
+//        headView.setOnClickListenerRight(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                IntentUtils.turnTo(NewFriendActivity.this, AddFriendActivity.class, false);
+//            }
+//        });
+//    }
 
     private void initView() {
         mNewFriendRv = (RecyclerView) findViewById(R.id.add_new_friend_rv);

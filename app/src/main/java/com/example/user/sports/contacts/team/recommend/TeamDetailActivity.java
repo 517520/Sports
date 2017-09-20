@@ -25,7 +25,7 @@ public class TeamDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_team_detail);
 
-        initHeadView();
+//        initHeadView();
         initView();
 
     }
@@ -40,14 +40,14 @@ public class TeamDetailActivity extends AppCompatActivity {
         });
     }
 
-    private void initHeadView() {
-        headView = (AppHeadView) findViewById(R.id.headview);
-        headView.setTvName(R.string.team_detail);
-        headView.setOnClickListenerBack(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
-    }
+//    private void initHeadView() {
+//        headView = (AppHeadView) findViewById(R.id.headview);
+//        headView.setTvName(R.string.team_detail);
+//        headView.setOnClickListenerBack(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                finish();
+//            }
+//        });
+//    }
 }

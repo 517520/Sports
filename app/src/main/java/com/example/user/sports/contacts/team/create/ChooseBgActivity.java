@@ -21,17 +21,17 @@ public class ChooseBgActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_bg);
 
-        initHeadView();
+//        initHeadView();
     }
 
-    private void initHeadView() {
-        headview = (AppHeadView) findViewById(R.id.headview);
-        headview.setTvName(R.string.choose_team_background);
-        headview.setOnClickListenerBack(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
-    }
+//    private void initHeadView() {
+//        headview = (AppHeadView) findViewById(R.id.headview);
+//        headview.setTvName(R.string.choose_team_background);
+//        headview.setOnClickListenerBack(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                finish();
+//            }
+//        });
+//    }
 }

@@ -24,20 +24,20 @@ public class InformationActivity extends AppCompatActivity implements View.OnCli
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_information);
 
-        initHead();
+//        initHead();
         initView();
     }
 
-    private void initHead() {
-        headView = (AppHeadView) findViewById(R.id.headview);
-        headView.setTvName(R.string.detail_information);
-        headView.setOnClickListenerBack(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
-    }
+//    private void initHead() {
+//        headView = (AppHeadView) findViewById(R.id.headview);
+//        headView.setTvName(R.string.detail_information);
+//        headView.setOnClickListenerBack(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                finish();
+//            }
+//        });
+//    }
 
     private void initView() {
         mSendBtn = (Button) findViewById(R.id.send_information_btn);

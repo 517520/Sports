@@ -34,4 +34,5 @@ dependencies {
     compile files('libs/gson-2.3.1.jar')
     compile 'com.android.support:design:25.1.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha7'
+    compile 'com.github.promeg:tinypinyin:1.0.0' // ~80KB
 }

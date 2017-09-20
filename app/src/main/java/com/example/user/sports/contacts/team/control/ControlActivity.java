@@ -27,21 +27,21 @@ public class ControlActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_control);
 
-        initHeadView();
+//        initHeadView();
         initView();
         initData();
     }
 
-    private void initHeadView() {
-        headView = (AppHeadView) findViewById(R.id.headview);
-        headView.setTvName(R.string.control_team);
-        headView.setOnClickListenerBack(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
-    }
+//    private void initHeadView() {
+//        headView = (AppHeadView) findViewById(R.id.headview);
+//        headView.setTvName(R.string.control_team);
+//        headView.setOnClickListenerBack(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                finish();
+//            }
+//        });
+//    }
 
     private void initView() {
 //        mControlRv = (RecyclerView) findViewById(R.id.control_rv);

@@ -18,9 +18,14 @@
     <color name="input_hint_gray">#999999</color>
     <color name="text_blue">#46bcf7</color>
     <color name="number_blue">#3f88e6</color>
+    <color name="number_blue_pressed">#1d66c4</color>
     <color name="stop_blue">#249ae6</color>
     <color name="ring_blue_alph">#4446bcf7</color>
     <color name="finish_red">#ef5555</color>
+    <color name="finish_red_pressed">#de4433</color>
     <color name="continue_green">#49be70</color>
+    <color name="continue_green_pressed">#279c50</color>
     <color name="background_transparent">#00000000</color>
+    <color name="background_gray">#333339</color>
+    <color name="background_black">#29292f</color>
 </resources>

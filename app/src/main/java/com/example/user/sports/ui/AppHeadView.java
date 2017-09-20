@@ -16,7 +16,7 @@ import com.example.user.sports.R;
 public class AppHeadView extends LinearLayout{
 
     private Context context;
-    private TextView tvBack, tvName, tvIcon, tvRight;
+    private TextView tvBack, tvTitle, tvMessage, tvNumber, tvAdd;
 
     public AppHeadView(Context context) {
         super(context);
@@ -32,33 +32,26 @@ public class AppHeadView extends LinearLayout{
 
     private void initView(){
         LayoutInflater.from(context).inflate(R.layout.include_head, this);
-        tvBack = (TextView) findViewById(R.id.tv_head_back);
-        tvName = (TextView) findViewById(R.id.tv_head_name);
-        tvIcon = (TextView) findViewById(R.id.tv_head_icon);
-        tvRight = (TextView) findViewById(R.id.tv_head_right);
+        tvBack = (TextView) findViewById(R.id.back_headview_tv);
+        tvMessage = (TextView) findViewById(R.id.message_headview_tv);
+        tvNumber = (TextView) findViewById(R.id.number_headview_tv);
+        tvTitle = (TextView) findViewById(R.id.title_headview_tv);
+        tvAdd = (TextView) findViewById(R.id.add_headview_tv);
+
     }
 
-    public void setVisibility(int icon, int right){
-        tvIcon.setVisibility(icon);
-        tvRight.setVisibility(right);
+    public void setVisibility(int back, int message, int number){
+        tvBack.setVisibility(back);
+        tvMessage.setVisibility(message);
+        tvNumber.setVisibility(number);
     }
 
-    public void setTvName(int textID){
-        if (textID != 0){
-            tvName.setText(textID);
-        }
+    public void setTitle(String title){
+        tvTitle.setText(title);
     }
 
-    public void setName(String text){
-        if (!TextUtils.isEmpty(text)){
-            tvName.setText(text);
-        }
-    }
-
-    public void setTvRight(int textID){
-        if (textID != 0){
-            tvRight.setText(textID);
-        }
+    public void setNumber(int number) {
+        tvNumber.setText(""+number);
     }
 
     public void setOnClickListenerBack(OnClickListener listener){
@@ -67,15 +60,15 @@ public class AppHeadView extends LinearLayout{
         }
     }
 
-    public void setOnClickListenerRight(OnClickListener listener){
+    public void setOnClickListenerMessage(OnClickListener listener){
         if (listener != null){
-            tvRight.setOnClickListener(listener);
+            tvMessage.setOnClickListener(listener);
         }
     }
 
-    public void setOnClickListenerIcon(OnClickListener listener){
+    public void setOnClickListenerAdd(OnClickListener listener){
         if (listener != null){
-            tvIcon.setOnClickListener(listener);
+            tvAdd.setOnClickListener(listener);
         }
     }
 }

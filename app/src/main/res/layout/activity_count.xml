@@ -178,7 +178,7 @@
                 android:layout_weight="1"
                 android:textColor="@color/white"
                 android:textSize="@dimen/text_size_16"
-                android:background="@drawable/btn_finish"
+                android:background="@drawable/btn_cycle_red"
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/space_40"
@@ -201,7 +201,7 @@
                     android:layout_margin="@dimen/space_10"
                     android:textColor="@color/white"
                     android:textSize="@dimen/text_size_16"
-                    android:background="@drawable/btn_pause"
+                    android:background="@drawable/btn_cycle_blue"
                     android:text="暂停"/>
             </LinearLayout>
             <Button
@@ -211,7 +211,7 @@
                 android:layout_weight="1"
                 android:textColor="@color/white"
                 android:textSize="@dimen/text_size_16"
-                android:background="@drawable/btn_continue"
+                android:background="@drawable/btn_cycle_green"
                 android:layout_centerVertical="true"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="@dimen/space_40"

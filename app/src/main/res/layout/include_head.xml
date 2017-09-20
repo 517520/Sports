@@ -1,48 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="40dp"
+    android:layout_height="50dp"
     android:focusable="true"
-    android:focusableInTouchMode="true"
-    android:background="@color/near_black"
-    android:orientation="horizontal">
+    android:focusableInTouchMode="true">
 
     <TextView
-        android:id="@+id/tv_head_back"
-        android:layout_width="@dimen/space_20"
-        android:layout_margin="@dimen/space_10"
-        android:layout_gravity="center_vertical"
-        android:layout_height="@dimen/space_20"
-        android:background="@drawable/arrow_left"/>
-    <TextView
-        android:id="@+id/tv_head_name"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textColor="@color/near_white"
-        android:gravity="center"
-        android:layout_weight="1"
-        android:textSize="@dimen/text_size_16"/>
-
-    <RelativeLayout
+        android:id="@+id/back_headview_tv"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent">
+        android:layout_marginLeft="@dimen/space_20"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:background="@drawable/ic_arrow_back"/>
+    <TextView
+        android:id="@+id/message_headview_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/space_20"
+        android:layout_centerVertical="true"
+        android:visibility="gone"
+        android:background="@drawable/ic_message"/>
+    <TextView
+        android:id="@+id/number_headview_tv"
+        android:layout_width="@dimen/space_15"
+        android:layout_height="@dimen/space_15"
+        android:text="1"
+        android:visibility="gone"
+        android:layout_marginTop="@dimen/space_8"
+        android:layout_marginLeft="32dp"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:background="@drawable/btn_finish_pressed"/>
+    <TextView
+        android:id="@+id/title_headview_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:text="标题"
+        android:layout_centerInParent="true"
+        android:textSize="@dimen/text_size_18"/>
 
-        <TextView
-            android:id="@+id/tv_head_icon"
-            android:layout_width="@dimen/space_20"
-            android:layout_margin="@dimen/space_10"
-            android:layout_gravity="center_vertical"
-            android:layout_height="@dimen/space_20"
-            android:background="@drawable/arrow_right"
-            android:visibility="gone"/>
-        <TextView
-            android:id="@+id/tv_head_right"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:textSize="@dimen/text_size_14"
-            android:gravity="center_vertical"
-            android:textColor="@color/near_white"
-            android:layout_margin="@dimen/space_10"
-            android:visibility="visible"/>
-    </RelativeLayout>
-</LinearLayout>
+    <TextView
+        android:id="@+id/add_headview_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_add"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/space_20"/>
+</RelativeLayout>

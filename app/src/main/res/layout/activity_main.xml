@@ -33,7 +33,7 @@
                 android:id="@+id/contacts_main_Rbtn"
                 android:text="@string/contacts"
                 android:checked="false"
-                android:drawableTop="@drawable/ic_contact"
+                android:drawableTop="@drawable/ic_selector_contact"
                 style="@style/RadioButton" />
 
             <RadioButton

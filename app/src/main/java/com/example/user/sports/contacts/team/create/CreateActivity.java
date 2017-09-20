@@ -33,20 +33,20 @@ public class CreateActivity extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create);
 
-        initHeadView();
+//        initHeadView();
         initView();
     }
 
-    private void initHeadView() {
-        headView = (AppHeadView) findViewById(R.id.headview);
-        headView.setTvName(R.string.new_team);
-        headView.setOnClickListenerBack(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
-    }
+//    private void initHeadView() {
+//        headView = (AppHeadView) findViewById(R.id.headview);
+//        headView.setTvName(R.string.new_team);
+//        headView.setOnClickListenerBack(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                finish();
+//            }
+//        });
+//    }
 
     private void initView() {
         mBackgroundIv = (ImageView) findViewById(R.id.background_create_iv);
