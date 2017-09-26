@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/background_gray">
+
+    <com.example.user.sports.ui.CircleImageView
+        android:id="@+id/headview_message_item_civ"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_margin="@dimen/space_15"
+        android:src="@mipmap/run_man"/>
+
+    <TextView
+        android:id="@+id/name_message_item_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="贝尔格里尔斯"
+        android:textSize="@dimen/text_size_18"
+        android:textColor="@color/white"
+        android:layout_toRightOf="@id/headview_message_item_civ"
+        android:layout_marginTop="@dimen/space_20" />
+    <TextView
+        android:id="@+id/message_item_tv"
+        android:singleLine="true"
+        android:maxEms="12"
+        android:ellipsize="end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="我是站在食物链顶端的男人"
+        android:textColor="@color/gray"
+        android:textSize="@dimen/text_size_14"
+        android:layout_toRightOf="@id/headview_message_item_civ"
+        android:layout_marginTop="@dimen/space_50"/>
+    <TextView
+        android:id="@+id/time_message_item_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="一个小时前"
+        android:textSize="@dimen/text_size_12"
+        android:textColor="@color/gray"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="@dimen/space_20"
+        android:layout_marginRight="@dimen/space_10"/>
+    <TextView
+        android:id="@+id/number_message_item_tv"
+        android:layout_width="@dimen/space_18"
+        android:layout_height="@dimen/space_18"
+        android:text="1"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/space_50"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/space_10"
+        android:background="@drawable/btn_finish_pressed"/>
+</RelativeLayout>

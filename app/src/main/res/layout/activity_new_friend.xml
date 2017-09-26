@@ -5,7 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.user.sports.contacts.child.activity.NewFriendActivity">
+    android:fitsSystemWindows="true"
+    android:clipToPadding="true"
+    android:background="@color/background_black"
+    tools:context="com.example.user.sports.contacts.activity.NewFriendActivity">
 
     <com.example.user.sports.ui.AppHeadView
         android:id="@+id/headview"
@@ -13,14 +16,13 @@
         android:layout_height="wrap_content">
     </com.example.user.sports.ui.AppHeadView>
 
-    <android.support.v7.widget.SearchView
+    <com.example.user.sports.ui.EmptyRecyclerView
+        android:id="@+id/add_new_friend_rv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-    </android.support.v7.widget.SearchView>
-    <View style="@style/ViewLine"></View>
+    </com.example.user.sports.ui.EmptyRecyclerView>
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/add_new_friend_rv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+    <include
+        android:id="@+id/empty_new_friend"
+        layout="@layout/empty_recyclerview_new_friend"/>
 </LinearLayout>

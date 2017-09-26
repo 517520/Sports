@@ -8,6 +8,7 @@
     <color name="near_white">#dddddd</color>
     <color name="false_white">#bbbbbb</color>
     <color name="black">#000000</color>
+    <color name="black_no_transparent">#ff000000</color>
     <color name="transparent">#50000000</color>
     <color name="black_actionbar">#3b3b3c</color>
     <color name="near_black">#555555</color>

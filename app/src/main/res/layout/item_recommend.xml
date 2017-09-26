@@ -1,20 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:orientation="horizontal"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:background="@color/background_gray">
+    <ImageView
+        android:id="@+id/headview_recommend_item_iv"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="@dimen/space_20"
+        android:layout_marginTop="@dimen/space_15"
+        android:layout_marginBottom="@dimen/space_15"
+        android:layout_marginRight="@dimen/space_15"
+        android:background="@mipmap/run_man"/>
+
     <TextView
-        android:id="@+id/name_item_recommend_tv"
+        android:id="@+id/name_recommend_item_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="贝尔格里尔斯"
+        android:textSize="@dimen/text_size_18"
+        android:layout_marginTop="@dimen/space_10"
+        android:textColor="@color/white"
+        android:layout_toRightOf="@id/headview_recommend_item_iv" />
+
+    <TextView
+        android:id="@+id/detail_recommend_item_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="群组说明："
+        android:textColor="@color/gray"
+        android:textSize="@dimen/text_size_14"
+        android:layout_toRightOf="@id/headview_recommend_item_iv"
+        android:layout_alignBottom="@+id/headview_recommend_item_iv"/>
+
+    <TextView
+        android:id="@+id/details_recommend_item_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/detail_recommend_item_tv"
+        android:text="瞎鸡巴扯"
         android:textSize="@dimen/text_size_16"
-        android:padding="@dimen/space_10"
-        android:textColor="@color/colorAccent"/>
-
-    <Button
-        android:id="@+id/add_item_recommend_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="添加" />
-
-</LinearLayout>
+        android:textColor="@color/text_blue"
+        android:layout_alignBottom="@+id/headview_recommend_item_iv"/>
+</RelativeLayout>

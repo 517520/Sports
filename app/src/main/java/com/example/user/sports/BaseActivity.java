@@ -21,7 +21,6 @@ public abstract class BaseActivity extends AppCompatActivity {
     //Context
     protected Context context;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +49,5 @@ public abstract class BaseActivity extends AppCompatActivity {
             getWindow().setNavigationBarColor(Color.TRANSPARENT);
             getWindow().setStatusBarColor(Color.TRANSPARENT);
         }
-
     }
 }

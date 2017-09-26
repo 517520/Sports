@@ -9,7 +9,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.user.sports.R;
+import com.example.user.sports.contacts.activity.ChatActivity;
 import com.example.user.sports.contacts.model.Friend;
+import com.example.user.sports.utils.IntentUtils;
 
 import java.util.List;
 
@@ -22,6 +24,9 @@ public class FriendAdapter extends RecyclerView.Adapter<FriendAdapter.ViewHolder
     private Context mContext;
     private List<Friend> friendList;
     private LayoutInflater mInflater;
+
+
+    private MessageAdapter.OnItemClickLitener mOnItemClickLitener;
 
     public FriendAdapter(Context mContext, List<Friend> friendList) {
         this.mContext = mContext;
@@ -38,12 +43,15 @@ public class FriendAdapter extends RecyclerView.Adapter<FriendAdapter.ViewHolder
     public void onBindViewHolder(final FriendAdapter.ViewHolder holder, final int position) {
         final Friend friend = friendList.get(position);
         holder.tvName.setText(friend.getName());
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(mContext, "pos:"+position, Toast.LENGTH_SHORT).show();
-            }
-        });
+        if (mOnItemClickLitener != null) {
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = holder.getPosition();
+                    mOnItemClickLitener.onItemClick(holder.itemView, position);
+                }
+            });
+        }
     }
 
     @Override
@@ -51,7 +59,7 @@ public class FriendAdapter extends RecyclerView.Adapter<FriendAdapter.ViewHolder
         return friendList != null ? friendList.size() : 0;
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    class ViewHolder extends RecyclerView.ViewHolder {
         TextView tvName;
 
         public ViewHolder(View itemView) {
@@ -59,4 +67,13 @@ public class FriendAdapter extends RecyclerView.Adapter<FriendAdapter.ViewHolder
             tvName = (TextView) itemView.findViewById(R.id.name_friend_item_tv);
         }
     }
+    public interface OnItemClickLitener {
+        void onItemClick(View view, int position);
+
+    }
+
+    public void setOnItemClickLitener(MessageAdapter.OnItemClickLitener mOnItemClickLitener) {
+        this.mOnItemClickLitener = mOnItemClickLitener;
+    }
+
 }

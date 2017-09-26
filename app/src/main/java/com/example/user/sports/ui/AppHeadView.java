@@ -40,10 +40,11 @@ public class AppHeadView extends LinearLayout{
 
     }
 
-    public void setVisibility(int back, int message, int number){
+    public void setVisibility(int back, int message, int number, int add){
         tvBack.setVisibility(back);
         tvMessage.setVisibility(message);
         tvNumber.setVisibility(number);
+        tvAdd.setVisibility(add);
     }
 
     public void setTitle(String title){

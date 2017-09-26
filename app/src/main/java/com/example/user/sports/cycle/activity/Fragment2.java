@@ -35,7 +35,7 @@ public class Fragment2 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+        // Inflate the empty_recyclerview_new_friend for this fragment
         View view =  inflater.inflate(R.layout.fragment_fragment2, container, false);
         ActivityLab activityLab = ActivityLab.get(getActivity());
         ArrayList<Activity> activities = activityLab.getActivitiesByLab();

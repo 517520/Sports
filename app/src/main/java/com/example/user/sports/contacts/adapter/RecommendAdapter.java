@@ -6,9 +6,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.user.sports.R;
+import com.example.user.sports.contacts.model.Team;
 
 import java.util.List;
 
@@ -20,11 +22,11 @@ import java.util.List;
 public class RecommendAdapter extends RecyclerView.Adapter<RecommendAdapter.MyViewHolder> {
 
     private Context context;
-    private List<String> list;
+    private List<Team> list;
 
     private RecommendAdapter.OnItemClickLitener mOnItemClickLitener;
 
-    public RecommendAdapter(Context context, List list) {
+    public RecommendAdapter(Context context, List<Team> list) {
         this.context = context;
         this.list = list;
     }
@@ -40,16 +42,16 @@ public class RecommendAdapter extends RecyclerView.Adapter<RecommendAdapter.MyVi
 
     @Override
     public void onBindViewHolder(final MyViewHolder myViewHolder, int i) {
-        myViewHolder.textview.setText(list.get(i));
+        myViewHolder.tvName.setText(list.get(i).getName());
+        myViewHolder.tvDetails.setText(list.get(i).getDetail());
         if (mOnItemClickLitener != null) {
-            myViewHolder.mAddBtn.setOnClickListener(new View.OnClickListener() {
+            myViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     int position = myViewHolder.getPosition();
-                    mOnItemClickLitener.onItemClick(myViewHolder.mAddBtn, position);
+                    mOnItemClickLitener.onItemClick(myViewHolder.itemView, position);
                 }
             });
-
         }
     }
 
@@ -59,12 +61,13 @@ public class RecommendAdapter extends RecyclerView.Adapter<RecommendAdapter.MyVi
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView textview;
-        Button mAddBtn;
+        TextView tvName, tvDetails;
+        ImageView imageView;
         public MyViewHolder(View itemView) {
             super(itemView);
-            textview = (TextView) itemView.findViewById(R.id.name_item_recommend_tv);
-            mAddBtn = (Button) itemView.findViewById(R.id.add_item_recommend_btn);
+            tvName = (TextView) itemView.findViewById(R.id.name_recommend_item_tv);
+            tvDetails = (TextView) itemView.findViewById(R.id.details_recommend_item_tv);
+            imageView = (ImageView) itemView.findViewById(R.id.headview_recommend_item_iv);
         }
     }
 

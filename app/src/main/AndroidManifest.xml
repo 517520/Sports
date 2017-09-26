@@ -1,17 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.example.user.sports">
+    package="com.example.user.sports">
 
     <!-- 请求访问使用照相设备 -->
-    <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-permission android:name="android.permission.MANAGE_DOCUMENTS"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.MANAGE_DOCUMENTS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     //记步
-    <uses-permission android:name="android.permission.VIBRATE"/>
-    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
 
-    <uses-feature android:name="android.hardware.sensor.accelerometer"/>
+    <uses-feature android:name="android.hardware.sensor.accelerometer" />
+
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    //地图
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="com.android.launcher.permisson.READ_SETTINGS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />
+    //定位
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
@@ -19,10 +33,10 @@
 
     <uses-feature
         android:name="android.hardware.sensor.stepcounter"
-        android:required="true"/>
+        android:required="true" />
     <uses-feature
         android:name="android.hardware.sensor.stepdetector"
-        android:required="true"/>
+        android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -31,19 +45,31 @@
         android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/MyTheme">
+
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="iItr0Mn9IoBSFGVyDWYZjU7tKefOYbyl" />
+
+        <activity android:name=".main.activity.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         <activity android:name=".main.activity.MainActivity">
         </activity>
-        <activity android:name=".BaseActivity"/>
-        <activity
-            android:name=".athletics.activity.CountActivity"
-            android:launchMode="singleInstance">
+        <activity android:name=".BaseActivity" />
+
+        <activity android:name=".main.activity.WelcomeActivity" />
+        <activity android:name=".main.activity.RegistActivity" />
+        <activity android:name=".main.activity.LoginActivity" />
+        <activity android:name=".main.activity.FindPwdActivity" />
+        <activity android:name=".main.activity.HeadActivity" />
+        <activity android:name=".mine.activity.RuleActivity" />
+        <activity android:name=".mine.activity.SettingsActivity" />
+        <activity android:name=".mine.activity.BindActivity" />
         </activity>
         <activity android:name=".main.activity.WelcomeActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
         </activity>
         <activity android:name=".main.activity.RegistActivity"/>
         <activity android:name=".main.activity.LoginActivity"/>
@@ -59,19 +85,20 @@
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths"/>
+                android:resource="@xml/file_paths" />
         </provider>
 
-        <activity android:name=".contacts.child.activity.InformationActivity"/>
-        <activity android:name=".contacts.child.activity.ChatActivity"/>
-        <activity android:name=".contacts.child.activity.NewFriendActivity"/>
-        <activity android:name=".contacts.child.activity.AddFriendActivity"/>
-        <activity android:name=".contacts.team.create.CreateActivity"/>
-        <activity android:name=".contacts.team.recommend.RecommendActivity"/>
-        <activity android:name=".contacts.team.search.SearchActivity"/>
-        <activity android:name=".contacts.team.control.ControlActivity"/>
-        <activity android:name=".contacts.team.create.ChooseBgActivity"/>
-        <activity android:name=".contacts.team.recommend.TeamDetailActivity"/>
+        <activity android:name=".contacts.activity.InformationActivity" />
+        <activity android:name=".contacts.activity.ChatActivity" />
+        <activity android:name=".contacts.activity.NewFriendActivity" />
+        <activity android:name=".contacts.activity.AddFriendActivity" />
+        <activity android:name=".contacts.activity.CreateActivity" />
+        <activity android:name=".contacts.activity.RecommendActivity" />
+        <activity android:name=".contacts.activity.SearchActivity" />
+        <activity android:name=".contacts.activity.TeamDetailActivity" />
+        <activity android:name=".cycle.activity.ActivityDetails" />
+        <activity android:name=".cycle.activity.AddCommentActivity" />
+        <activity android:name=".cycle.activity.ActivityAdd" />
         <activity android:name=".cycle.activity.ActivityDetails"/>
         <activity android:name=".cycle.activity.AddCommentActivity"/>
         <activity android:name=".cycle.activity.ActivityAdd"/>
@@ -82,18 +109,20 @@
             <intent-filter>
 
                 <!-- 系统启动完成后会调用 -->
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
-                <action android:name="android.intent.action.DATE_CHANGED"/>
-                <action android:name="android.intent.action.MEDIA_MOUNTED"/>
-                <action android:name="android.intent.action.USER_PRESENT"/>
-                <action android:name="android.intent.action.ACTION_TIME_TICK"/>
-                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
-                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.DATE_CHANGED" />
+                <action android:name="android.intent.action.MEDIA_MOUNTED" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <action android:name="android.intent.action.ACTION_TIME_TICK" />
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
             </intent-filter>
         </service>
 
-        <activity android:name=".athletics.activity.ReadyActivity"/>
-        <activity android:name=".athletics.activity.UploadActivity"/>
+        <activity android:name=".athletics.activity.ReadyActivity" />
+        <activity android:name=".athletics.activity.UploadActivity" />
+        <activity android:name=".athletics.activity.CountActivity"
+            android:launchMode="singleInstance" />
 
         <receiver
             android:name=".athletics.receive.AdminManageReceiver"
@@ -102,12 +131,20 @@
             android:permission="android.permission.BIND_DEVICE_ADMIN">
             <meta-data
                 android:name="android.app.device_admin"
-                android:resource="@xml/device_admin"/>
+                android:resource="@xml/device_admin" />
 
             <intent-filter>
-                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED"/>
+                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
             </intent-filter>
         </receiver>
+
+        <activity android:name=".contacts.activity.MessageActivity" />
+        <activity android:name=".contacts.activity.TeamActivity" />
+
+        <service android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote"/>
+
 
 
         <activity android:name=".mine.activity.SportsHistoryActivity">

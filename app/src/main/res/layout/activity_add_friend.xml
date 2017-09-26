@@ -5,34 +5,121 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.user.sports.contacts.child.activity.AddFriendActivity">
+    android:fitsSystemWindows="true"
+    android:clipToPadding="true"
+    android:background="@color/background_black"
+    tools:context="com.example.user.sports.contacts.activity.AddFriendActivity">
 
     <com.example.user.sports.ui.AppHeadView
         android:id="@+id/headview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"></com.example.user.sports.ui.AppHeadView>
+        android:layout_height="wrap_content"/>
 
-    <android.support.v7.widget.SearchView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"></android.support.v7.widget.SearchView>
-    <View style="@style/ViewLine"></View>
+        android:layout_height="wrap_content"
+        android:background="@color/background_gray">
+        <EditText
+            android:id="@+id/search_add_friend_et"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="搜索昵称/手机号/群昵称"
+            android:maxEms="15"
+            android:imeOptions="actionSearch"
+            android:singleLine="true"
+            android:background="@null"
+            android:textSize="@dimen/text_size_16"
+            android:layout_marginLeft="@dimen/space_20"
+            android:textColorHint="@color/input_hint_gray"
+            android:textColor="@color/white" />
+        <ImageView
+            android:id="@+id/search_add_friend_iv"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginRight="@dimen/space_20"
+            android:src="@drawable/ic_search"
+            android:layout_alignRight="@id/search_add_friend_et"
+            android:layout_centerVertical="true"/>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/create_add_friend_tv"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="创建群组"
+        android:textSize="@dimen/text_size_16"
+        android:paddingLeft="@dimen/space_20"
+        android:gravity="center_vertical"
+        android:layout_marginTop="@dimen/space_20"
+        android:textColor="@color/input_hint_gray"
+        android:background="@color/background_gray"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@color/background_gray"
+        android:layout_marginTop="@dimen/space_20"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/weibo_add_friend_tv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_color_weibo"
+            android:layout_marginTop="@dimen/space_20"
+            android:gravity="center"
+            android:text="微博添加"
+            android:textColor="@color/input_hint_gray"
+            android:textSize="@dimen/text_size_12" />
+        <TextView
+            android:id="@+id/wechat_add_friend_tv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_color_wechat"
+            android:text="微信添加"
+            android:layout_marginTop="@dimen/space_20"
+            android:gravity="center"
+            android:textColor="@color/input_hint_gray"
+            android:textSize="@dimen/text_size_12" />
+        <TextView
+            android:id="@+id/qq_add_friend_tv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginTop="@dimen/space_20"
+            android:gravity="center"
+            android:drawableTop="@drawable/ic_color_qq"
+            android:text="QQ添加"
+            android:textColor="@color/input_hint_gray"
+            android:textSize="@dimen/text_size_12" />
+        <TextView
+            android:id="@+id/contacts_add_friend_tv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginTop="@dimen/space_20"
+            android:gravity="center"
+            android:drawableTop="@drawable/ic_color_phone"
+            android:text="通讯录添加"
+            android:textColor="@color/input_hint_gray"
+            android:textSize="@dimen/text_size_12" />
+    </LinearLayout>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="雷达加朋友（附近的人）"
-        android:padding="@dimen/space_10"
-        android:textSize="@dimen/text_size_18"/>
-    <TextView
+        android:text="附近跑友"
+        android:textSize="@dimen/text_size_16"
+        android:textColor="@color/white"
+        android:paddingTop="@dimen/space_30"
+        android:paddingLeft="@dimen/space_20"
+        android:layout_marginBottom="@dimen/space_10"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/add_friend_rv"
+        android:overScrollMode="never"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="手机通讯录"
-        android:padding="@dimen/space_10"
-        android:textSize="@dimen/text_size_18"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="微信好友"
-        android:padding="@dimen/space_10"
-        android:textSize="@dimen/text_size_18"/>
+        android:layout_height="wrap_content">
+    </android.support.v7.widget.RecyclerView>
 </LinearLayout>

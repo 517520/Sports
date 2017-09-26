@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/background_gray">
+
+    <ImageView
+        android:id="@+id/headview_run_friend_item_iv"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="@dimen/space_20"
+        android:layout_marginTop="@dimen/space_15"
+        android:layout_marginBottom="@dimen/space_15"
+        android:layout_marginRight="@dimen/space_15"
+        android:background="@mipmap/run_man"/>
+
+    <TextView
+        android:id="@+id/name_run_friend_item_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="贝尔格里尔斯"
+        android:textSize="@dimen/text_size_18"
+        android:layout_marginTop="@dimen/space_10"
+        android:textColor="@color/white"
+        android:layout_toRightOf="@id/headview_run_friend_item_iv" />
+
+    <TextView
+        android:id="@+id/lastRun_run_friend_item_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="上次跑步："
+        android:textColor="@color/gray"
+        android:textSize="@dimen/text_size_14"
+        android:layout_toRightOf="@id/headview_run_friend_item_iv"
+        android:layout_alignBottom="@+id/headview_run_friend_item_iv"/>
+
+    <TextView
+        android:id="@+id/distance_run_friend_item_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/lastRun_run_friend_item_tv"
+        android:text="10.07"
+        android:textSize="@dimen/text_size_16"
+        android:textColor="@color/text_blue"
+        android:layout_alignBottom="@+id/headview_run_friend_item_iv"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="公里"
+        android:textSize="@dimen/text_size_14"
+        android:textColor="@color/gray"
+        android:layout_toRightOf="@id/distance_run_friend_item_tv"
+        android:layout_alignBottom="@id/headview_run_friend_item_iv"/>
+</RelativeLayout>

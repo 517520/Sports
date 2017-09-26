@@ -6,9 +6,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.user.sports.R;
+import com.example.user.sports.contacts.model.Friend;
 
 import java.util.List;
 
@@ -20,11 +22,11 @@ import java.util.List;
 public class NewFriendAdapter extends RecyclerView.Adapter<NewFriendAdapter.MyViewHolder> {
 
     private Context context;
-    private List<String> list;
+    private List<Friend> list;
 
     private NewFriendAdapter.OnItemClickLitener mOnItemClickLitener;
 
-    public NewFriendAdapter(Context context, List list) {
+    public NewFriendAdapter(Context context, List<Friend> list) {
         this.context = context;
         this.list = list;
     }
@@ -40,7 +42,8 @@ public class NewFriendAdapter extends RecyclerView.Adapter<NewFriendAdapter.MyVi
 
     @Override
     public void onBindViewHolder(final MyViewHolder myViewHolder, int i) {
-        myViewHolder.textview.setText(list.get(i));
+        myViewHolder.tvName.setText(list.get(i).getName());
+        myViewHolder.tvDetail.setText(list.get(i).getDetail());
         if (mOnItemClickLitener != null) {
             myViewHolder.mAddBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -66,12 +69,15 @@ public class NewFriendAdapter extends RecyclerView.Adapter<NewFriendAdapter.MyVi
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView textview;
+        TextView tvName, tvDetail;
+        ImageView imageView;
         Button mAddBtn, mRefuseBtn;
         public MyViewHolder(View itemView) {
             super(itemView);
-            textview = (TextView) itemView.findViewById(R.id.name_new_friend_item_tv);
-            mAddBtn = (Button) itemView.findViewById(R.id.add_new_friend_item_btn);
+            tvName = (TextView) itemView.findViewById(R.id.name_new_friend_item_tv);
+            tvDetail = (TextView) itemView.findViewById(R.id.detail_new_friend_item_tv);
+            imageView = (ImageView) itemView.findViewById(R.id.headview_new_friend_item_civ);
+            mAddBtn = (Button) itemView.findViewById(R.id.accept_new_friend_item_btn);
             mRefuseBtn = (Button) itemView.findViewById(R.id.refuse_new_friend_item_btn);
         }
     }

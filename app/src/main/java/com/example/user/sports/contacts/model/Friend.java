@@ -13,9 +13,20 @@ public class Friend extends BaseIndexPinyinBean {
     private String name;//城市名字
     private Bitmap photo;
 
+    private String detail;
+
     public Friend() {
 
     }
+
+    public String getDetail() {
+        return detail;
+    }
+
+    public void setDetail(String detail) {
+        this.detail = detail;
+    }
+
     public Bitmap getPhoto() {
         return photo;
     }

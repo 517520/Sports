@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_team"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    android:clipToPadding="true"
+    android:background="@color/background_black"
+    tools:context="com.example.user.sports.contacts.activity.TeamActivity">
+
+    <com.example.user.sports.ui.AppHeadView
+        android:id="@+id/headview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </com.example.user.sports.ui.AppHeadView>
+
+    <com.example.user.sports.ui.EmptyRecyclerView
+        android:id="@+id/team_rv"
+        android:overScrollMode="never"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </com.example.user.sports.ui.EmptyRecyclerView>
+
+    <include
+        android:id="@+id/empty_team"
+        layout="@layout/empty_recyclerview_team"/>
+</LinearLayout>

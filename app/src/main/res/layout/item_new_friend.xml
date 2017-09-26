@@ -1,25 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:orientation="horizontal"
-    android:layout_height="match_parent">
+    android:background="@color/background_gray"
+    android:layout_height="wrap_content">
+    <com.example.user.sports.ui.CircleImageView
+        android:id="@+id/headview_new_friend_item_civ"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_margin="@dimen/space_15"
+        android:src="@mipmap/run_man"/>
+
     <TextView
         android:id="@+id/name_new_friend_item_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/text_size_16"
-        android:padding="@dimen/space_10"
-        android:textColor="@color/colorAccent"/>
-
-    <Button
-        android:id="@+id/add_new_friend_item_btn"
+        android:text="贝尔格里尔斯"
+        android:textSize="@dimen/text_size_18"
+        android:textColor="@color/white"
+        android:layout_toRightOf="@id/headview_new_friend_item_civ"
+        android:layout_marginTop="@dimen/space_20" />
+    <TextView
+        android:id="@+id/detail_new_friend_item_tv"
+        android:singleLine="true"
+        android:maxEms="10"
+        android:ellipsize="end"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="添加" />
+        android:text="我是站在食物链顶端的男人"
+        android:textColor="@color/gray"
+        android:textSize="@dimen/text_size_14"
+        android:layout_toRightOf="@id/headview_new_friend_item_civ"
+        android:layout_marginTop="@dimen/space_50"/>
+    <Button
+        android:id="@+id/accept_new_friend_item_btn"
+        android:layout_width="60dp"
+        android:layout_height="28dp"
+        android:background="@drawable/btn_add_search"
+        android:text="接受"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/space_20"
+        android:layout_marginTop="@dimen/space_15"
+        android:textSize="@dimen/text_size_16"
+        android:textColor="@color/white"/>
     <Button
         android:id="@+id/refuse_new_friend_item_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="拒绝"/>
-
-</LinearLayout>
+        android:layout_width="60dp"
+        android:layout_height="28dp"
+        android:background="@drawable/btn_refuse"
+        android:text="拒绝"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="55dp"
+        android:layout_marginRight="@dimen/space_20"
+        android:textSize="@dimen/text_size_16"
+        android:textColor="@color/white"/>
+</RelativeLayout>
