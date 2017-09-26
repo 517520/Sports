@@ -1,4 +1,4 @@
-package com.example.user.sports.mine.activity;
+package com.example.user.sports.mine.fragment;
 
 
 import android.support.v4.app.Fragment;

@@ -1,354 +1,319 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.user.sports.mine.activity.MineFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.user.sports.mine.activity.MineFragment">
-    <com.example.user.sports.ui.OverScrollView
+    android:background="@color/background_black">
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <RelativeLayout
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.example.user.sports.ui.AppHeadView
+            android:id="@+id/headview"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <RelativeLayout
-                android:id="@+id/title_mime_linearlayout"
-                android:layout_alignParentTop="true"
-                android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </com.example.user.sports.ui.AppHeadView>
+
+        <TextView
+            android:id="@+id/log_in_mine_TV"
+            android:background="@color/background_gray"
+            android:padding="12dp"
+            android:text="立即登录"
+            android:textColor="@color/number_blue"
+            android:gravity="center"
+            android:textSize="@dimen/space_16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <RelativeLayout
+            android:id="@+id/my_message_mine_relativeLayout"
+            android:background="@color/background_gray"
+            android:layout_marginTop="@dimen/space_20"
+            android:layout_width="match_parent"
+            android:layout_height="128dp">
+
+            <com.example.user.sports.ui.CircleImageView
+                android:id="@+id/circle_image_cycle_imageView"
+                app:border_color="@color/near_white"
+                app:border_width="3dp"
+                app:border_overlay="true"
+                android:layout_marginTop="28dp"
+                android:layout_marginLeft="20dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/ic_logo"
+                android:layout_width="60dp"
+                android:layout_height="60dp"/>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_toRightOf="@id/circle_image_cycle_imageView"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="36dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
-
-                <ImageView
-                    android:padding="@dimen/space_15"
-                    android:layout_alignParentLeft="true"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/ic_settings"/>
-
                 <TextView
                     android:textColor="@color/white"
-                    android:layout_centerInParent="true"
-                    android:text="我"
-                    android:textSize="@dimen/space_20"
+                    android:textSize="@dimen/space_14"
+                    android:text="爱运动的小A"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
-            </RelativeLayout>
-
-
-            <LinearLayout
-                android:background="#333339"
-                android:orientation="vertical"
-                android:id="@+id/log_in_cycle_linearlayout"
-                android:layout_marginTop="@dimen/space_20"
-                android:layout_below="@id/title_mime_linearlayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:id="@+id/log_in_mine_TV"
-                    android:padding="12dp"
-                    android:text="立即登录"
-                    android:textColor="#661bb0f4"
-                    android:gravity="center"
-                    android:textSize="@dimen/space_16"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-
-            </LinearLayout>
-
-            <RelativeLayout
-                android:background="#333339"
-                android:id="@+id/my_message_mine_relativeLayout"
-                android:layout_marginTop="@dimen/space_20"
-                android:layout_below="@+id/log_in_cycle_linearlayout"
-                android:layout_width="match_parent"
-                android:layout_height="128dp">
-                <com.example.user.sports.ui.CircleImageView
-                    android:id="@+id/circle_image_cycle_imageView"
-                    app:border_color="@color/near_white"
-                    app:border_width="3dp"
-                    app:border_overlay="true"
-                    android:layout_marginTop="28dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_alignParentLeft="true"
-                    android:layout_centerHorizontal="true"
-                    android:src="@drawable/ic_logo"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"/>
                 <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_toRightOf="@id/circle_image_cycle_imageView"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="36dp"
+                    android:orientation="horizontal"
+                    android:paddingTop="@dimen/space_12"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
                     <TextView
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/space_14"
-                        android:text="爱运动的小A"
+                        android:textColor="#58B1FF"
+                        android:text="0"
+                        android:textSize="10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:paddingTop="@dimen/space_12"
+                    <TextView
+                        android:paddingLeft="5dp"
+                        android:textColor="@color/white"
+                        android:textSize="10dp"
+                        android:text="活动"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-                        <TextView
-                            android:textColor="#58B1FF"
-                            android:text="0"
-                            android:textSize="10dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
-                        <TextView
-                            android:paddingLeft="5dp"
-                            android:textColor="@color/white"
-                            android:textSize="10dp"
-                            android:text="活动"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
-                        <TextView
-                            android:paddingLeft="15dp"
-                            android:textColor="#58B1FF"
-                            android:text="0"
-                            android:textSize="10dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
-                        <TextView
-                            android:paddingLeft="5dp"
-                            android:textColor="@color/white"
-                            android:textSize="10dp"
-                            android:text="状态"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
-                    </LinearLayout>
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:paddingLeft="15dp"
+                        android:textColor="#58B1FF"
+                        android:text="0"
+                        android:textSize="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:paddingLeft="5dp"
+                        android:textColor="@color/white"
+                        android:textSize="10dp"
+                        android:text="状态"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
                 </LinearLayout>
+            </LinearLayout>
 
+            <ImageView
+                android:id="@+id/right_icon_cycle"
+                android:layout_marginTop="40dp"
+                android:layout_marginRight="20dp"
+                android:layout_alignParentRight="true"
+                app:srcCompat="@drawable/ic_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <LinearLayout
+                android:layout_toLeftOf="@id/right_icon_cycle"
+                android:layout_marginRight="@dimen/space_15"
+                android:layout_marginTop="35dp"
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
                 <ImageView
-                    android:id="@+id/right_icon_cycle"
-                    android:layout_marginTop="40dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_alignParentRight="true"
-                    app:srcCompat="@drawable/ic_right"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/ic_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
-                <LinearLayout
-                    android:layout_toLeftOf="@id/right_icon_cycle"
-                    android:layout_marginRight="@dimen/space_15"
-                    android:layout_marginTop="35dp"
-                    android:orientation="vertical"
+
+                <TextView
+                    android:paddingTop="@dimen/space_8"
+                    android:textColor="@color/white"
+                    android:text="初级跑者"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <ImageView
-                        android:layout_gravity="center"
-                        app:srcCompat="@drawable/ic_star"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-
-                    <TextView
-                        android:paddingTop="@dimen/space_8"
-                        android:textColor="@color/white"
-                        android:text="初级跑者"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-
-                </LinearLayout>
-
-
-
-            </RelativeLayout>
-
-            <LinearLayout
-                android:layout_below="@id/my_message_mine_relativeLayout"
-                android:layout_marginTop="@dimen/space_20"
-                android:background="#333339"
-                android:paddingLeft="@dimen/space_20"
-                android:paddingRight="@dimen/space_20"
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <LinearLayout
-                    android:paddingTop="@dimen/space_15"
-                    android:paddingBottom="@dimen/space_15"
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <RelativeLayout
-                        android:paddingTop="@dimen/space_14"
-                        android:paddingBottom="@dimen/space_14"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-                        <TextView
-                            android:textColor="@color/white"
-                            android:layout_alignParentLeft="true"
-                            android:text="每日签到"
-                            android:textSize="@dimen/space_16"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
-
-                        <ImageView
-                            android:paddingTop="@dimen/space_4"
-                            android:layout_alignParentRight="true"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:srcCompat="@drawable/ic_right"/>
-                    </RelativeLayout>
-
-                    <com.example.user.sports.ui.CheckInView
-                        android:layout_width="wrap_content"
-                        android:layout_height="50dp"/>
-                    <Button
-                        android:textColor="@color/white"
-                        android:layout_gravity="center"
-                        android:text="签到"
-                        android:background="@drawable/circle_button"
-                        android:layout_width="wrap_content"
-                        android:layout_height="30dp"/>
-                </LinearLayout>
-
-                <View
-                    android:background="#46464C"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/space_1"/>
-
-                <LinearLayout
-                    android:paddingTop="@dimen/space_15"
-                    android:paddingBottom="@dimen/space_15"
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <RelativeLayout
-                        android:paddingTop="@dimen/space_14"
-                        android:paddingBottom="@dimen/space_14"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-                        <TextView
-                            android:textColor="@color/white"
-                            android:layout_alignParentLeft="true"
-                            android:text="我的健康数据"
-                            android:textSize="@dimen/space_16"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
-
-                        <ImageView
-                            android:paddingTop="@dimen/space_4"
-                            android:layout_alignParentRight="true"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:srcCompat="@drawable/ic_right"/>
-                    </RelativeLayout>
-                    <LinearLayout
-                        android:paddingBottom="10dp"
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-                        <LinearLayout
-                            android:id="@+id/sports_history_mine_linearlayout"
-                            android:orientation="vertical"
-                            android:gravity="center"
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:layout_height="wrap_content">
-                            <ImageView
-                                android:padding="10dp"
-                                app:srcCompat="@drawable/ic_history"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"/>
-                            <TextView
-                                android:textColor="@color/white"
-                                android:text="运动历史"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"/>
-                        </LinearLayout>
-                        <LinearLayout
-                            android:orientation="vertical"
-                            android:gravity="center"
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:layout_height="wrap_content">
-                            <ImageView
-                                android:padding="10dp"
-                                app:srcCompat="@drawable/ic_step"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"/>
-                            <TextView
-                                android:textColor="@color/white"
-                                android:text="运动步数"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"/>
-                        </LinearLayout>
-                        <LinearLayout
-                            android:orientation="vertical"
-                            android:gravity="center"
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:layout_height="wrap_content">
-                            <ImageView
-                                android:padding="10dp"
-                                app:srcCompat="@drawable/ic_data"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"/>
-                            <TextView
-                                android:textColor="@color/white"
-                                android:text="身体素质"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"/>
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <View
-                    android:background="#46464C"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/space_1"/>
-
-                <LinearLayout
-                    android:id="@+id/setting_mine_linearlayout"
-                    android:paddingBottom="14dp"
-                    android:paddingTop="14dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <RelativeLayout
-                        android:paddingTop="@dimen/space_14"
-                        android:paddingBottom="@dimen/space_14"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-                        <TextView
-                            android:textColor="@color/white"
-                            android:layout_alignParentLeft="true"
-                            android:text="设置"
-                            android:textSize="@dimen/space_16"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
-
-                        <ImageView
-                            android:paddingTop="@dimen/space_4"
-                            android:layout_alignParentRight="true"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:srcCompat="@drawable/ic_right"/>
-                    </RelativeLayout>
-
-                </LinearLayout>
-
-
-
-
+                    android:layout_height="wrap_content"/>
 
             </LinearLayout>
+
+
 
         </RelativeLayout>
-    </com.example.user.sports.ui.OverScrollView>
+
+        <LinearLayout
+            android:layout_below="@id/my_message_mine_relativeLayout"
+            android:layout_marginTop="@dimen/space_20"
+            android:background="#333339"
+            android:paddingLeft="@dimen/space_20"
+            android:paddingRight="@dimen/space_20"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:paddingTop="@dimen/space_15"
+                android:paddingBottom="@dimen/space_15"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:paddingTop="@dimen/space_14"
+                    android:paddingBottom="@dimen/space_14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:textColor="@color/white"
+                        android:layout_alignParentLeft="true"
+                        android:text="每日签到"
+                        android:textSize="@dimen/space_16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <ImageView
+                        android:paddingTop="@dimen/space_4"
+                        android:layout_alignParentRight="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/ic_right"/>
+                </RelativeLayout>
+
+                <com.example.user.sports.ui.CheckInView
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"/>
+                <Button
+                    android:textColor="@color/white"
+                    android:layout_gravity="center"
+                    android:text="签到"
+                    android:background="@drawable/circle_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"/>
+            </LinearLayout>
+
+            <View
+                android:background="#46464C"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/space_1"/>
+
+            <LinearLayout
+                android:paddingTop="@dimen/space_15"
+                android:paddingBottom="@dimen/space_15"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:paddingTop="@dimen/space_14"
+                    android:paddingBottom="@dimen/space_14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:textColor="@color/white"
+                        android:layout_alignParentLeft="true"
+                        android:text="我的健康数据"
+                        android:textSize="@dimen/space_16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <ImageView
+                        android:paddingTop="@dimen/space_4"
+                        android:layout_alignParentRight="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/ic_right"/>
+                </RelativeLayout>
+                <LinearLayout
+                    android:paddingBottom="10dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:id="@+id/sports_history_mine_linearlayout"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:padding="10dp"
+                            app:srcCompat="@drawable/ic_history"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        <TextView
+                            android:textColor="@color/white"
+                            android:text="运动历史"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:padding="10dp"
+                            app:srcCompat="@drawable/ic_step"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        <TextView
+                            android:textColor="@color/white"
+                            android:text="运动步数"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:padding="10dp"
+                            app:srcCompat="@drawable/ic_data"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        <TextView
+                            android:textColor="@color/white"
+                            android:text="身体素质"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+                android:background="#46464C"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/space_1"/>
+
+            <LinearLayout
+                android:id="@+id/setting_mine_linearlayout"
+                android:paddingBottom="14dp"
+                android:paddingTop="14dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:paddingTop="@dimen/space_14"
+                    android:paddingBottom="@dimen/space_14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:textColor="@color/white"
+                        android:layout_alignParentLeft="true"
+                        android:text="设置"
+                        android:textSize="@dimen/space_16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <ImageView
+                        android:paddingTop="@dimen/space_4"
+                        android:layout_alignParentRight="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/ic_right"/>
+                </RelativeLayout>
+
+            </LinearLayout>
 
 
 
 
 
+        </LinearLayout>
 
-
-
-
-</RelativeLayout>
+    </LinearLayout>
+</ScrollView>

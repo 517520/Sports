@@ -10,9 +10,7 @@
     //记步
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
-
     <uses-feature android:name="android.hardware.sensor.accelerometer" />
-
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
     //地图
@@ -26,10 +24,8 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
-
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
-    <uses-permission android:name="android.permission.RESTART_PACKAGES"/>
 
     <uses-feature
         android:name="android.hardware.sensor.stepcounter"
@@ -46,48 +42,34 @@
         android:supportsRtl="true"
         android:theme="@style/MyTheme">
 
+        //百度地图
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="iItr0Mn9IoBSFGVyDWYZjU7tKefOYbyl" />
 
+        //main
         <activity android:name=".main.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        <activity android:name=".main.activity.MainActivity">
+        </activity>
+        <activity android:name=".main.activity.WelcomeActivity">
         </activity>
         <activity android:name=".BaseActivity" />
-
-        <activity android:name=".main.activity.WelcomeActivity" />
         <activity android:name=".main.activity.RegistActivity" />
         <activity android:name=".main.activity.LoginActivity" />
         <activity android:name=".main.activity.FindPwdActivity" />
         <activity android:name=".main.activity.HeadActivity" />
-        <activity android:name=".mine.activity.RuleActivity" />
-        <activity android:name=".mine.activity.SettingsActivity" />
-        <activity android:name=".mine.activity.BindActivity" />
-        </activity>
-        <activity android:name=".main.activity.WelcomeActivity">
-        </activity>
-        <activity android:name=".main.activity.RegistActivity"/>
-        <activity android:name=".main.activity.LoginActivity"/>
-        <activity android:name=".main.activity.FindPwdActivity"/>
-        <activity android:name=".main.activity.HeadActivity"/>
-        <activity android:name=".mine.activity.SettingsActivity"/>
 
+        //athletics
+        <activity android:name=".athletics.activity.ReadyActivity" />
+        <activity android:name=".athletics.activity.UploadActivity" />
+        <activity android:name=".athletics.activity.CountActivity"
+            android:launchMode="singleInstance" />
 
-        <provider
-            android:name="android.support.v4.content.FileProvider"
-            android:authorities="com.example.user.sports.fileProvider"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths" />
-        </provider>
-
+        //contacts
         <activity android:name=".contacts.activity.InformationActivity" />
         <activity android:name=".contacts.activity.ChatActivity" />
         <activity android:name=".contacts.activity.NewFriendActivity" />
@@ -96,18 +78,27 @@
         <activity android:name=".contacts.activity.RecommendActivity" />
         <activity android:name=".contacts.activity.SearchActivity" />
         <activity android:name=".contacts.activity.TeamDetailActivity" />
+        <activity android:name=".contacts.activity.MessageActivity" />
+        <activity android:name=".contacts.activity.TeamActivity" />
+
+        //cycle
         <activity android:name=".cycle.activity.ActivityDetails" />
         <activity android:name=".cycle.activity.AddCommentActivity" />
         <activity android:name=".cycle.activity.ActivityAdd" />
-        <activity android:name=".cycle.activity.ActivityDetails"/>
-        <activity android:name=".cycle.activity.AddCommentActivity"/>
-        <activity android:name=".cycle.activity.ActivityAdd"/>
 
+        //mine
+        <activity android:name=".mine.activity.SettingsActivity" />
+        <activity android:name=".mine.activity.SportsHistoryActivity"/>
+        <activity android:name=".mine.activity.PersonalMessageActivity"/>
+        <activity android:name=".mine.activity.NumberTargerActivity"/>
+        <activity android:name=".mine.activity.MessageNoticeActivity"/>
+
+
+        //计步
         <service
             android:name=".athletics.stepservice.StepService"
             android:priority="1000">
             <intent-filter>
-
                 <!-- 系统启动完成后会调用 -->
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="android.intent.action.DATE_CHANGED" />
@@ -119,11 +110,12 @@
             </intent-filter>
         </service>
 
-        <activity android:name=".athletics.activity.ReadyActivity" />
-        <activity android:name=".athletics.activity.UploadActivity" />
-        <activity android:name=".athletics.activity.CountActivity"
-            android:launchMode="singleInstance" />
+        //地图定位
+        <service android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote"/>
 
+        //设备管理器
         <receiver
             android:name=".athletics.receive.AdminManageReceiver"
             android:enabled="true"
@@ -138,23 +130,15 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".contacts.activity.MessageActivity" />
-        <activity android:name=".contacts.activity.TeamActivity" />
-
-        <service android:name="com.baidu.location.f"
-            android:enabled="true"
-            android:process=":remote"/>
-
-
-
-        <activity android:name=".mine.activity.SportsHistoryActivity">
-        </activity>
-        <activity android:name=".mine.activity.PersonalMessageActivity">
-        </activity>
-        <activity android:name=".mine.activity.NumberTargerActivity">
-        </activity>
-        <activity android:name=".mine.activity.MessageNoticeActivity">
-        </activity>
+        //文件提供者
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.example.user.sports.fileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
     </application>
-
 </manifest>

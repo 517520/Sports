@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.user.sports.R;
 import com.example.user.sports.main.activity.LoginActivity;
+import com.example.user.sports.ui.AppHeadView;
 import com.example.user.sports.utils.IntentUtils;
 
 /**
@@ -18,7 +19,7 @@ import com.example.user.sports.utils.IntentUtils;
  * Description :
  */
 
-public class MineFragment extends Fragment {
+public class MineFragment extends Fragment implements View.OnClickListener{
     /**
      * 界面布局元素
      */
@@ -26,18 +27,9 @@ public class MineFragment extends Fragment {
     private TextView mTextViewLogIn;//登录按钮
     private LinearLayout mLinearLayoutSportsHistory;//运动历史
     private LinearLayout mLinearLayoutSettings;//设置
+    private AppHeadView headView;
 
-
-
-
-    //其他变量
-
-
-
-
-
-
-    @Override
+   @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
@@ -47,41 +39,41 @@ public class MineFragment extends Fragment {
                              Bundle savedInstanceState) {
         mView = inflater.inflate(R.layout.fragment_mine, container, false);
 
+        initHeadView();
         initView();
-
         return mView;
     }
 
-    private void initView() {
-        //  登录 转到login界面
-        mTextViewLogIn = (TextView)mView.findViewById(R.id.log_in_mine_TV);
-        mTextViewLogIn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                IntentUtils.turnTo(getActivity(), LoginActivity.class,false);
-            }
-        });
-
-        //运动历史
-        mLinearLayoutSportsHistory = (LinearLayout)mView.findViewById(R.id.sports_history_mine_linearlayout);
-        mLinearLayoutSportsHistory.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                IntentUtils.turnTo(getActivity(),SportsHistoryActivity.class,false);
-            }
-        });
-
-        //设置 转到SettingsActivity
-        mLinearLayoutSettings = (LinearLayout)mView.findViewById(R.id.setting_mine_linearlayout);
-        mLinearLayoutSettings.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                IntentUtils.turnTo(getActivity(),SettingsActivity.class,false);
-            }
-        });
-
-
-
+    private void initHeadView() {
+        headView = (AppHeadView) mView.findViewById(R.id.headview);
+        headView.setVisibility(View.GONE,View.GONE,View.GONE,View.GONE);
+        headView.setTitle("我");
     }
 
+    private void initView() {
+        mTextViewLogIn = (TextView)mView.findViewById(R.id.log_in_mine_TV);
+        mLinearLayoutSportsHistory = (LinearLayout)mView.findViewById(R.id.sports_history_mine_linearlayout);
+        mLinearLayoutSettings = (LinearLayout)mView.findViewById(R.id.setting_mine_linearlayout);
+
+        mTextViewLogIn.setOnClickListener(this);
+        mLinearLayoutSportsHistory.setOnClickListener(this);
+        mLinearLayoutSettings.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.log_in_mine_TV:
+                IntentUtils.turnTo(getActivity(), LoginActivity.class, false);
+                break;
+            case R.id.sports_history_mine_linearlayout:
+                IntentUtils.turnTo(getActivity(),SportsHistoryActivity.class,false);
+                break;
+            case R.id.setting_mine_linearlayout:
+                IntentUtils.turnTo(getActivity(),SettingsActivity.class,false);
+                break;
+            default:
+                break;
+        }
+    }
 }

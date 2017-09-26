@@ -1,6 +1,5 @@
 package com.example.user.sports.mine.activity;
 
-import android.app.Fragment;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -12,7 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.user.sports.R;
-import com.example.user.sports.cycle.activity.MyFragmentPagerAdapter;
+import com.example.user.sports.mine.adapter.MineFragmentPagerAdapter;
 
 public class SportsHistoryActivity extends AppCompatActivity {
 
@@ -93,9 +92,6 @@ public class SportsHistoryActivity extends AppCompatActivity {
                 }
             }
         });
-
-
-
     }
 
     //头部点击之后的执行步骤

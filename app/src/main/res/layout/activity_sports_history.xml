@@ -41,7 +41,6 @@
         </RelativeLayout>
     </RelativeLayout>
 
-
     <RadioGroup
         android:visibility="gone"
         android:paddingTop="10dp"
@@ -85,16 +84,10 @@
         android:layout_height="60dp">
     </android.support.design.widget.TabLayout>
 
-
     <android.support.v4.view.ViewPager
         android:id="@+id/viewPager_mine"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
     </android.support.v4.view.ViewPager>
-
-
-
-
-
 </LinearLayout>

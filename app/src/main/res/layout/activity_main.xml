@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:clipToPadding="true"
-    android:background="@mipmap/bg_main"
+    android:background="@color/background_black"
     tools:context="com.example.user.sports.main.activity.MainActivity">
 
     <LinearLayout
@@ -40,7 +40,7 @@
                 android:id="@+id/analysis_main_Rbtn"
                 android:text="@string/analysis"
                 android:checked="false"
-                android:drawableTop="@drawable/ic_analysis"
+                android:drawableTop="@drawable/ic_selector_analysis"
                 style="@style/RadioButton" />
 
             <RadioButton

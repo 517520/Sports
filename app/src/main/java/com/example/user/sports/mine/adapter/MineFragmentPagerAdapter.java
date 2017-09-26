@@ -1,12 +1,12 @@
-package com.example.user.sports.mine.activity;
+package com.example.user.sports.mine.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.example.user.sports.mine.fragment.HistoryChartFragment;
 import com.example.user.sports.mine.fragment.HistoryDetailsFragment;
+import com.example.user.sports.mine.fragment.SportsHistoryFragment;
 
 
 /**
