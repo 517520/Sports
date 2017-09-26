@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="#29292F"
+    android:id="@+id/activity_sports_history"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:padding="@dimen/space_15"
+            android:layout_alignParentLeft="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_arrow_back"/>
+        <RelativeLayout
+            android:id="@+id/choose_style_mine_relativelayout"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/header_run_mine_tv"
+                android:textColor="@color/white"
+                android:layout_alignParentLeft="true"
+                android:text="所有运动"
+                android:textSize="@dimen/space_20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <ImageView
+                android:id="@+id/arrow_down_mine_iv"
+                app:srcCompat="@drawable/ic_keyboard_arrow_down"
+                android:layout_toRightOf="@id/header_run_mine_tv"
+                android:layout_marginLeft="5dp"
+                android:layout_centerInParent="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+    <RadioGroup
+        android:visibility="gone"
+        android:paddingTop="10dp"
+        android:id="@+id/radioGroupStyle"
+        android:paddingLeft="20dp"
+        android:paddingRight="10dp"
+        android:orientation="horizontal"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+        <RadioButton
+            android:id="@+id/all_sports_style"
+            android:text="所有运动"
+            style="@style/radioButton"/>
+        <RadioButton
+            android:id="@+id/walk_sports_style"
+            android:text="步行"
+            android:checked="false"
+            style="@style/radioButton"/>
+        <RadioButton
+            android:id="@+id/ride_sports_style"
+            android:text="骑行"
+            android:checked="false"
+            style="@style/radioButton"/>
+        <RadioButton
+            android:id="@+id/run_sports_style"
+            android:text="跑步"
+            android:checked="false"
+            style="@style/radioButton"/>
+    </RadioGroup>
+
+    <android.support.design.widget.TabLayout
+        android:visibility="visible"
+        android:id="@+id/tablayout_date_mine"
+        app:tabIndicatorColor="#FFFFFFFF"
+        app:tabSelectedTextColor="#FFFFFFFF"
+        app:tabTextColor="#36FFFFFF"
+        app:tabIndicatorHeight="1dp"
+        app:tabMode="fixed"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+    </android.support.design.widget.TabLayout>
+
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager_mine"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </android.support.v4.view.ViewPager>
+
+
+
+
+
+</LinearLayout>

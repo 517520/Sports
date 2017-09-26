@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#30000000</color>
 
     <color name="white">#ffffff</color>
     <color name="near_white">#dddddd</color>
@@ -28,4 +28,5 @@
     <color name="background_transparent">#00000000</color>
     <color name="background_gray">#333339</color>
     <color name="background_black">#29292f</color>
+    <color name="choose_basr_target">#229DE8</color>
 </resources>

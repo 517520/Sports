@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#D3D4D6"
+              android:orientation="vertical">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="输入每日步数目标"
+        android:textSize="@dimen/text_size_16"
+        android:padding="@dimen/space_15"
+        android:textColor="@color/black"
+        android:gravity="center_horizontal"/>
+    <LinearLayout
+        android:paddingTop="20dp"
+        android:paddingBottom="@dimen/space_20"
+        android:paddingLeft="@dimen/space_30"
+        android:paddingRight="@dimen/space_30"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/custon_number_dialog_mine_ET"
+            android:background="@drawable/bg_input_dialog"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray">
+    </View>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/cancel_dialog_mine_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="取消"
+            android:padding="@dimen/space_10"
+            android:textSize="@dimen/text_size_16"
+            android:gravity="center"
+            android:textColor="@color/stop_blue"/>
+        <View
+            android:layout_width="@dimen/space_1"
+            android:layout_height="match_parent"
+            android:background="@color/gray">
+        </View>
+        <TextView
+            android:id="@+id/determine_dialog_mine_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="确定"
+            android:padding="@dimen/space_10"
+            android:gravity="center"
+            android:textSize="@dimen/text_size_16"
+            android:textColor="@color/stop_blue"/>
+    </LinearLayout>
+</LinearLayout>

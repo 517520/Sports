@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:background="#29292F"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/back_header_message_mine_relativelayout"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:padding="@dimen/space_15"
+            android:layout_alignParentLeft="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_arrow_back"/>
+
+        <TextView
+            android:textColor="@color/white"
+            android:layout_centerInParent="true"
+            android:text="消息通知"
+            android:textSize="@dimen/space_20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:paddingLeft="@dimen/space_20"
+        android:paddingRight="@dimen/space_20"
+        android:orientation="vertical"
+        android:background="#333339"
+        android:layout_below="@id/back_header_message_mine_relativelayout"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:paddingTop="@dimen/space_20"
+            android:paddingBottom="@dimen/space_12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_centerVertical="true"
+                android:textColor="@color/white"
+                android:layout_alignParentLeft="true"
+                android:text="接受消息通知"
+                android:textSize="@dimen/text_size_16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <com.example.user.sports.ui.LikeIOSButton
+                android:layout_alignParentRight="true"
+                app:off_color="#FFFFFF"
+                app:on_color="#1BB0F4"
+                app:toggle="true"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"/>
+        </RelativeLayout>
+        <View
+            android:background="#46464C"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/space_1"/>
+        <RelativeLayout
+            android:paddingTop="@dimen/space_20"
+            android:paddingBottom="@dimen/space_12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_centerVertical="true"
+                android:textColor="@color/white"
+                android:layout_alignParentLeft="true"
+                android:text="朋友消息通知"
+                android:textSize="@dimen/text_size_16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <com.example.user.sports.ui.LikeIOSButton
+                android:layout_alignParentRight="true"
+                app:off_color="#FFFFFF"
+                app:on_color="#1BB0F4"
+                app:toggle="true"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"/>
+        </RelativeLayout>
+        <View
+            android:background="#46464C"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/space_1"/>
+        <RelativeLayout
+            android:paddingTop="@dimen/space_20"
+            android:paddingBottom="@dimen/space_12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_centerVertical="true"
+                android:textColor="@color/white"
+                android:layout_alignParentLeft="true"
+                android:text="声音"
+                android:textSize="@dimen/text_size_16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <com.example.user.sports.ui.LikeIOSButton
+                android:layout_alignParentRight="true"
+                app:off_color="#FFFFFF"
+                app:on_color="#1BB0F4"
+                app:toggle="true"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"/>
+        </RelativeLayout>
+
+        <View
+            android:background="#46464C"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/space_1"/>
+        <RelativeLayout
+            android:paddingTop="@dimen/space_20"
+            android:paddingBottom="@dimen/space_12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_centerVertical="true"
+                android:textColor="@color/white"
+                android:layout_alignParentLeft="true"
+                android:text="振动"
+                android:textSize="@dimen/text_size_16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <com.example.user.sports.ui.LikeIOSButton
+                android:layout_alignParentRight="true"
+                app:off_color="#FFFFFF"
+                app:on_color="#1BB0F4"
+                app:toggle="true"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>

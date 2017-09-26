@@ -1,5 +1,6 @@
 package com.example.user.sports.mine.activity;
 
+import android.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -7,16 +8,25 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.example.user.sports.R;
+import com.example.user.sports.main.activity.LoginActivity;
+import com.example.user.sports.mine.Dialog.DeleteCacheDialogFragment;
+import com.example.user.sports.mine.Dialog.DialogListener;
 import com.example.user.sports.utils.IntentUtils;
 
-public class SettingsActivity extends AppCompatActivity {
-    private View mUsersBind;
-    private View mLanguages;
-    private View mPushNotifications;
-    private View mDeleteCache;
-    private Button mExit;
+public class SettingsActivity extends AppCompatActivity implements DialogListener {
+    private RelativeLayout mRelativeLayoutPersonalMessage;  //个人资料
+    private RelativeLayout mRelativeLayoutTarget;           //我的步数目标
+    private RelativeLayout mRelativeLayoutMessageNotice;    //消息通知
+    private RelativeLayout mRelativeLayoutCache;            //清除缓存
+
+    private TextView mTexiViewLogOut;                       //退出登录
+
+    private DeleteCacheDialogFragment dialog;
+
 
 
 
@@ -24,36 +34,73 @@ public class SettingsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+        initView();
+    }
 
-        mDeleteCache = (View)findViewById(R.id.delete_cache);
-        mDeleteCache.setOnClickListener(new View.OnClickListener() {
+
+
+
+    private void initView() {
+        //个人资料
+        mRelativeLayoutPersonalMessage = (RelativeLayout)findViewById(R.id.personal_message_mine_relativelayout);
+        mRelativeLayoutPersonalMessage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CacheDialogFragment cacheDialogFragment = new CacheDialogFragment();
-                cacheDialogFragment.show(getFragmentManager(),null);
+                IntentUtils.turnTo(SettingsActivity.this,PersonalMessageActivity.class,false);
+            }
+        });
 
+        //我的步数目标
+        mRelativeLayoutTarget = (RelativeLayout)findViewById(R.id.number_target_mine_relativelayout);
+        mRelativeLayoutTarget.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                IntentUtils.turnTo(SettingsActivity.this,NumberTargerActivity.class,false);
+            }
+        });
+
+        //消息通知
+        mRelativeLayoutMessageNotice = (RelativeLayout)findViewById(R.id.message_notice_mine_realtivelayout);
+        mRelativeLayoutMessageNotice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                IntentUtils.turnTo(SettingsActivity.this,MessageNoticeActivity.class,false);
 
             }
         });
 
-        mExit = (Button)findViewById(R.id.exitApp);
-        mExit.setOnClickListener(new View.OnClickListener() {
+        //清除缓存
+        mRelativeLayoutCache = (RelativeLayout)findViewById(R.id.message_cache_mine_relativelayout);
+        mRelativeLayoutCache.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ExitDialogFragment exitDialogFragment = new ExitDialogFragment();
-                exitDialogFragment.show(getFragmentManager(),null);
+                FragmentManager manager = getFragmentManager();
+                dialog = new DeleteCacheDialogFragment();
+                dialog.show(manager,null);
+
             }
         });
 
-        mUsersBind = (View)findViewById(R.id.user_bind);
-        mUsersBind.setOnClickListener(new View.OnClickListener() {
+        //退出登录
+        mTexiViewLogOut = (TextView)findViewById(R.id.log_out_mime_TV);
+        mTexiViewLogOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                IntentUtils.turnTo(SettingsActivity.this,BindActivity.class,false);
+                IntentUtils.turnTo(SettingsActivity.this, LoginActivity.class,false);
+
             }
         });
 
 
+    }
+
+    @Override
+    public void onDialogPositiveClick(String data, int requestCode) {
+
+        /**
+         * 用来执行清楚缓存的方法实现
+         */
+        dialog.dismiss();
     }
 }
 

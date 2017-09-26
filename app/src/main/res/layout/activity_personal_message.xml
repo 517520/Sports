@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:background="#29292F"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/back_header_personal_cycle_relativelayout"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:padding="@dimen/space_15"
+            android:layout_alignParentLeft="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_arrow_back"/>
+
+        <TextView
+            android:textColor="@color/white"
+            android:layout_centerInParent="true"
+            android:text="个人资料"
+            android:textSize="@dimen/space_20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:paddingLeft="@dimen/space_20"
+        android:paddingRight="@dimen/space_20"
+        android:orientation="vertical"
+        android:background="#333339"
+        android:layout_below="@id/back_header_personal_cycle_relativelayout"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/sex_mine_relativelayout"
+            android:paddingTop="@dimen/space_20"
+            android:paddingBottom="@dimen/space_20"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textColor="@color/white"
+                android:layout_alignParentLeft="true"
+                android:text="性别"
+                android:textSize="@dimen/text_size_16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/sex_mine_tv"
+                android:text="请选择"
+                android:textSize="@dimen/text_size_16"
+                android:textColor="#57ADFC"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </RelativeLayout>
+        <View
+            android:background="#46464C"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/space_1"/>
+
+        <RelativeLayout
+            android:id="@+id/birthday_mine_relativelayout"
+            android:paddingTop="@dimen/space_20"
+            android:paddingBottom="@dimen/space_20"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textColor="@color/white"
+                android:layout_alignParentLeft="true"
+                android:text="出生年月"
+                android:textSize="@dimen/text_size_16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/birthday_mine_tv"
+                android:text="请选择"
+                android:textSize="@dimen/text_size_16"
+                android:textColor="#57ADFC"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </RelativeLayout>
+        <View
+            android:background="#46464C"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/space_1"/>
+
+        <RelativeLayout
+            android:id="@+id/body_weight_mine_relativelayout"
+            android:paddingTop="@dimen/space_20"
+            android:paddingBottom="@dimen/space_20"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textColor="@color/white"
+                android:layout_alignParentLeft="true"
+                android:text="体重"
+                android:textSize="@dimen/text_size_16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/body_weight_mine_tv"
+                android:text="请选择"
+                android:textSize="@dimen/text_size_16"
+                android:textColor="#57ADFC"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </RelativeLayout>
+        <View
+            android:background="#46464C"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/space_1"/>
+
+        <RelativeLayout
+            android:id="@+id/body_height_mine_relativelayout"
+            android:paddingTop="@dimen/space_20"
+            android:paddingBottom="@dimen/space_20"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textColor="@color/white"
+                android:layout_alignParentLeft="true"
+                android:text="身高"
+                android:textSize="@dimen/text_size_16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/body_height_mine_tv"
+                android:text="请选择"
+                android:textSize="@dimen/text_size_16"
+                android:textColor="#57ADFC"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

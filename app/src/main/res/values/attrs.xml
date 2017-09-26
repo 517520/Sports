@@ -10,4 +10,14 @@
         <attr name="border_color" format="color" />
         <attr name="border_overlay" format="boolean" />
     </declare-styleable>
+
+    <declare-styleable name="IosLikeToggleButton">
+        <attr name="android:layout_width"/>
+        <attr name="on_color" format="color"/>
+        <attr name="off_color" format="color"/>
+        <attr name="toggle" format="boolean"/>
+    </declare-styleable>
+
+
 </resources>
+

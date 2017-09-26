@@ -5,11 +5,11 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.user.sports.R;
+import com.example.user.sports.main.activity.LoginActivity;
 import com.example.user.sports.utils.IntentUtils;
 
 /**
@@ -18,12 +18,24 @@ import com.example.user.sports.utils.IntentUtils;
  * Description :
  */
 
-public class MineFragment extends Fragment implements View.OnClickListener{
+public class MineFragment extends Fragment {
+    /**
+     * 界面布局元素
+     */
+    private View mView;//根布局
+    private TextView mTextViewLogIn;//登录按钮
+    private LinearLayout mLinearLayoutSportsHistory;//运动历史
+    private LinearLayout mLinearLayoutSettings;//设置
 
-    private View view;
-    private TextView mCheckInTv;
-    private Button mCheckInBtn;
-    private LinearLayout mSettingsLl, mMyExerciseLl;
+
+
+
+    //其他变量
+
+
+
+
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -33,43 +45,43 @@ public class MineFragment extends Fragment implements View.OnClickListener{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_mine, container, false);
+        mView = inflater.inflate(R.layout.fragment_mine, container, false);
 
         initView();
 
-        return view;
+        return mView;
     }
 
     private void initView() {
-        mCheckInTv = (TextView) view.findViewById(R.id.chech_in_mine_tv);
-        mCheckInBtn = (Button) view.findViewById(R.id.chech_in_mine_btn);
-        mSettingsLl = (LinearLayout) view.findViewById(R.id.setting_mine_ll);
-        mMyExerciseLl = (LinearLayout) view.findViewById(R.id.my_exercise_mine_ll);
+        //  登录 转到login界面
+        mTextViewLogIn = (TextView)mView.findViewById(R.id.log_in_mine_TV);
+        mTextViewLogIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                IntentUtils.turnTo(getActivity(), LoginActivity.class,false);
+            }
+        });
 
-        mCheckInTv.setOnClickListener(this);
-        mCheckInBtn.setOnClickListener(this);
-        mSettingsLl.setOnClickListener(this);
-        mMyExerciseLl.setOnClickListener(this);
+        //运动历史
+        mLinearLayoutSportsHistory = (LinearLayout)mView.findViewById(R.id.sports_history_mine_linearlayout);
+        mLinearLayoutSportsHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                IntentUtils.turnTo(getActivity(),SportsHistoryActivity.class,false);
+            }
+        });
+
+        //设置 转到SettingsActivity
+        mLinearLayoutSettings = (LinearLayout)mView.findViewById(R.id.setting_mine_linearlayout);
+        mLinearLayoutSettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                IntentUtils.turnTo(getActivity(),SettingsActivity.class,false);
+            }
+        });
+
+
+
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.chech_in_mine_tv:
-                IntentUtils.turnTo(getActivity(), RuleActivity.class, false);
-                break;
-            case R.id.setting_mine_ll:
-                IntentUtils.turnTo(getActivity(), SettingsActivity.class, false);
-                break;
-            case R.id.my_exercise_mine_ll:
-
-                break;
-            case R.id.chech_in_mine_btn:
-                mCheckInBtn.setText("已签到3天");
-                break;
-            default:
-
-                break;
-        }
-    }
 }

@@ -5,11 +5,11 @@ import android.os.Bundle;
 
 import com.example.user.sports.R;
 
-public class RuleActivity extends AppCompatActivity {
+public class MessageNoticeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rule);
+        setContentView(R.layout.activity_message_notice);
     }
 }
