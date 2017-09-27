@@ -2,15 +2,6 @@
 <items version="2" >
 
     <item
-        is-multidex="false"
-        jar="/home/user/AndroidStudioProjects/Sports/app/libs/okhttputils-2_6_2.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="0b58ea597d7d7a6ef0ec42ae3994985f7e86553f">
-        <dex dex="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/pre-dexed/debug/okhttputils-2_6_2_a40e9a895c1ba946973f1a9b2f572cfc83c5f9dd.jar" />
-    </item>
-    <item
         is-multidex="true"
         jar="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.1.0/jars/classes.jar"
         jumboMode="true"
@@ -18,33 +9,6 @@
         revision="25.0.2"
         sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
         <dex dex="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-25.1.0_68fc7c59d8c3c768a71fbab03f7462288ff64d9f/classes.dex" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.1.0/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-25.1.0_68fc7c59d8c3c768a71fbab03f7462288ff64d9f.jar" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/local/sdk/extras/android/m2repository/com/android/support/support-annotations/25.1.0/support-annotations-25.1.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="64cb6b229a8bdfd907bc8dd46839a0053e4c018d">
-        <dex dex="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-25.1.0_18483e9138019903d352fa553631596c1770914d/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/user/AndroidStudioProjects/Sports/app/libs/okhttp-3.8.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="4d060ca3190df0eda4dc13415532a12e15ca5f11">
-        <dex dex="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/transforms/dex/debug/folders/1000/2/okhttp-3.8.1_bde0159d003dee414c5130a220dd7e42230c2957/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -56,33 +20,6 @@
         <dex dex="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-ui-25.1.0_7a7d2dcf6d3d41a5d8f6e66af15e764afe6146d8/classes.dex" />
     </item>
     <item
-        is-multidex="false"
-        jar="/home/user/AndroidStudioProjects/Sports/app/libs/okhttp-3.8.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="4d060ca3190df0eda4dc13415532a12e15ca5f11">
-        <dex dex="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/pre-dexed/debug/okhttp-3.8.1_bde0159d003dee414c5130a220dd7e42230c2957.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.1.0/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="aee64634871d88a419d59eb743c1258a60f19700">
-        <dex dex="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-25.1.0_7a7d2dcf6d3d41a5d8f6e66af15e764afe6146d8.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/25.1.0/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="b266c8faa5af72e579b9da36ef35053ffed6ac64">
-        <dex dex="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/pre-dexed/debug/com.android.support-recyclerview-v7-25.1.0_2378ab0204ef20ca7c22269a2fff10c8bf71a69c.jar" />
-    </item>
-    <item
         is-multidex="true"
         jar="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/25.1.0/jars/classes.jar"
         jumboMode="true"
@@ -90,24 +27,6 @@
         revision="25.0.2"
         sha1="b266c8faa5af72e579b9da36ef35053ffed6ac64">
         <dex dex="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-25.1.0_2378ab0204ef20ca7c22269a2fff10c8bf71a69c/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/user/AndroidStudioProjects/Sports/app/libs/android-support-v7-recyclerview.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="95c892d244f49414bbdf92c2235a32ea06bc68aa">
-        <dex dex="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/transforms/dex/debug/folders/1000/2/android-support-v7-recyclerview_e9e5ba06a82271dff4299da605cd8fad81b5a461/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/user/AndroidStudioProjects/Sports/app/libs/okhttputils-2_6_2.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="0b58ea597d7d7a6ef0ec42ae3994985f7e86553f">
-        <dex dex="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/transforms/dex/debug/folders/1000/2/okhttputils-2_6_2_a40e9a895c1ba946973f1a9b2f572cfc83c5f9dd/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -137,31 +56,112 @@
         <dex dex="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/transforms/dex/debug/folders/1000/2/okio-1.13.0_055dca514dff6316c74c7599fa173ac0793a876a/classes.dex" />
     </item>
     <item
-        is-multidex="false"
-        jar="/home/user/AndroidStudioProjects/Sports/app/libs/okio-1.13.0.jar"
-        jumboMode="false"
+        is-multidex="true"
+        jar="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/exploded-aar/SmartTableLayout-1.6.1/jars/classes.jar"
+        jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="a9283170b7305c8d92d25aff02a6ab7e45d06cbe">
-        <dex dex="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/pre-dexed/debug/okio-1.13.0_055dca514dff6316c74c7599fa173ac0793a876a.jar" />
+        sha1="1d16ffcc50b1dfa726cf978ea9f0a949cdd70e7d">
+        <dex dex="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/transforms/dex/debug/folders/1000/10/intermediates-exploded-aar-SmartTableLayout-1.6.1_7ae4857c978563a81839ee6342b2ff97c5059d8b/classes.dex" />
     </item>
     <item
-        is-multidex="false"
-        jar="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.1.0/jars/classes.jar"
-        jumboMode="false"
+        is-multidex="true"
+        jar="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.1.0/jars/classes.jar"
+        jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="e79aa3d9a16f8c9f16377c0608de70a8f31e5d80">
-        <dex dex="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-25.1.0_fe0437a427d77b49ea465084fbd0b39f533610e2.jar" />
+        sha1="f02263e35e52668dd17b73bf961437e3d562b35f">
+        <dex dex="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-media-compat-25.1.0_7e35c6dff68fb816b2f0ce67d5f3f5b21ad8a9cd/classes.dex" />
     </item>
     <item
-        is-multidex="false"
+        is-multidex="true"
+        jar="/home/user/.gradle/caches/modules-2/files-2.1/com.github.promeg/tinypinyin/1.0.0/a48301534bbc8eea481f61fa8fbdee80eca49d15/tinypinyin-1.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="a48301534bbc8eea481f61fa8fbdee80eca49d15">
+        <dex dex="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/transforms/dex/debug/folders/1000/10/tinypinyin-1.0.0_c8ca00c1953dc19850b0db64737323fb49ce6d88/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/user/AndroidStudioProjects/Sports/app/libs/gson-2.3.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ecb6e1f8e4b0e84c4b886c2f14a1500caf309757">
+        <dex dex="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/transforms/dex/debug/folders/1000/2/gson-2.3.1_a9df7db18163eb52e9a383d083ddafa90abf7b11/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="1630658fbc2d222b988603c27b4a4249586fbfe7">
+        <dex dex="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-25.1.0_f0734ff4763f435f25587fa3f6f76eb93089bdcb/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/user/AndroidStudioProjects/Sports/app/libs/BaiduLBS_Android.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="a5cdfa8887b52fc79d86c9c81acdb6e9e2a53417">
+        <dex dex="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/transforms/dex/debug/folders/1000/2/BaiduLBS_Android_f07bd1c2ffe9b331f9263d22551dccb4ded7167a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/exploded-aar/utils-v13-1.6.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="54efc1e1f678e4dc339b5c9682338211a221b4ce">
+        <dex dex="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/transforms/dex/debug/folders/1000/10/intermediates-exploded-aar-utils-v13-1.6.1_5ef73920fc10fbd626793106aefabc43b67a1543/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/local/sdk/extras/android/m2repository/com/android/support/support-annotations/25.1.0/support-annotations-25.1.0.jar"
-        jumboMode="false"
+        jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="64cb6b229a8bdfd907bc8dd46839a0053e4c018d">
-        <dex dex="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/pre-dexed/debug/support-annotations-25.1.0_18483e9138019903d352fa553631596c1770914d.jar" />
+        <dex dex="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-25.1.0_18483e9138019903d352fa553631596c1770914d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/user/AndroidStudioProjects/Sports/app/libs/okhttp-3.8.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4d060ca3190df0eda4dc13415532a12e15ca5f11">
+        <dex dex="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/transforms/dex/debug/folders/1000/2/okhttp-3.8.1_bde0159d003dee414c5130a220dd7e42230c2957/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/user/AndroidStudioProjects/Sports/app/libs/android-support-v7-recyclerview.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="95c892d244f49414bbdf92c2235a32ea06bc68aa">
+        <dex dex="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/transforms/dex/debug/folders/1000/2/android-support-v7-recyclerview_e9e5ba06a82271dff4299da605cd8fad81b5a461/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/user/AndroidStudioProjects/Sports/app/libs/okhttputils-2_6_2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0b58ea597d7d7a6ef0ec42ae3994985f7e86553f">
+        <dex dex="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/transforms/dex/debug/folders/1000/2/okhttputils-2_6_2_a40e9a895c1ba946973f1a9b2f572cfc83c5f9dd/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/user/AndroidStudioProjects/Sports/app/libs/BaiduTraceSDK_v3_0_5.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="df68ad81ace58c4ec7c744334f594f3996874510">
+        <dex dex="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/transforms/dex/debug/folders/1000/2/BaiduTraceSDK_v3_0_5_8a21369f642f9fccf3c85b4acd5defd08ba8011c/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -191,24 +191,6 @@
         <dex dex="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/transforms/dex/debug/folders/1000/2/MPAndroidChart-v3.0.2_6ae47c1b821b804fc0ea02ccbc9fb5278ec36797/classes.dex" />
     </item>
     <item
-        is-multidex="false"
-        jar="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.1.0/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="ca3c7aa31e2726a400a6e552b93cb9f63c9a1e6d">
-        <dex dex="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/pre-dexed/debug/com.android.support-support-compat-25.1.0_401b392c45e4266b67324cb1583c4bb59fe937a3.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/exploded-aar/com.android.support/design/25.1.0/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="30103d98fa5ed824b54af839c85e2111f9bde8ec">
-        <dex dex="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/pre-dexed/debug/com.android.support-design-25.1.0_2eecfce69ea046062c8318ab00da4942d4118909.jar" />
-    </item>
-    <item
         is-multidex="true"
         jar="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/exploded-aar/com.android.support/design/25.1.0/jars/classes.jar"
         jumboMode="true"
@@ -218,76 +200,22 @@
         <dex dex="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-design-25.1.0_2eecfce69ea046062c8318ab00da4942d4118909/classes.dex" />
     </item>
     <item
-        is-multidex="false"
-        jar="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.1.0/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="6fb6ac3e8d3b9013819920d9ea11f3803c4c0033">
-        <dex dex="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-25.1.0_30958fd262c58fd51c188ef3c4ab1eda9fa88c7e.jar" />
-    </item>
-    <item
         is-multidex="true"
-        jar="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.1.0/jars/classes.jar"
+        jar="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/exploded-aar/utils-v4-1.6.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="f02263e35e52668dd17b73bf961437e3d562b35f">
-        <dex dex="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-media-compat-25.1.0_7e35c6dff68fb816b2f0ce67d5f3f5b21ad8a9cd/classes.dex" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/user/.gradle/caches/modules-2/files-2.1/com.github.promeg/tinypinyin/1.0.0/a48301534bbc8eea481f61fa8fbdee80eca49d15/tinypinyin-1.0.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="a48301534bbc8eea481f61fa8fbdee80eca49d15">
-        <dex dex="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/pre-dexed/debug/tinypinyin-1.0.0_c8ca00c1953dc19850b0db64737323fb49ce6d88.jar" />
+        sha1="7dc4e0ea5b06183f6b32f08c5db6bcb6ef79c02a">
+        <dex dex="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/transforms/dex/debug/folders/1000/10/intermediates-exploded-aar-utils-v4-1.6.1_9eed8f94a14005498c7c0e898f89673ed9090191/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/home/user/.gradle/caches/modules-2/files-2.1/com.github.promeg/tinypinyin/1.0.0/a48301534bbc8eea481f61fa8fbdee80eca49d15/tinypinyin-1.0.0.jar"
+        jar="/home/user/AndroidStudioProjects/Sports/app/libs/bos-android-sdk-1.0.2.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="a48301534bbc8eea481f61fa8fbdee80eca49d15">
-        <dex dex="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/transforms/dex/debug/folders/1000/10/tinypinyin-1.0.0_c8ca00c1953dc19850b0db64737323fb49ce6d88/classes.dex" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.1.0/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="f02263e35e52668dd17b73bf961437e3d562b35f">
-        <dex dex="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/pre-dexed/debug/com.android.support-support-media-compat-25.1.0_7e35c6dff68fb816b2f0ce67d5f3f5b21ad8a9cd.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.1.0/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="2a53c4f3518116b8c6aee0e477233f0f7da8616f">
-        <dex dex="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/pre-dexed/debug/com.android.support-support-fragment-25.1.0_0656b41aca9f72e6339cf3242d945e9cb6e69d5f.jar" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/user/AndroidStudioProjects/Sports/app/libs/gson-2.3.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="ecb6e1f8e4b0e84c4b886c2f14a1500caf309757">
-        <dex dex="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/transforms/dex/debug/folders/1000/2/gson-2.3.1_a9df7db18163eb52e9a383d083ddafa90abf7b11/classes.dex" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/user/AndroidStudioProjects/Sports/app/libs/MPAndroidChart-v3.0.2.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="5d4eb08a326bdbd7fbbddc769666898c9936b282">
-        <dex dex="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/pre-dexed/debug/MPAndroidChart-v3.0.2_6ae47c1b821b804fc0ea02ccbc9fb5278ec36797.jar" />
+        sha1="4d8935bd82163a43871e2907ebb4ef363ec4ab50">
+        <dex dex="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/transforms/dex/debug/folders/1000/2/bos-android-sdk-1.0.2_2597e9066c806ecf2520bd62562d18d29a12f756/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -308,51 +236,6 @@
         <dex dex="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-utils-25.1.0_f6bc0ee4084d89d100a814434c02231f11b19b19/classes.dex" />
     </item>
     <item
-        is-multidex="false"
-        jar="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.1.0/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="0a0ef86b7fa568a52bf6214a0326ca1f1d618da7">
-        <dex dex="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-utils-25.1.0_f6bc0ee4084d89d100a814434c02231f11b19b19.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/user/AndroidStudioProjects/Sports/app/libs/gson-2.3.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="ecb6e1f8e4b0e84c4b886c2f14a1500caf309757">
-        <dex dex="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/pre-dexed/debug/gson-2.3.1_a9df7db18163eb52e9a383d083ddafa90abf7b11.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.0/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="1630658fbc2d222b988603c27b4a4249586fbfe7">
-        <dex dex="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-25.1.0_f0734ff4763f435f25587fa3f6f76eb93089bdcb.jar" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="1630658fbc2d222b988603c27b4a4249586fbfe7">
-        <dex dex="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-25.1.0_f0734ff4763f435f25587fa3f6f76eb93089bdcb/classes.dex" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/local/sdk/extras/m2repository/com/android/support/constraint/constraint-layout-solver/1.0.0-alpha7/constraint-layout-solver-1.0.0-alpha7.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="439eeb5ffd54cbd18db0a6aea471e8356f19fc36">
-        <dex dex="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/pre-dexed/debug/constraint-layout-solver-1.0.0-alpha7_3bd0164eae9d575d773a3ee342d813e9b6c37799.jar" />
-    </item>
-    <item
         is-multidex="true"
         jar="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/exploded-aar/com.android.support/transition/25.1.0/jars/classes.jar"
         jumboMode="true"
@@ -362,39 +245,12 @@
         <dex dex="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-transition-25.1.0_f2a030dfe745dd56eea5681fc67dd5146c391fda/classes.dex" />
     </item>
     <item
-        is-multidex="false"
-        jar="/home/user/AndroidStudioProjects/Sports/app/libs/android-support-v7-recyclerview.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="95c892d244f49414bbdf92c2235a32ea06bc68aa">
-        <dex dex="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/pre-dexed/debug/android-support-v7-recyclerview_e9e5ba06a82271dff4299da605cd8fad81b5a461.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/exploded-aar/com.android.support/transition/25.1.0/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d38084015027549951cbaea5d5f6fb795cc81151">
-        <dex dex="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/pre-dexed/debug/com.android.support-transition-25.1.0_f2a030dfe745dd56eea5681fc67dd5146c391fda.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/exploded-aar/com.android.support.constraint/constraint-layout/1.0.0-alpha7/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="541a2ad68dc68aa49795821f8280b7624e6a0c9b">
-        <dex dex="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/pre-dexed/debug/com.android.support.constraint-constraint-layout-1.0.0-alpha7_e38351858a7597b46345d39b8e09c4bd8fa56477.jar" />
-    </item>
-    <item
         is-multidex="true"
         jar="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="a9ccb02339768dc66cacfc250801b6c8eea2f1f4">
+        sha1="26b969f3b4de12db2d41f52e7a7d9b374797ac60">
         <dex dex="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_0306ceb37e132a17726a23d9df9e66e9d71dfb74/classes.dex" />
     </item>
     <item
@@ -412,7 +268,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="98ed2aa9ea9ecff471ce5927bda24dbc521ef9e9">
+        sha1="6213f422fd90a5de12b37e991f3e05cd34ddaa5a">
         <dex dex="/home/user/AndroidStudioProjects/Sports/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_8369fc63b7cdc0924b6a6d0a193413a3d6a82e54/classes.dex" />
     </item>
 
