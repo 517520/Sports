@@ -17,6 +17,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+}
+repositories{
+    flatDir{
+        dirs 'libs'
+    }
 }
 
 dependencies {
@@ -39,4 +45,9 @@ dependencies {
     compile files('libs/bos-android-sdk-1.0.2.jar')
     compile 'com.github.promeg:tinypinyin:1.0.0'
     testCompile 'junit:junit:4.12'
+
+    compile (name:'SmartTableLayout-1.6.1', ext:'aar')
+    compile (name:'utils-v4-1.6.1', ext:'aar')
+    compile (name:'utils-v13-1.6.1', ext:'aar')
+
 }
