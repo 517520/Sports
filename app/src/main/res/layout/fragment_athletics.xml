@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:padding="@dimen/space_5"
-           android:src="@drawable/ic_weather_cloudy"/>
+           android:src="@drawable/ic_wealth_partly_cloudy"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

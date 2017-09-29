@@ -25,7 +25,9 @@ import com.example.user.sports.ui.decoration.DividerItemDecoration;
 import com.example.user.sports.utils.IntentUtils;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Author : yufeng.cao
@@ -35,9 +37,9 @@ import java.util.List;
 public class AddFriendActivity extends BaseActivity implements View.OnClickListener{
 
     private AppHeadView headView;
-    private EditText mSearchEt;
-    private ImageView mSearchIv;
-    private TextView mCreateTv, mWeiboTv, mWechatTv, mQqTv, mContactsTv;
+    private EditText mSearchEt, mSearchTeamEt;
+    private ImageView mSearchIv, mSearchTeamIv;
+    private TextView mWeiboTv, mWechatTv, mQqTv, mContactsTv;
     private RecyclerView mRunFriendRv;
     private RunFriendAdapter runFriendAdapter;
     private List<RunFriend> friendList;
@@ -70,7 +72,8 @@ public class AddFriendActivity extends BaseActivity implements View.OnClickListe
     private void initView() {
         mSearchEt = (EditText) findViewById(R.id.search_add_friend_et);
         mSearchIv = (ImageView) findViewById(R.id.search_add_friend_iv);
-        mCreateTv = (TextView) findViewById(R.id.create_add_friend_tv);
+        mSearchTeamEt = (EditText) findViewById(R.id.search_add_team_et);
+        mSearchTeamIv = (ImageView) findViewById(R.id.search_add_team_iv);
         mWeiboTv = (TextView) findViewById(R.id.weibo_add_friend_tv);
         mWechatTv = (TextView) findViewById(R.id.wechat_add_friend_tv);
         mQqTv = (TextView) findViewById(R.id.qq_add_friend_tv);
@@ -80,24 +83,49 @@ public class AddFriendActivity extends BaseActivity implements View.OnClickListe
         mSearchEt.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             public boolean onEditorAction(TextView v, int actionId,KeyEvent event)  {
                 if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                    IntentUtils.turnTo(AddFriendActivity.this, SearchActivity.class, false);
+                    Map<String, Object> map = new HashMap<String, Object>();
+                    map.put("state", 1);
+                    map.put("tagPhone", mSearchEt.getText().toString());
+                    mSearchEt.setText("");
+                    IntentUtils.turnTo(AddFriendActivity.this, SearchActivity.class, false, map);
                 }
                 return false;
             }
         });
-        
+
+        mSearchTeamEt.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                    Map<String, Object> map = new HashMap<String, Object>();
+                    map.put("state", 2);
+                    map.put("tagName", mSearchTeamEt.getText().toString());
+                    mSearchTeamEt.setText("");
+                    IntentUtils.turnTo(AddFriendActivity.this, SearchActivity.class, false, map);
+                }
+                return false;
+            }
+        });
+
         mSearchIv.setOnClickListener(this);
-        mCreateTv.setOnClickListener(this);
+        mSearchTeamIv.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.search_add_friend_iv:
-                IntentUtils.turnTo(AddFriendActivity.this, SearchActivity.class, false);
+                Map<String, Object> map = new HashMap<String, Object>();
+                map.put("state", 1);
+                mSearchEt.setText("");
+                map.put("tagPhone", mSearchEt.getText().toString());
+                IntentUtils.turnTo(AddFriendActivity.this, SearchActivity.class, false, map);
                 break;
-            case R.id.create_add_friend_tv:
-                IntentUtils.turnTo(AddFriendActivity.this, CreateActivity.class, false);
+            case R.id.search_add_team_iv:
+                Map<String, Object> map2 = new HashMap<String, Object>();
+                map2.put("state", 2);
+                map2.put("tagName", mSearchTeamEt.getText().toString());
+                mSearchTeamEt.setText("");
+                IntentUtils.turnTo(AddFriendActivity.this, SearchActivity.class, false, map2);
                 break;
             case R.id.weibo_add_friend_tv:
 

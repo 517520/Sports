@@ -231,7 +231,6 @@ public class CountActivity extends BaseActivity implements View.OnClickListener 
         //开启定位
         baiduMap.setMyLocationEnabled(true);
 
-
         //轨迹点集合
         latLngList= new ArrayList<LatLng>();
     }

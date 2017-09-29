@@ -8,6 +8,9 @@
         android:width="@dimen/space_1">
 
     </stroke>
+
+    <solid
+        android:color="#44999999"/>
     <!-- 设置按钮的四个角为弧形 -->
     <!-- android:radius 弧形的半径 -->
     <corners android:radius="4dip" />

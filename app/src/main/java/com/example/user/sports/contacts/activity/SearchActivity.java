@@ -1,5 +1,6 @@
 package com.example.user.sports.contacts.activity;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -14,9 +15,17 @@ import com.example.user.sports.contacts.adapter.SearchAdapter;
 import com.example.user.sports.contacts.model.Friend;
 import com.example.user.sports.ui.AppHeadView;
 import com.example.user.sports.ui.DividerItemDecoration;
+import com.example.user.sports.utils.SharePreferenceUtil;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.Callback;
+
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import okhttp3.Call;
+import okhttp3.Response;
 
 /**
  * Author : yufeng.cao
@@ -29,6 +38,8 @@ public class SearchActivity extends BaseActivity {
     private AppHeadView headView;
     private SearchAdapter searchAdapter;
     private List<Friend> friendList;
+    private SharePreferenceUtil sharePreferenceUtil;
+    private String phone, name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,9 +47,24 @@ public class SearchActivity extends BaseActivity {
         setContentView(R.layout.activity_search);
         setallowFullScreen(true);
 
+        Intent intent = getIntent();
+        Bundle map = intent.getExtras();
+        if (map.getInt("state") == 1) {
+            name = map.getString("tagPhone");
+        }else if (map.getInt("state") == 2) {
+            name = map.getString("tagName");
+        }
+
         initHeadView();
         initView();
         initData();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        sharePreferenceUtil = new SharePreferenceUtil(this);
+        phone = sharePreferenceUtil.getPhone();
     }
 
     private void initHeadView() {
@@ -78,6 +104,32 @@ public class SearchActivity extends BaseActivity {
                 add(position);
             }
         });
+    }
+
+    private void request() {
+        OkHttpUtils
+                .post()
+                .url("")
+                .addParams("phoneNumber", phone)
+                .build()
+                .execute(new Callback() {
+                    @Override
+                    public Object parseNetworkResponse(Response response, int i) throws Exception {
+                        JSONObject object = new JSONObject(response.body().string());
+
+                        return null;
+                    }
+
+                    @Override
+                    public void onError(Call call, Exception e, int i) {
+
+                    }
+
+                    @Override
+                    public void onResponse(Object o, int i) {
+
+                    }
+                });
     }
 
     private void add(int position) {

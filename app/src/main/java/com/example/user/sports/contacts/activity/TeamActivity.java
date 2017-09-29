@@ -89,14 +89,14 @@ public class TeamActivity extends BaseActivity {
 
     private void initData() {
         teamList = new ArrayList<>();
-//        Team team1 = new Team();
-//        team1.setName("健身吧");
-//        team1.setDetail("一起动起来啊草泥马");
-//        teamList.add(team1);
-//        Team team2 = new Team();
-//        team2.setName("李毅吧");
-//        team2.setDetail("帝吧随时出征");
-//        teamList.add(team2);
+        Team team1 = new Team();
+        team1.setName("健身吧");
+        team1.setDetail("一起动起来啊草泥马");
+        teamList.add(team1);
+        Team team2 = new Team();
+        team2.setName("李毅吧");
+        team2.setDetail("帝吧随时出征");
+        teamList.add(team2);
 
         teamAdapter = new TeamAdapter(this, teamList);
         mTeamRv.setAdapter(teamAdapter);
@@ -106,7 +106,7 @@ public class TeamActivity extends BaseActivity {
         teamAdapter.setOnItemClickLitener(new TeamAdapter.OnItemClickLitener() {
             @Override
             public void onItemClick(View view, int position) {
-
+                IntentUtils.turnTo(TeamActivity.this, TeamDetailActivity.class, false);
             }
         });
 

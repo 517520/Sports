@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_location"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    android:clipToPadding="true"
+    android:background="@color/background_black"
+    tools:context="com.example.user.sports.contacts.activity.LocationActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp">
+
+        <TextView
+            android:id="@+id/cancel_location_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="取消"
+            android:textSize="@dimen/text_size_16"
+            android:textColor="@color/text_blue"
+            android:padding="@dimen/space_15"
+            android:layout_alignParentLeft="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="获取地理位置"
+            android:textSize="@dimen/space_20"
+            android:textColor="@color/white"
+            android:padding="@dimen/space_10"
+            android:layout_centerInParent="true"/>
+
+        <TextView
+            android:id="@+id/sava_location_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="保存"
+            android:textSize="@dimen/text_size_16"
+            android:textColor="@color/text_blue"
+            android:padding="@dimen/space_15"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+
+    <com.baidu.mapapi.map.MapView
+        android:id="@+id/location_mv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true">
+    </com.baidu.mapapi.map.MapView>
+</LinearLayout>

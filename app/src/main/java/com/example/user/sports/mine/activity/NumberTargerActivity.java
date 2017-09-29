@@ -31,7 +31,7 @@ public class NumberTargerActivity extends BaseActivity implements DialogListener
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setallowFullScreen(true);
+        setallowFullScreen(true);
         setContentView(R.layout.activity_number_targer);
 
         initHeadView();

@@ -3,10 +3,12 @@ package com.example.user.sports.main.activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.user.sports.BaseActivity;
 import com.example.user.sports.R;
 import com.example.user.sports.utils.IntentUtils;
+import com.example.user.sports.utils.SharePreferenceUtil;
 
 /**
  * Author : yufeng.cao
@@ -16,6 +18,7 @@ import com.example.user.sports.utils.IntentUtils;
 public class WelcomeActivity extends BaseActivity implements View.OnClickListener{
 
     private Button mRegistBtn, mLoginBtn;
+    private SharePreferenceUtil sharePreferenceUtil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +28,7 @@ public class WelcomeActivity extends BaseActivity implements View.OnClickListene
         setContentView(R.layout.activity_welcome);
 
         initView();
+        initData();
     }
 
     private void initView() {
@@ -35,6 +39,13 @@ public class WelcomeActivity extends BaseActivity implements View.OnClickListene
         mLoginBtn.setOnClickListener(this);
     }
 
+    private void initData() {
+        sharePreferenceUtil = new SharePreferenceUtil(this);
+        if (sharePreferenceUtil.getIsLogin()) {
+            Toast.makeText(this, "您已经登录，欢迎回来！", Toast.LENGTH_LONG).show();
+            IntentUtils.turnTo(this, MainActivity.class, true);
+        }
+    }
 
     @Override
     public void onClick(View v) {

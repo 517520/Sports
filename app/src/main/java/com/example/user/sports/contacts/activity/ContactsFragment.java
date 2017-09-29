@@ -1,6 +1,7 @@
 package com.example.user.sports.contacts.activity;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -53,7 +54,7 @@ public class ContactsFragment extends Fragment implements View.OnClickListener{
     private FriendAdapter friendAdapter;
     private LinearLayoutManager mManager;
     private SharePreferenceUtil sharePreferenceUtil;
-    private String phone;
+    private String phone, number;
     
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -68,12 +69,16 @@ public class ContactsFragment extends Fragment implements View.OnClickListener{
         initHeadView();
         initView();
         initData();
+        adapterData();
         return view;
     }
 
     @Override
     public void onResume() {
         super.onResume();
+        sharePreferenceUtil = new SharePreferenceUtil(this.getActivity());
+        phone = sharePreferenceUtil.getPhone();
+
 //        requestData();
     }
 
@@ -111,9 +116,9 @@ public class ContactsFragment extends Fragment implements View.OnClickListener{
     }
 
     private void initData() {
-        sharePreferenceUtil = new SharePreferenceUtil(this.getActivity());
-        phone = sharePreferenceUtil.getPhone();
         mContactsRv.setLayoutManager(mManager = new LinearLayoutManager(this.getActivity()));
+        //初始化数据
+        friendList = new ArrayList<>();
     }
 
     //请求数据
@@ -127,7 +132,9 @@ public class ContactsFragment extends Fragment implements View.OnClickListener{
                     @Override
                     public Object parseNetworkResponse(Response response, int i) throws Exception {
                         JSONObject object = new JSONObject(response.body().string());
+                        number = object.getString("number");
 
+                        adapterData();
                         return null;
                     }
 
@@ -143,27 +150,26 @@ public class ContactsFragment extends Fragment implements View.OnClickListener{
                 });
     }
 
+
     private void adapterData() {
-        //初始化数据
         String[] strings = new String[]{"河源","惠州","广州","潮州","东莞","深圳","佛山","湛江","梅州"};
-        friendList = new ArrayList<>();
         for (int i = 0; i < strings.length; i++) {
             Friend friend = new Friend();
             friend.setName(strings[i]);//设置城市名称
             friendList.add(friend);
         }
-        friendAdapter = new FriendAdapter(this.getActivity(), friendList);
-
-        mContactsRv.setAdapter(friendAdapter);
+        if (friendAdapter == null) {
+            friendAdapter = new FriendAdapter(this.getActivity(), friendList);
+            mContactsRv.setAdapter(friendAdapter);
+            friendAdapter.setOnItemClickLitener(new FriendAdapter.OnItemClickLitener() {
+                @Override
+                public void onItemClick(View view, int position) {
+                    IntentUtils.turnTo(getActivity(), ChatActivity.class, false);
+                }
+            });
+        }
         mContactsRv.addItemDecoration(new TitleItemDecoration(this.getActivity(), friendList));
         mContactsRv.addItemDecoration(new DividerItemDecoration(this.getActivity(), DividerItemDecoration.HORIZONTAL_LIST));
-        friendAdapter.setOnItemClickLitener(new MessageAdapter.OnItemClickLitener() {
-            @Override
-            public void onItemClick(View view, int position) {
-                IntentUtils.turnTo(getActivity(), ChatActivity.class, false);
-            }
-        });
-
 
         //使用indexBar
         mIndexBar.setmPressedShowTextView(mSideBarHintTv)//设置HintTextView

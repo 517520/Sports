@@ -4,16 +4,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.user.sports.BaseActivity;
 import com.example.user.sports.R;
 import com.example.user.sports.ui.AppHeadView;
 
-public class MessageNoticeActivity extends AppCompatActivity {
+public class MessageNoticeActivity extends BaseActivity {
 
     private AppHeadView headView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setallowFullScreen(true);
         setContentView(R.layout.activity_message_notice);
 
         initHeadView();

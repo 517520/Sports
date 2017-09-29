@@ -26,7 +26,7 @@ public class FriendAdapter extends RecyclerView.Adapter<FriendAdapter.ViewHolder
     private LayoutInflater mInflater;
 
 
-    private MessageAdapter.OnItemClickLitener mOnItemClickLitener;
+    private FriendAdapter.OnItemClickLitener mOnItemClickLitener;
 
     public FriendAdapter(Context mContext, List<Friend> friendList) {
         this.mContext = mContext;
@@ -72,7 +72,7 @@ public class FriendAdapter extends RecyclerView.Adapter<FriendAdapter.ViewHolder
 
     }
 
-    public void setOnItemClickLitener(MessageAdapter.OnItemClickLitener mOnItemClickLitener) {
+    public void setOnItemClickLitener(FriendAdapter.OnItemClickLitener mOnItemClickLitener) {
         this.mOnItemClickLitener = mOnItemClickLitener;
     }
 

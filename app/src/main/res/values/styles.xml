@@ -10,7 +10,10 @@
 
     <style name="MyTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:listDivider">@drawable/bg_divider</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
     </style>
+
 
     //the MainActivity RadioButton style
     <style name="RadioButton">

@@ -28,15 +28,19 @@
             android:id="@+id/head_create_iv"
             android:layout_width="@dimen/space_80"
             android:layout_height="@dimen/space_80"
+            android:background="@drawable/bg_imageview"
             android:layout_marginLeft="@dimen/space_15"
+            android:padding="@dimen/space_2"
             android:layout_alignParentBottom="true"
             android:src="@drawable/bg_create_team_head"/>
         <ImageView
+            android:id="@+id/camera_create_iv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_marginLeft="@dimen/space_45"
             android:layout_marginBottom="@dimen/space_30"
+            android:visibility="visible"
             android:src="@drawable/ic_team_camera"/>
     </RelativeLayout>
     <View
@@ -54,7 +58,8 @@
             android:text="群组名称"
             android:textColor="@color/input_hint_gray"
             android:layout_weight="1"
-            android:textSize="@dimen/text_size_16"
+            android:gravity="center_vertical"
+            android:textSize="@dimen/text_size_14"
             android:padding="@dimen/space_20"/>
         <EditText
             android:id="@+id/name_create_et"
@@ -83,7 +88,8 @@
             android:text="群组位置"
             android:textColor="@color/input_hint_gray"
             android:layout_weight="1"
-            android:textSize="@dimen/text_size_16"
+            android:textSize="@dimen/text_size_14"
+            android:gravity="center_vertical"
             android:padding="@dimen/space_20"/>
         <TextView
             android:id="@+id/location_create_tv"
@@ -108,6 +114,7 @@
         android:hint="为你的群组写下简短的说明"
         android:padding="@dimen/space_20"
         android:textColor="@color/white"
+        android:textSize="@dimen/text_size_16"
         android:textColorHint="@color/input_hint_gray"
         android:maxLines="4"
         android:minLines="4"/>

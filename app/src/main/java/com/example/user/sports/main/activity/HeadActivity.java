@@ -7,6 +7,8 @@ import android.graphics.ImageFormat;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
+import android.os.Handler;
+import android.os.Message;
 import android.provider.MediaStore;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +17,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,8 +29,15 @@ import com.example.user.sports.ui.CircleImageView;
 import com.example.user.sports.utils.IntentUtils;
 import com.example.user.sports.utils.PictureCutUtil;
 import com.example.user.sports.utils.PopUtil;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.Callback;
 
 import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
+
+import okhttp3.Call;
+import okhttp3.Response;
 
 /**
  * Author : yufeng.cao
@@ -75,6 +85,7 @@ public class HeadActivity extends BaseActivity implements View.OnClickListener{
         circleImageView = (CircleImageView) findViewById(R.id.photo_head_civ);
         mNickNameEt = (EditText) findViewById(R.id.nickname_head_et);
         mCompleteBtn = (Button) findViewById(R.id.complete_head_btn);
+
 
         circleImageView.setOnClickListener(this);
         mCompleteBtn.setOnClickListener(this);
@@ -216,9 +227,52 @@ public class HeadActivity extends BaseActivity implements View.OnClickListener{
             Bitmap photo = extras.getParcelable("data");
             circleImageView.setImageBitmap(photo);
 
+
             File imageFile = pictureCutUtil.cutPictureQuality(photo, "headImage");
             Toast.makeText(this, imageFile.getName(), Toast.LENGTH_LONG).show();
+            upload(imageFile, mNickNameEt.getText().toString());
         }
     }
 
+    private void upload(File file, String nickname) {
+        if (!file.exists())
+        {
+            Toast.makeText(HeadActivity.this, "文件不存在，请修改文件路径", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        Map<String, String> params = new HashMap<>();
+        params.put("phone", phone);
+        params.put("nickname", nickname);
+
+        OkHttpUtils.post()
+                .addFile("image", file.getName(), file)
+                .url("")
+                .params(params)
+                .build()
+                .execute(new Callback() {
+                    @Override
+                    public Object parseNetworkResponse(Response response, int i) throws Exception {
+
+                        return null;
+                    }
+
+                    @Override
+                    public void onError(Call call, Exception e, int i) {
+
+                    }
+
+                    @Override
+                    public void onResponse(Object o, int i) {
+
+                    }
+                });
+    }
+
+    Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+
+        }
+    };
 }
