@@ -23,10 +23,6 @@ public class ActivityLab {
     private ActivityLab(Context context){
         mActivities = new ArrayList<>();
 
-        for (int i=0;i<30;i++){
-            Activity activity = new Activity("owner"+i,"activity"+i,i%3,new Date(),new Date(),"address"+i,"hello world"+i,2*i);
-            mActivities.add(activity);
-        }
     }
 
     public ArrayList<Activity> getActivitiesByLab(){

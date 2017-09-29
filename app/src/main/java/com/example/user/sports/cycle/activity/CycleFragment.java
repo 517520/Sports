@@ -1,16 +1,20 @@
 package com.example.user.sports.cycle.activity;
 
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import com.example.user.sports.R;
+import com.example.user.sports.cycle.fragment.AllExerciseFragment;
+import com.example.user.sports.cycle.fragment.NearByExerciseFragment;
+import com.example.user.sports.ui.AppHeadView;
 import com.example.user.sports.utils.IntentUtils;
+import com.ogaclejapan.smarttablayout.SmartTabLayout;
+import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItemAdapter;
+import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItems;
 
 /**
  * Author : yufeng.cao
@@ -20,18 +24,10 @@ import com.example.user.sports.utils.IntentUtils;
 
 public class CycleFragment extends Fragment {
 
-
-    private TabLayout mTabLayout;
-    private ViewPager mViewPager;
-    private MyFragmentPagerAdapter mMyFragmentPagerAdapter;
-    private ImageView mAddActivityImageView;
-
-    private TabLayout.Tab one;
-    private TabLayout.Tab two;
-    private TabLayout.Tab three;
-
-
+    private AppHeadView headView;
     private View view;
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,35 +38,37 @@ public class CycleFragment extends Fragment {
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_cycle, container, false);
 
+        initHeaderView();
         initViews();
-
-        mAddActivityImageView = (ImageView)view.findViewById(R.id.activity_add_iv);
-        mAddActivityImageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                IntentUtils.turnTo(getActivity(),ActivityAdd.class,false);
-            }
-        });
-
-
         return view;
     }
 
+    private void initHeaderView() {
+        headView = (AppHeadView)view.findViewById(R.id.header_cycle);
+        headView.setVisibility(View.VISIBLE, View.GONE, View.GONE, View.VISIBLE);
+        headView.setTitle("运动圈");
+//        headView.setLeftImage(R.drawable.ic_header_cycle);
+
+        headView.setOnClickListenerBack(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                IntentUtils.turnTo(getActivity(),ActivityDetails.class,false);
+            }
+        });
+
+    }
+
     private void initViews() {
-        mViewPager = (ViewPager)view.findViewById(R.id.viewPager);
-        mMyFragmentPagerAdapter = new MyFragmentPagerAdapter(getActivity().getSupportFragmentManager());
-        mViewPager.setAdapter(mMyFragmentPagerAdapter);
 
-        mTabLayout = (TabLayout)view.findViewById(R.id.tablayout);
-        mTabLayout.setupWithViewPager(mViewPager);
+        FragmentPagerItemAdapter adapter = new FragmentPagerItemAdapter(getFragmentManager(), FragmentPagerItems.with(getContext())
+                .add("活动",AllExerciseFragment.class)
+                .add("附近活动",NearByExerciseFragment.class)
+                .create());
+        ViewPager viewPager = (ViewPager)view.findViewById(R.id.ViewPager_cycle);
+        viewPager.setAdapter(adapter);
+        SmartTabLayout smartTabLayout = (SmartTabLayout)view.findViewById(R.id.viewpagertab_cycle);
+        smartTabLayout.setViewPager(viewPager);
 
-        one = mTabLayout.getTabAt(0);
-        two = mTabLayout.getTabAt(1);
-        three = mTabLayout.getTabAt(2);
-
-//        one.setIcon(R.mipmap.ic_launcher);
-//        two.setIcon(R.mipmap.ic_launcher);
-//        three.setIcon(R.mipmap.ic_launcher);
 
     }
 

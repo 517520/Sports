@@ -1,49 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.example.user.sports.cycle.activity.CycleFragment">
-    <LinearLayout
-        android:orientation="horizontal"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <com.example.user.sports.ui.AppHeadView
+        android:layout_alignParentTop="true"
+        android:id="@+id/header_cycle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <android.support.design.widget.TabLayout
-            android:id="@+id/tablayout"
-            android:background="@color/colorPrimary"
-            app:tabIndicatorColor="#b4341b"
-            app:tabIndicatorHeight="1dp"
-            app:tabTextColor="#111111"
-            app:tabSelectedTextColor="#b4341b"
-            app:tabMode="fixed"
-            app:tabBackground="@drawable/bg_tab_selected"
-            app:tabTextAppearance="@style/MyTabLayoutTextApperarance"
-            android:layout_height="40dp"
-            android:layout_weight="1"
-            android:layout_width="0dp"/>
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            app:srcCompat="@drawable/ic_comment_add"
-            android:id="@+id/activity_add_iv"
-            />
-
-    </LinearLayout>
+    </com.example.user.sports.ui.AppHeadView>
 
 
-
+    <com.ogaclejapan.smarttablayout.SmartTabLayout
+        android:background="@color/background_gray"
+        android:id="@+id/viewpagertab_cycle"
+        android:layout_below="@id/header_cycle"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:paddingBottom="4dp"
+        app:stl_dividerColor="@color/background_gray"
+        app:stl_defaultTabTextSize="@dimen/text_size_14"
+        app:stl_defaultTabTextColor="@color/custom_tab_cycle"
+        app:stl_distributeEvenly="true"
+        app:stl_indicatorColor="#DA4652"
+        app:stl_indicatorWidth="65dp"
+        app:stl_indicatorCornerRadius="1.5dp"
+        app:stl_indicatorInterpolation="smart"
+        app:stl_indicatorThickness="4dp"
+        app:stl_underlineColor="@color/background_gray"
+        />
 
     <android.support.v4.view.ViewPager
-        android:id="@+id/viewPager"
+        android:background="#333339"
+        android:overScrollMode="never"
+        android:id="@+id/ViewPager_cycle"
+        android:layout_below="@id/viewpagertab_cycle"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        />
-</LinearLayout>
+        android:layout_height="match_parent">
 
+    </android.support.v4.view.ViewPager>
+
+</RelativeLayout>

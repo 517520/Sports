@@ -1,23 +1,297 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<android.support.design.widget.CoordinatorLayout
+<RelativeLayout
+    android:background="@color/background_black"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <ListView
-        android:id="@+id/comments_listView"
+
+    <com.example.user.sports.ui.AppHeadView
+        android:layout_alignParentTop="true"
+        android:id="@+id/header_cycle_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </com.example.user.sports.ui.AppHeadView>
+    
+    <LinearLayout
+        android:id="@+id/details_1_cycle"
+        android:background="#333339"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_below="@id/header_cycle_details"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_80">
+        <TextView
+            android:text="每日晨跑打卡"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <LinearLayout
+            android:paddingTop="8dp"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:textSize="12sp"
+                android:text="主办方： "
+                android:textColor="@color/grayWhite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:textSize="12sp"
+                android:text="哈哈哈哈"
+                android:textColor="@color/grayWhite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/details_linearlayout"
+        android:layout_marginTop="@dimen/space_8"
+        android:layout_below="@id/details_1_cycle"
+        android:background="#333339"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-    </ListView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="72dp">
 
-    <android.support.design.widget.FloatingActionButton
-        android:src="@drawable/ic_comment_add"
-        android:layout_gravity="bottom|right"
-        android:layout_margin="16dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+            <RelativeLayout
+                android:paddingTop="@dimen/space_10"
+                android:paddingBottom="19dp"
+                android:paddingLeft="@dimen/space_16"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+                <TextView
+                    android:layout_above="@+id/start_time_detail_cycle"
+                    android:layout_alignParentTop="true"
+                    android:textColor="@color/grayWhite"
+                    android:text="开始时间"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:layout_alignParentBottom="true"
+                    android:id="@id/start_time_detail_cycle"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:text="2017:10:01 06:30"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </RelativeLayout>
 
-</android.support.design.widget.CoordinatorLayout>
+            <View
+                android:layout_width="@dimen/space_1"
+                android:layout_height="match_parent"
+                android:background="#46464C">
+            </View>
+
+            <RelativeLayout
+                android:paddingTop="@dimen/space_10"
+                android:paddingBottom="19dp"
+                android:paddingLeft="@dimen/space_16"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+                <TextView
+                    android:layout_above="@+id/end_time_detail_cycle"
+                    android:layout_alignParentTop="true"
+                    android:textColor="@color/grayWhite"
+                    android:text="结束时间"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:layout_alignParentBottom="true"
+                    android:id="@id/end_time_detail_cycle"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:text="2017:10:01 06:30"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </RelativeLayout>
+        </LinearLayout>
+        <View
+            android:background="#46464C"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/space_0.1"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+            <TextView
+                android:paddingLeft="16dp"
+                android:text="活动地点："
+                android:textSize="12sp"
+                android:textColor="@color/grayWhite"
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:paddingLeft="5dp"
+                android:text="惠州市, 仲恺区"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <View
+            android:background="#46464C"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/space_0.1"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:paddingBottom="22dp"
+                android:paddingTop="@dimen/space_20"
+                android:paddingLeft="16dp"
+                android:orientation="vertical"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:paddingBottom="10dp"
+                    android:text="发起人："
+                    android:textSize="12sp"
+                    android:textColor="@color/grayWhite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <com.example.user.sports.ui.CircleImageView
+                    app:border_overlay="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/ic_logo"
+                    android:layout_width="37dp"
+                    android:layout_height="37dp"/>
+
+
+            </LinearLayout>
+            <View
+                android:layout_width="@dimen/space_1"
+                android:layout_height="match_parent"
+                android:background="#46464C">
+            </View>
+            <RelativeLayout
+                android:paddingLeft="16dp"
+                android:paddingBottom="22dp"
+                android:paddingTop="@dimen/space_20"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/joiner_tv"
+                    android:paddingBottom="10dp"
+                    android:text="参与者："
+                    android:textSize="12sp"
+                    android:textColor="@color/grayWhite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <com.example.user.sports.ui.CircleImageView
+                    android:id="@+id/circle_image_1"
+                    android:layout_below="@id/joiner_tv"
+                    app:border_overlay="true"
+                    android:layout_alignParentLeft="true"
+                    android:src="@drawable/ic_logo"
+                    android:layout_width="37dp"
+                    android:layout_height="37dp"/>
+                <com.example.user.sports.ui.CircleImageView
+                    android:id="@+id/circle_image_2"
+                    android:layout_below="@id/joiner_tv"
+                    app:border_overlay="true"
+                    android:layout_toRightOf="@id/circle_image_1"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/ic_logo"
+                    android:layout_width="37dp"
+                    android:layout_height="37dp"/>
+                <com.example.user.sports.ui.CircleImageView
+                    android:id="@+id/circle_image_3"
+                    android:layout_below="@id/joiner_tv"
+                    app:border_overlay="true"
+                    android:layout_toRightOf="@id/circle_image_2"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/ic_logo"
+                    android:layout_width="37dp"
+                    android:layout_height="37dp"/>
+                <com.example.user.sports.ui.CircleImageView
+                    android:id="@+id/circle_image_4"
+                    android:layout_below="@id/joiner_tv"
+                    app:border_overlay="true"
+                    android:layout_toRightOf="@id/circle_image_3"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/ic_logo"
+                    android:layout_width="37dp"
+                    android:layout_height="37dp"/>
+                <TextView
+                    android:layout_below="@id/joiner_tv"
+                    android:layout_toRightOf="@id/circle_image_4"
+                    android:layout_marginTop="@dimen/space_6"
+                    android:layout_marginLeft="15dp"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:text="..."
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:paddingLeft="18dp"
+        android:paddingRight="18dp"
+        android:orientation="vertical"
+        android:background="#333339"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/details_linearlayout"
+        android:layout_above="@+id/join_in_detail_cycle_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textColor="@color/grayWhite"
+            android:textSize="12sp"
+            android:text="－－活动详情－－"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"/>
+        <TextView
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:text="    本活动遵循自生自灭原则,无任何组织,无任何救援,碰见就是缘分"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@id/join_in_detail_cycle_tv"
+        android:layout_alignParentBottom="true"
+        android:background="#249AE6"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:text="一键报名"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_40"/>
+
+
+
+
+
+</RelativeLayout>

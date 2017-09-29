@@ -30,4 +30,6 @@
     <color name="background_gray">#333339</color>
     <color name="background_black">#29292f</color>
     <color name="choose_basr_target">#229DE8</color>
+    <color name="grayWhite">#85FFFFFF</color>
+    <color name="already_join_in">#7A7A7A</color>
 </resources>

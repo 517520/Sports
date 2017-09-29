@@ -11,7 +11,7 @@
         android:layout_height="48dp"
         android:paddingBottom="4dp"
         android:paddingTop="10dp"
-        app:stl_defaultTabTextColor="@color/custom_tab"
+        app:stl_defaultTabTextColor="@color/custom_tab_analysis"
         app:stl_defaultTabTextSize="@dimen/text_size_16"
         app:stl_defaultTabTextMinWidth="120dp"
         app:stl_indicatorAlwaysInCenter="true"

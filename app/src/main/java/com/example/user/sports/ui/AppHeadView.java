@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.user.sports.R;
@@ -17,6 +18,11 @@ public class AppHeadView extends LinearLayout{
 
     private Context context;
     private TextView tvBack, tvTitle, tvMessage, tvNumber, tvAdd;
+    private RelativeLayout mRelativeLayoutBack;
+    private RelativeLayout mRelativeLayoutAdd;
+
+
+
 
     public AppHeadView(Context context) {
         super(context);
@@ -37,6 +43,8 @@ public class AppHeadView extends LinearLayout{
         tvNumber = (TextView) findViewById(R.id.number_headview_tv);
         tvTitle = (TextView) findViewById(R.id.title_headview_tv);
         tvAdd = (TextView) findViewById(R.id.add_headview_tv);
+        mRelativeLayoutBack = (RelativeLayout)findViewById(R.id.back_headview_relativelayout);
+        mRelativeLayoutAdd = (RelativeLayout)findViewById(R.id.add_headview_relativelayout);
 
     }
 
@@ -55,9 +63,14 @@ public class AppHeadView extends LinearLayout{
         tvNumber.setText(""+number);
     }
 
+    public void setLeftImage(int ResourceId){
+        tvBack.setBackgroundResource(ResourceId);
+    }
+
+
     public void setOnClickListenerBack(OnClickListener listener){
         if (listener != null){
-            tvBack.setOnClickListener(listener);
+            mRelativeLayoutBack.setOnClickListener(listener);
         }
     }
 
@@ -69,7 +82,7 @@ public class AppHeadView extends LinearLayout{
 
     public void setOnClickListenerAdd(OnClickListener listener){
         if (listener != null){
-            tvAdd.setOnClickListener(listener);
+            mRelativeLayoutAdd.setOnClickListener(listener);
         }
     }
 }
