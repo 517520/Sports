@@ -6,6 +6,6 @@ package com.example.user.sports.main.activity;
  * Description :
  */
 public interface SignUpView {
-    void mResult(String toast);
+    void mResult(int result);
     void showDialog();
 }

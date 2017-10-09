@@ -6,6 +6,9 @@ package com.example.user.sports.utils;
  * Description :
  */
 public class UrlUtils {
-    public final static String REGIST = "http://10.92.61.139:8080/0/sign_up_t2";
-    public final static String LOGIN = "http://10.92.61.139:8080/0/sign_in_t2";
+    public final static String REGIST = "http://182.254.232.55:8080/0/sign_up";
+    public final static String LOGIN = "http://182.254.232.55:8080/0/sign_in";
+
+
+    public final static String MIME_DETAIL = "http://182.254.232.55:8080/5/detail";
 }

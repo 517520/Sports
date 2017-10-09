@@ -53,6 +53,51 @@ public class SharePreferenceUtil {
         return sp.getString("username", "");
     }
 
+    //性别
+    public void setSex(int sex) {
+        editor.putInt("sex", sex);
+        editor.commit();
+    }
+    public int getSex() {
+        return sp.getInt("sex", 1);
+    }
+
+    //生日
+    public void setBirthday(String birthday) {
+        editor.putString("birthday", birthday);
+        editor.commit();
+    }
+    public String getBirthday() {
+        return sp.getString("birthday","");
+    }
+
+    //体重
+    public void setWeight(float weight) {
+        editor.putFloat("weight", weight);
+        editor.commit();
+    }
+    public float getWeight() {
+        return sp.getFloat("weight", 0);
+    }
+
+    //身高
+    public void setHeight(int height) {
+        editor.putInt("height", height);
+        editor.commit();
+    }
+    public int getHeight() {
+        return sp.getInt("height", 0);
+    }
+
+    //步数目标
+    public void setTarget(int target) {
+        editor.putInt("target", target);
+        editor.commit();
+    }
+    public int getTarget() {
+        return sp.getInt("target", 0);
+    }
+
     /**
      * 当前状态
      * 0：未运动
@@ -69,28 +114,48 @@ public class SharePreferenceUtil {
     }
 
     // 用户自己的头像
-    public void setImg(Bitmap bitmap) {
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
-        String imageBase64 = new String(Base64.encode(baos.toByteArray(), Base64.DEFAULT));
-        editor.putString("image", imageBase64);
+//    public void setImg(Bitmap bitmap) {
+//        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+//        bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
+//        String imageBase64 = new String(Base64.encode(baos.toByteArray(), Base64.DEFAULT));
+//        editor.putString("image", imageBase64);
+//        editor.commit();
+//    }
+//
+//    public Bitmap getImg(Bitmap defaultValue) {
+//        String imageBase64 = sp.getString("image", "");
+//        if (TextUtils.isEmpty(imageBase64)) {
+//            return defaultValue;
+//        }
+//
+//        byte[] base64Bytes = Base64.decode(imageBase64.getBytes(),Base64.DEFAULT);
+//        ByteArrayInputStream bais = new ByteArrayInputStream(base64Bytes);
+//        Bitmap ret = BitmapFactory.decodeStream(bais);
+//        if (ret != null) {
+//            return ret;
+//        } else {
+//            return defaultValue;
+//        }
+//    }
+
+    //用户头像
+    public void setIcon(String icon) {
+        editor.putString("icon", icon);
         editor.commit();
     }
-    public Bitmap getImg(Bitmap defaultValue) {
-        String imageBase64 = sp.getString("image", "");
-        if (TextUtils.isEmpty(imageBase64)) {
-            return defaultValue;
-        }
-
-        byte[] base64Bytes = Base64.decode(imageBase64.getBytes(),Base64.DEFAULT);
-        ByteArrayInputStream bais = new ByteArrayInputStream(base64Bytes);
-        Bitmap ret = BitmapFactory.decodeStream(bais);
-        if (ret != null) {
-            return ret;
-        } else {
-            return defaultValue;
-        }
+    public String getIcon() {
+        return sp.getString("icon", "");
     }
+
+    //连续签到天数
+    public void setDay(int day) {
+        editor.putInt("day", day);
+        editor.commit();
+    }
+    public int getDay() {
+        return sp.getInt("day", 0);
+    }
+
 
     // 是否已经登陆
     public void setIsLogin(boolean isLogin) {

@@ -8,8 +8,6 @@ import java.io.IOException;
  * Description :
  */
 public interface User {
-    String getUserName();
-    String getPassWord();
     void regist(String phone, String password,UserSignUpListenner listenner) throws IOException;
     void login(String phone, String password,UserSignUpListenner listenner) throws  IOException;
 

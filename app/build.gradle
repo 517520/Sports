@@ -18,12 +18,17 @@ android {
         }
     }
 
+    defaultConfig {
+        multiDexEnabled true
+    }
+
 }
 repositories{
     flatDir{
         dirs 'libs'
     }
 }
+
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')

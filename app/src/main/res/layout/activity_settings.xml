@@ -114,11 +114,22 @@
                 android:layout_height="wrap_content"/>
 
             <ImageView
+                android:id="@+id/cache_setting_iv"
                 android:paddingTop="@dimen/space_4"
                 android:layout_alignParentRight="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:srcCompat="@drawable/ic_right"/>
+
+            <TextView
+                android:id="@+id/cache_setting_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_blue"
+                android:layout_marginRight="@dimen/space_5"
+                android:layout_toLeftOf="@id/cache_setting_iv"
+                android:textSize="@dimen/text_size_16"
+                />
         </RelativeLayout>
     </LinearLayout>
 
@@ -130,6 +141,7 @@
         android:layout_marginTop="200dp"
         android:textColor="#D5555C"
         android:textSize="16sp"
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="50dp"/>
 

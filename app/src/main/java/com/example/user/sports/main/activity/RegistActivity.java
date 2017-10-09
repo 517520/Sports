@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.example.user.sports.BaseActivity;
 import com.example.user.sports.R;
+import com.example.user.sports.bean.ResultUtils;
 import com.example.user.sports.dialog.LoadingDialog;
 import com.example.user.sports.main.presenter.SignUpPresenter;
 import com.example.user.sports.main.presenter.SignUpPresenterCompl;
@@ -38,9 +39,6 @@ public class RegistActivity extends BaseActivity implements View.OnClickListener
     private EditText mPhoneEt, mPassWordEt, mConfirmEt;
     private SignUpPresenter presenter;
     private LoadingDialog loadingDialog;
-
-    private final static String SUCCEED = "注册成功";
-    private final static String REPEAT = "用户名重复";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,7 +91,6 @@ public class RegistActivity extends BaseActivity implements View.OnClickListener
                 }else {
                     Toast.makeText(RegistActivity.this, "手机号或密码不能为空", Toast.LENGTH_LONG).show();
                 }
-
                 break;
 
             case R.id.confirm_regist_btn:
@@ -111,13 +108,9 @@ public class RegistActivity extends BaseActivity implements View.OnClickListener
 
 
     @Override
-    public void mResult(String toast) {
+    public void mResult(int result) {
         Message message = new Message();
-        if (SUCCEED.equals(toast)) {
-            message.what = 1;
-        }else if (REPEAT.equals(toast)) {
-            message.what = 0;
-        }
+        message.what = result;
         handler.sendMessage(message);
     }
 
@@ -127,15 +120,24 @@ public class RegistActivity extends BaseActivity implements View.OnClickListener
             if (loadingDialog != null) {
                 loadingDialog.dismiss();
             }
-            if (msg.what == 0) {
-                Toast.makeText(RegistActivity.this, "用户名重复，请重新输入！", Toast.LENGTH_LONG).show();
-                mPhoneEt.setText("");
-                mPassWordEt.setText("");
-            }else if (msg.what == 1) {
-                Toast.makeText(RegistActivity.this, "恭喜您！注册成功！", Toast.LENGTH_LONG).show();
-                Map<String, Object> map = new HashMap<>();
-                map.put("phone", mPhoneEt.getText().toString());
-                IntentUtils.turnTo(RegistActivity.this, HeadActivity.class, true, map);
+
+            switch (msg.what) {
+                case -1:
+                    Toast.makeText(RegistActivity.this, "请求错误！", Toast.LENGTH_LONG).show();
+                    break;
+                case 0:
+                    Toast.makeText(RegistActivity.this, "用户名重复，请重新输入！", Toast.LENGTH_LONG).show();
+                    mPhoneEt.setText("");
+                    mPassWordEt.setText("");
+                    break;
+                case 1:
+                    Toast.makeText(RegistActivity.this, "恭喜您！注册成功！", Toast.LENGTH_LONG).show();
+                    Map<String, Object> map = new HashMap<>();
+                    map.put("phone", mPhoneEt.getText().toString());
+                    IntentUtils.turnTo(RegistActivity.this, HeadActivity.class, true, map);
+                    break;
+                default:
+                    break;
             }
         }
     };

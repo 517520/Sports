@@ -25,6 +25,7 @@ import android.widget.Toast;
 import com.example.user.sports.BaseActivity;
 import com.example.user.sports.BuildConfig;
 import com.example.user.sports.R;
+import com.example.user.sports.dialog.LoadingDialog;
 import com.example.user.sports.ui.CircleImageView;
 import com.example.user.sports.utils.IntentUtils;
 import com.example.user.sports.utils.PictureCutUtil;
@@ -64,6 +65,8 @@ public class HeadActivity extends BaseActivity implements View.OnClickListener{
     public final static int CONSULT_DOC_CUTTING = 1002;
     private Uri outputFileUri;
 
+    private LoadingDialog loadingDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,6 +84,7 @@ public class HeadActivity extends BaseActivity implements View.OnClickListener{
 
     private void initView() {
         pictureCutUtil = new PictureCutUtil(this);
+        loadingDialog = new LoadingDialog(this);
 
         circleImageView = (CircleImageView) findViewById(R.id.photo_head_civ);
         mNickNameEt = (EditText) findViewById(R.id.nickname_head_et);
@@ -227,6 +231,9 @@ public class HeadActivity extends BaseActivity implements View.OnClickListener{
             Bitmap photo = extras.getParcelable("data");
             circleImageView.setImageBitmap(photo);
 
+            if (loadingDialog != null) {
+                loadingDialog.show();
+            }
 
             File imageFile = pictureCutUtil.cutPictureQuality(photo, "headImage");
             Toast.makeText(this, imageFile.getName(), Toast.LENGTH_LONG).show();
@@ -272,7 +279,9 @@ public class HeadActivity extends BaseActivity implements View.OnClickListener{
     Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
-
+            if (loadingDialog != null) {
+                loadingDialog.dismiss();
+            }
         }
     };
 }

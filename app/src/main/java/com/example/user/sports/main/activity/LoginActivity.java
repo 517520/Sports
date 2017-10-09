@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.user.sports.App;
 import com.example.user.sports.BaseActivity;
 import com.example.user.sports.R;
 import com.example.user.sports.dialog.LoadingDialog;
@@ -36,10 +37,12 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
     private Button mLoginBtn;
     private SignUpPresenter presenter;
 
-    private LoadingDialog loadingDialog;
     private final static String SUCCEED = "登录成功";
     private final static String FALSE = "密码错误";
     private final static String NULL = "用户不存在";
+
+    private App app;
+    private LoadingDialog loadingDialog;
 
 
     @Override
@@ -54,9 +57,11 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
     }
 
     private void initView() {
+        app = (App) getApplicationContext();
         if (loadingDialog == null) {
             loadingDialog = new LoadingDialog(this, R.style.Dialog_Fullscreen);
         }
+
         mRegistTv = (TextView) findViewById(R.id.regist_login_tv);
         mFindPwdTv = (TextView) findViewById(R.id.findpwd_login_tv);
         mProbationTv = (TextView) findViewById(R.id.probation_login_tv);
@@ -101,52 +106,54 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
     }
 
     @Override
-    public void mResult(String toast) {
+    public void mResult(int result) {
         Message message = new Message();
-        if (SUCCEED.equals(toast)) {
-            message.what = 1;
-        }else if (FALSE.equals(toast)) {
-            message.what = 0;
-        }else if (NULL.equals(toast)) {
-            message.what = 2;
-        }
+        message.what = result;
         handler.sendMessage(message);
     }
 
     Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
-            if (loadingDialog != null) {
+            if (loadingDialog.isShowing()) {
                 loadingDialog.dismiss();
             }
-            if (msg.what == 0) {
-                Toast.makeText(LoginActivity.this, "密码错误！", Toast.LENGTH_LONG).show();
-                mPhoneEt.setText("");
-                mPasswordEt.setText("");
-            }else if (msg.what == 1) {
-                rememberToSP();
-                Toast.makeText(LoginActivity.this, "欢迎您!", Toast.LENGTH_LONG).show();
-                IntentUtils.turnTo(LoginActivity.this, MainActivity.class, true);
-            }else if (msg.what == 2) {
-                Toast.makeText(LoginActivity.this, "用户不存在！请重新登录!", Toast.LENGTH_LONG).show();
-                mPhoneEt.setText("");
-                mPasswordEt.setText("");
-            }
 
+            switch (msg.what) {
+                case -1:
+                    Toast.makeText(LoginActivity.this, "用户不存在！请重新登录!", Toast.LENGTH_LONG).show();
+                    mPhoneEt.setText("");
+                    mPasswordEt.setText("");
+                    break;
+                case 0:
+                    Toast.makeText(LoginActivity.this, "密码错误！", Toast.LENGTH_LONG).show();
+                    mPhoneEt.setText("");
+                    mPasswordEt.setText("");
+                    break;
+                case 1:
+                    rememberToSP();
+                    Toast.makeText(LoginActivity.this, "欢迎您!", Toast.LENGTH_LONG).show();
+                    IntentUtils.turnTo(LoginActivity.this, MainActivity.class, true);
+                    WelcomeActivity.instance.finish();
+                    break;
+                default:
+                    break;
+            }
         }
     };
 
     //保存登录信息到本地
     private void rememberToSP() {
-        SharePreferenceUtil sharePreferenceUtil = new SharePreferenceUtil(this);
-        sharePreferenceUtil.setIsLogin(true);
-        sharePreferenceUtil.setPhone(mPhoneEt.getText().toString());
-        sharePreferenceUtil.setPassword(mPasswordEt.getText().toString());
-        sharePreferenceUtil.setState(0);
+        app.getSp().setIsLogin(true);
+        app.getSp().setPhone(mPhoneEt.getText().toString());
+        app.getSp().setPassword(mPasswordEt.getText().toString());
+        app.getSp().setState(0);
     }
 
     @Override
     public void showDialog() {
-        loadingDialog.show();
+        if (loadingDialog != null) {
+            loadingDialog.show();
+        }
     }
 }

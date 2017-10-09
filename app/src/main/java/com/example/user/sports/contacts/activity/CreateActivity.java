@@ -212,7 +212,7 @@ public class CreateActivity extends BaseActivity implements View.OnClickListener
             mCameraIv.setVisibility(View.GONE);
 
             File imageFile = pictureCutUtil.cutPictureQuality(photo, "headImage");
-            Toast.makeText(this, imageFile.getName(), Toast.LENGTH_LONG).show();
+            Toast.makeText(this, imageFile.getAbsolutePath(), Toast.LENGTH_LONG).show();
         }
     }
 

@@ -10,10 +10,11 @@ import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.example.user.sports.BaseActivity;
 import com.example.user.sports.R;
 import com.example.user.sports.mine.adapter.MineFragmentPagerAdapter;
 
-public class SportsHistoryActivity extends AppCompatActivity {
+public class SportsHistoryActivity extends BaseActivity {
 
     private TabLayout mTabLayout;                                //滑动的导航条
     private ViewPager mViewPager;                                //滑动
@@ -25,14 +26,26 @@ public class SportsHistoryActivity extends AppCompatActivity {
     private ImageView mImageViewArrowDownOrUp;
     private int MarkForListener = 0;
 
+    private ImageView mBackIv;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setallowFullScreen(true);
         setContentView(R.layout.activity_sports_history);
         initView();
     }
 
     private void initView() {
+        mBackIv = (ImageView) findViewById(R.id.back_sports_history_iv);
+        mBackIv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
         //设置适配器
         mViewPager = (ViewPager)findViewById(R.id.viewPager_mine);
         mMineFragmentPagerAdapter = new MineFragmentPagerAdapter(getSupportFragmentManager());

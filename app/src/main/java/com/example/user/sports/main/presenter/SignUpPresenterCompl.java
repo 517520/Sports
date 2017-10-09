@@ -1,5 +1,6 @@
 package com.example.user.sports.main.presenter;
 
+import com.example.user.sports.bean.ResultUtils;
 import com.example.user.sports.main.activity.SignUpView;
 import com.example.user.sports.main.model.User;
 import com.example.user.sports.main.model.UserModel;
@@ -30,7 +31,15 @@ public class SignUpPresenterCompl implements SignUpPresenter {
             user.regist(phone, password, new User.UserSignUpListenner() {
                 @Override
                 public void complete(String result) {
-                    signUpView.mResult(result);
+                    int state = -1;
+                    if (ResultUtils.Login.SIGNUP_RESULT_SUCCESS.equals(result)) {
+                        state = 1;
+                    }else if (ResultUtils.Login.SIGNUP_RESULT_FAIL_USERNAMEREPEAT.equals(result)) {
+                        state = 0;
+                    }else if (ResultUtils.Login.SIGNUP_RESULT_FAIL_DATABASEWRONG.equals(result)) {
+                        state = -1;
+                    }
+                    signUpView.mResult(state);
                 }
             });
         }
@@ -43,7 +52,15 @@ public class SignUpPresenterCompl implements SignUpPresenter {
             user.login(phone, password, new User.UserSignUpListenner() {
                 @Override
                 public void complete(String result) {
-                    signUpView.mResult(result);
+                    int state = -1;
+                    if (ResultUtils.Login.SIGNIN_RESULT_SUCCESS.equals(result)) {
+                        state = 1;
+                    }else if (ResultUtils.Login.SIGNIN_RESULT_FAIL_USERNOTEXIT.equals(result)) {
+                        state = -1;
+                    }else if (ResultUtils.Login.SIGNIN_RESULT_FAIL_WRONGPASSWORD.equals(result)) {
+                        state = 0;
+                    }
+                    signUpView.mResult(state);
                 }
             });
         }
