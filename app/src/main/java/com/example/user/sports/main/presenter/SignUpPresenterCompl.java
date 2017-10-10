@@ -1,6 +1,6 @@
 package com.example.user.sports.main.presenter;
 
-import com.example.user.sports.bean.ResultUtils;
+import com.example.user.sports.utils.ResultUtils;
 import com.example.user.sports.main.activity.SignUpView;
 import com.example.user.sports.main.model.User;
 import com.example.user.sports.main.model.UserModel;

@@ -21,9 +21,6 @@ public class AppHeadView extends LinearLayout{
     private RelativeLayout mRelativeLayoutBack;
     private RelativeLayout mRelativeLayoutAdd;
 
-
-
-
     public AppHeadView(Context context) {
         super(context);
         this.context = context;

@@ -2,8 +2,8 @@ package com.example.user.sports.main.model;
 
 import android.util.Log;
 
-import com.example.user.sports.bean.Json_0_sign_in;
-import com.example.user.sports.bean.Json_0_sign_up;
+import com.example.user.sports.jsonModel.Json_0_sign_in;
+import com.example.user.sports.jsonModel.Json_0_sign_up;
 import com.example.user.sports.utils.UrlUtils;
 import com.google.gson.Gson;
 import com.zhy.http.okhttp.OkHttpUtils;

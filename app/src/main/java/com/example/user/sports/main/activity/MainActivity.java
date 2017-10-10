@@ -83,7 +83,7 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
         super.onResume();
 
         //Test
-//        app.getSp().setIsLogin(true);
+        app.getSp().setIsLogin(true);
         state = app.getSp().getState();
         switch (state) {
             case 0:

@@ -12,19 +12,14 @@ import android.widget.Toast;
 
 import com.example.user.sports.BaseActivity;
 import com.example.user.sports.R;
-import com.example.user.sports.bean.ResultUtils;
 import com.example.user.sports.dialog.LoadingDialog;
 import com.example.user.sports.main.presenter.SignUpPresenter;
 import com.example.user.sports.main.presenter.SignUpPresenterCompl;
 import com.example.user.sports.utils.IntentUtils;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
 /**
  * Author : yufeng.cao

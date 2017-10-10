@@ -1,11 +1,11 @@
 package com.example.user.sports.contacts.adapter;
 
-import android.content.Context;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.user.sports.R;
@@ -19,80 +19,56 @@ import java.util.List;
  * 聊天内容
  */
 
-public class ChatAdapter extends BaseAdapter {
+public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
 
     private List<Chat> list;
-    private LayoutInflater inflater;
-    private Context context;
 
-    public ChatAdapter(List<Chat> list, Context context){
+    static class ViewHolder extends RecyclerView.ViewHolder {
+
+        LinearLayout leftLayout, rightLayout;
+        TextView leftTv, rightTv;
+        ImageView leftIv, rightIv;
+
+        public ViewHolder(View itemView) {
+            super(itemView);
+
+            leftLayout = (LinearLayout) itemView.findViewById(R.id.left_chat_item_layout);
+            rightLayout = (LinearLayout) itemView.findViewById(R.id.right_chat_item_layout);
+            leftTv = (TextView) itemView.findViewById(R.id.message_chat_left_item_tv);
+            rightTv = (TextView) itemView.findViewById(R.id.message_chat_right_item_tv);
+            leftIv = (ImageView) itemView.findViewById(R.id.headview_chat_left_item_iv);
+            rightIv = (ImageView) itemView.findViewById(R.id.headview_chat_right_item_iv);
+        }
+    }
+
+    public ChatAdapter(List<Chat> list){
         this.list = list;
-        this.context = context;
-        inflater = LayoutInflater.from(context);
-    }
-    @Override
-    public int getCount() {
-        return list == null ? 0 : list.size();
     }
 
     @Override
-    public Object getItem(int position) {
-        return list.get(position);
+    public int getItemCount() {
+        return list.size();
     }
 
     @Override
-    public long getItemId(int position) {
-        return position;
+    public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_chat, viewGroup, false);
+        return new ViewHolder(view);
     }
 
     @Override
-    public int getItemViewType(int position) {
-        String s = list.get(position).getState();
-        if ("from".equals(s)){
-            return 0;
-        }else {
-            return 1;
+    public void onBindViewHolder(ViewHolder viewHolder, int i) {
+        Chat chat = list.get(i);
+        if (chat.getType() == Chat.RECEIVED) {
+            viewHolder.leftLayout.setVisibility(View.VISIBLE);
+            viewHolder.rightLayout.setVisibility(View.GONE);
+            viewHolder.leftIv.setImageBitmap(chat.getBitmap());
+            viewHolder.leftTv.setText(chat.getMessage());
+        }else if (chat.getType() == Chat.Send) {
+            viewHolder.leftLayout.setVisibility(View.GONE);
+            viewHolder.rightLayout.setVisibility(View.VISIBLE);
+            viewHolder.rightIv.setImageBitmap(chat.getBitmap());
+            viewHolder.rightTv.setText(chat.getMessage());
         }
-    }
-
-    @Override
-    public int getViewTypeCount() {
-        return 2;
-    }
-
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-
-        ViewHolder mHolderMake = null;
-        if (getItemViewType(position) == 0){
-            if (convertView == null){
-                mHolderMake = new ViewHolder();
-                convertView = inflater.inflate(R.layout.item_chat_left, null);
-                mHolderMake.imageView = (ImageView) convertView.findViewById(R.id.headview_chat_left_item_iv);
-                mHolderMake.tvMessage = (TextView) convertView.findViewById(R.id.message_chat_left_item_tv);
-                convertView.setTag(mHolderMake);
-            }else {
-                mHolderMake = (ViewHolder) convertView.getTag();
-            }
-            mHolderMake.imageView.setImageBitmap(list.get(position).getBitmap());
-            mHolderMake.tvMessage.setText(list.get(position).getMessage());
-        }else {
-            if (convertView == null) {
-                mHolderMake = new ViewHolder();
-                convertView = inflater.inflate(R.layout.item_chat_right, null);
-                mHolderMake.imageView = (ImageView) convertView.findViewById(R.id.headview_chat_right_item_iv);
-                mHolderMake.tvMessage = (TextView) convertView.findViewById(R.id.message_chat_right_item_tv);
-                convertView.setTag(mHolderMake);
-            } else {
-                mHolderMake = (ViewHolder) convertView.getTag();
-            }
-            mHolderMake.imageView.setImageBitmap(list.get(position).getBitmap());
-            mHolderMake.tvMessage.setText(list.get(position).getMessage());
-        }
-        return convertView;
-    }
-    private class ViewHolder{
-        private TextView tvMessage;
-        private ImageView imageView;
     }
 }

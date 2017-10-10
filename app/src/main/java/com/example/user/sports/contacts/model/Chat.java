@@ -11,7 +11,9 @@ public class Chat {
     private String name;
     private Bitmap bitmap;
     private String message;
-    private String state;
+    private int type;
+    public static final int RECEIVED = 1;
+    public static final int Send = 0;
 
     public String getName() {
         return name;
@@ -37,11 +39,11 @@ public class Chat {
         this.message = message;
     }
 
-    public String getState() {
-        return state;
+    public int getType() {
+        return type;
     }
 
-    public void setState(String state) {
-        this.state = state;
+    public void setType(int type) {
+        this.type = type;
     }
 }

@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 import com.example.user.sports.App;
 import com.example.user.sports.R;
-import com.example.user.sports.bean.Json_5_detail;
+import com.example.user.sports.jsonModel.Json_5_detail;
 import com.example.user.sports.main.activity.LoginActivity;
 import com.example.user.sports.main.activity.MainActivity;
 import com.example.user.sports.ui.AppHeadView;
