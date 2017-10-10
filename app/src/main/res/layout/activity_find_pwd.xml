@@ -119,7 +119,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
                 android:textSize="@dimen/text_size_16"
-                android:hint="请输入6-12位登录密码"
+                android:hint="请输入6-12位新密码"
                 android:padding="@dimen/space_10"
                 android:maxLength="20"
                 android:textColor="@color/white"

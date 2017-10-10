@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.user.sports.athletics.activity.AthleticsFragment">
+    tools:context=".view.athletics.activity.AthleticsFragment">
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -7,7 +7,7 @@
     android:background="@mipmap/bg_main"
     android:fitsSystemWindows="true"
     android:clipToPadding="true"
-    tools:context="com.example.user.sports.athletics.activity.ReadyActivity">
+    tools:context=".view.athletics.activity.ReadyActivity">
 
     <TextView
         android:id="@+id/number_ready_tv"

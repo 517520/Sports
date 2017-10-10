@@ -9,7 +9,6 @@ import android.graphics.Rect;
 import android.support.v7.widget.LinearLayoutManager;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
@@ -22,7 +21,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import com.example.user.sports.utils.bean.BaseIndexPinyinBean;
+import com.example.user.sports.utils.BaseIndexPinyinBean;
 import com.example.user.sports.R;
 
 /**

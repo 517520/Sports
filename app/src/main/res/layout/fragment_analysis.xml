@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.user.sports.analysis.activity.AnalysisFragment">
+    tools:context=".view.analysis.activity.AnalysisFragment">
     <com.ogaclejapan.smarttablayout.SmartTabLayout
         android:id="@+id/SmartTablelayout"
         android:layout_alignParentTop="true"

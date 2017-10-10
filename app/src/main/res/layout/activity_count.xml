@@ -7,7 +7,7 @@
     android:fitsSystemWindows="true"
     android:clipToPadding="true"
     android:background="@mipmap/bg_main"
-    tools:context="com.example.user.sports.athletics.activity.CountActivity">
+    tools:context=".view.athletics.activity.CountActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"

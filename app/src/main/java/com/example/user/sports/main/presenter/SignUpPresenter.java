@@ -8,7 +8,6 @@ import java.io.IOException;
  * Description :
  */
 public interface SignUpPresenter {
-
     void regist(String phone, String password) throws IOException;
     void login(String phone, String password) throws IOException;
 }

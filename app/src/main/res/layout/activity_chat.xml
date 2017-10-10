@@ -8,7 +8,7 @@
     android:fitsSystemWindows="true"
     android:clipToPadding="true"
     android:background="@color/background_black"
-    tools:context="com.example.user.sports.contacts.activity.ChatActivity">
+    tools:context=".view.contacts.activity.ChatActivity">
 
     <com.example.user.sports.ui.AppHeadView
         android:id="@+id/headview"

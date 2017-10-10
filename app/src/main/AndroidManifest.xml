@@ -65,38 +65,38 @@
         <activity android:name=".main.activity.HeadActivity" />
 
         //athletics
-        <activity android:name=".athletics.activity.ReadyActivity" />
-        <activity android:name=".athletics.activity.UploadActivity" />
-        <activity android:name=".athletics.activity.CountActivity"
+        <activity android:name=".view.athletics.activity.ReadyActivity" />
+        <activity android:name=".view.athletics.activity.UploadActivity" />
+        <activity android:name=".view.athletics.activity.CountActivity"
             android:launchMode="singleInstance" />
 
         //contacts
-        <activity android:name=".contacts.activity.InformationActivity" />
-        <activity android:name=".contacts.activity.ChatActivity" />
-        <activity android:name=".contacts.activity.NewFriendActivity" />
-        <activity android:name=".contacts.activity.AddFriendActivity" />
-        <activity android:name=".contacts.activity.CreateActivity" />
-        <activity android:name=".contacts.activity.RecommendActivity" />
-        <activity android:name=".contacts.activity.SearchActivity" />
-        <activity android:name=".contacts.activity.TeamDetailActivity" />
-        <activity android:name=".contacts.activity.MessageActivity" />
-        <activity android:name=".contacts.activity.TeamActivity" />
+        <activity android:name=".view.contacts.activity.InformationActivity" />
+        <activity android:name=".view.contacts.activity.ChatActivity" />
+        <activity android:name=".view.contacts.activity.NewFriendActivity" />
+        <activity android:name=".view.contacts.activity.AddFriendActivity" />
+        <activity android:name=".view.contacts.activity.CreateActivity" />
+        <activity android:name=".view.contacts.activity.RecommendActivity" />
+        <activity android:name=".view.contacts.activity.SearchActivity" />
+        <activity android:name=".view.contacts.activity.TeamDetailActivity" />
+        <activity android:name=".view.contacts.activity.MessageActivity" />
+        <activity android:name=".view.contacts.activity.TeamActivity" />
 
         //cycle
-        <activity android:name=".cycle.activity.ExerciseCreateActivity" />
-        <activity android:name=".cycle.activity.ExerciseDetailsActivity" />
+        <activity android:name=".view.cycle.activity.ExerciseCreateActivity" />
+        <activity android:name=".view.cycle.activity.ExerciseDetailsActivity" />
 
         //mine
-        <activity android:name=".mine.activity.SettingsActivity" />
-        <activity android:name=".mine.activity.SportsHistoryActivity"/>
-        <activity android:name=".mine.activity.PersonalMessageActivity"/>
-        <activity android:name=".mine.activity.NumberTargerActivity"/>
-        <activity android:name=".mine.activity.MessageNoticeActivity"/>
+        <activity android:name=".view.mine.activity.SettingsActivity" />
+        <activity android:name=".view.mine.activity.SportsHistoryActivity"/>
+        <activity android:name=".view.mine.activity.PersonalMessageActivity"/>
+        <activity android:name=".view.mine.activity.NumberTargerActivity"/>
+        <activity android:name=".view.mine.activity.MessageNoticeActivity"/>
 
 
         //计步
         <service
-            android:name=".athletics.stepservice.StepService"
+            android:name=".view.athletics.stepservice.StepService"
             android:priority="1000">
             <intent-filter>
                 <!-- 系统启动完成后会调用 -->
@@ -117,7 +117,7 @@
 
         //设备管理器
         <receiver
-            android:name=".athletics.receive.AdminManageReceiver"
+            android:name=".view.athletics.receive.AdminManageReceiver"
             android:enabled="true"
             android:exported="true"
             android:permission="android.permission.BIND_DEVICE_ADMIN">

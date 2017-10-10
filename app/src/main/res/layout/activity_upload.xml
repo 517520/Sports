@@ -8,7 +8,7 @@
     android:fitsSystemWindows="true"
     android:clipToPadding="true"
     android:background="@mipmap/bg_main"
-    tools:context="com.example.user.sports.athletics.activity.UploadActivity">
+    tools:context=".view.athletics.activity.UploadActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"

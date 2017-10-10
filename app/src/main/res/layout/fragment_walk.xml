@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.user.sports.athletics.activity.WalkFragment">
+    tools:context=".view.athletics.activity.WalkFragment">
 
     <com.example.user.sports.ui.StepArcView
         android:id="@+id/step_walk_arv"

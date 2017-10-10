@@ -8,7 +8,7 @@
     android:fitsSystemWindows="true"
     android:clipToPadding="true"
     android:background="@color/background_black"
-    tools:context="com.example.user.sports.contacts.activity.LocationActivity">
+    tools:context=".view.contacts.activity.LocationActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"

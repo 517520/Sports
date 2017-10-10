@@ -1,12 +1,6 @@
 package com.example.user.sports.main.activity;
 
-import android.app.ActivityManager;
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentTransaction;
 import android.view.KeyEvent;
@@ -20,24 +14,14 @@ import android.widget.Toast;
 import com.example.user.sports.App;
 import com.example.user.sports.BaseActivity;
 import com.example.user.sports.R;
-import com.example.user.sports.athletics.activity.AthleticsFragment;
-import com.example.user.sports.athletics.activity.CountActivity;
-import com.example.user.sports.contacts.activity.ContactsFragment;
-import com.example.user.sports.cycle.activity.CycleFragment;
-import com.example.user.sports.analysis.activity.AnalysisFragment;
+import com.example.user.sports.view.athletics.activity.AthleticsFragment;
+import com.example.user.sports.view.athletics.activity.CountActivity;
+import com.example.user.sports.view.contacts.activity.ContactsFragment;
+import com.example.user.sports.view.cycle.activity.CycleFragment;
+import com.example.user.sports.view.analysis.activity.AnalysisFragment;
 import com.example.user.sports.dialog.ExitDialog;
-import com.example.user.sports.mine.activity.MineFragment;
+import com.example.user.sports.view.mine.activity.MineFragment;
 import com.example.user.sports.utils.IntentUtils;
-import com.example.user.sports.utils.SharePreferenceUtil;
-import com.zhy.http.okhttp.OkHttpUtils;
-import com.zhy.http.okhttp.callback.Callback;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import okhttp3.Call;
-import okhttp3.Response;
 
 /**
  * Author : yufeng.cao
@@ -84,7 +68,7 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
         super.onResume();
 
         //Test
-        app.getSp().setIsLogin(true);
+//        app.getSp().setIsLogin(true);
         state = app.getSp().getState();
         switch (state) {
             case 0:
