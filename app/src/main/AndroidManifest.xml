@@ -49,20 +49,20 @@
             android:value="iItr0Mn9IoBSFGVyDWYZjU7tKefOYbyl" />
 
         //main
-        <activity android:name=".main.activity.MainActivity">
+        <activity android:name=".view.main.activity.MainActivity">
+
+        </activity>
+        <activity android:name=".view.main.activity.WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".main.activity.WelcomeActivity">
-        </activity>
-        <activity android:name=".BaseActivity" />
-        <activity android:name=".main.activity.RegistActivity" />
-        <activity android:name=".main.activity.LoginActivity" />
-        <activity android:name=".main.activity.FindPwdActivity" />
-        <activity android:name=".main.activity.HeadActivity" />
+        <activity android:name=".view.main.activity.RegistActivity" />
+        <activity android:name=".view.main.activity.LoginActivity" />
+        <activity android:name=".view.main.activity.FindPwdActivity" />
+        <activity android:name=".view.main.activity.HeadActivity" />
 
         //athletics
         <activity android:name=".view.athletics.activity.ReadyActivity" />

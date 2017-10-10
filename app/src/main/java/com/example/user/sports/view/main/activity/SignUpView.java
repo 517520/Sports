@@ -1,4 +1,4 @@
-package com.example.user.sports.main.activity;
+package com.example.user.sports.view.main.activity;
 
 /**
  * Author : user

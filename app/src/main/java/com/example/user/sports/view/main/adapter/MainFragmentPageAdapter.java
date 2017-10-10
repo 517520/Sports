@@ -1,4 +1,4 @@
-package com.example.user.sports.main.adapter;
+package com.example.user.sports.view.main.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

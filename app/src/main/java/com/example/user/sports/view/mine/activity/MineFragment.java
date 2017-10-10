@@ -10,7 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.user.sports.R;
-import com.example.user.sports.main.activity.LoginActivity;
+import com.example.user.sports.view.main.activity.LoginActivity;
 import com.example.user.sports.ui.AppHeadView;
 import com.example.user.sports.ui.CheckInView;
 import com.example.user.sports.utils.IntentUtils;

@@ -17,7 +17,6 @@ import okhttp3.Response;
  * Description :
  */
 public class UploadModelImp implements UploadModel{
-    public String result = "";
 
     public void upload(String url, final String request, final UploadListenner listenner) {
         OkHttpUtils
@@ -29,9 +28,8 @@ public class UploadModelImp implements UploadModel{
                 .execute(new Callback() {
                     @Override
                     public Object parseNetworkResponse(Response response, int i) throws Exception {
-                        result = response.body().string();
                         if (listenner != null) {
-                            listenner.complete(result);
+                            listenner.complete(response.body().string());
                         }
                         return null;
                     }

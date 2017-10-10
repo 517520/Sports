@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/bg_welcome"
-    tools:context="com.example.user.sports.main.activity.WelcomeActivity">
+    tools:context=".view.main.activity.WelcomeActivity">
 
     <ImageView
         android:layout_marginTop="@dimen/space_150"

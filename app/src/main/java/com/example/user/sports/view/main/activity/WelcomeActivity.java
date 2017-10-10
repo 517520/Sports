@@ -1,4 +1,4 @@
-package com.example.user.sports.main.activity;
+package com.example.user.sports.view.main.activity;
 
 import android.os.Bundle;
 import android.view.View;
@@ -9,7 +9,6 @@ import com.example.user.sports.App;
 import com.example.user.sports.BaseActivity;
 import com.example.user.sports.R;
 import com.example.user.sports.utils.IntentUtils;
-import com.example.user.sports.utils.SharePreferenceUtil;
 
 /**
  * Author : yufeng.cao
@@ -20,7 +19,7 @@ public class WelcomeActivity extends BaseActivity implements View.OnClickListene
 
     private Button mRegistBtn, mLoginBtn;
     private App app;
-    public static WelcomeActivity instance = null;
+    public static  WelcomeActivity instance = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

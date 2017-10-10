@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/bg_welcome"
-    tools:context="com.example.user.sports.main.activity.HeadActivity">
+    tools:context=".view.main.activity.HeadActivity">
 
     <RelativeLayout
         android:layout_width="@dimen/space_120"

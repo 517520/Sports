@@ -7,7 +7,7 @@
     android:fitsSystemWindows="true"
     android:clipToPadding="true"
     android:background="@color/background_black"
-    tools:context="com.example.user.sports.main.activity.MainActivity">
+    tools:context=".view.main.activity.MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

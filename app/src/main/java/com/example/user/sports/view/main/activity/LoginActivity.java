@@ -1,8 +1,6 @@
-package com.example.user.sports.main.activity;
+package com.example.user.sports.view.main.activity;
 
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -14,14 +12,19 @@ import com.example.user.sports.App;
 import com.example.user.sports.BaseActivity;
 import com.example.user.sports.R;
 import com.example.user.sports.dialog.LoadingDialog;
-import com.example.user.sports.main.presenter.SignUpPresenter;
-import com.example.user.sports.main.presenter.SignUpPresenterCompl;
+import com.example.user.sports.model.jsonModel.Json_0_sign_in;
+import com.example.user.sports.presenter.UploadPresenter;
+import com.example.user.sports.presenter.UploadPresenterImp;
 import com.example.user.sports.utils.IntentUtils;
-import com.example.user.sports.utils.SharePreferenceUtil;
+import com.example.user.sports.utils.ResultUtils;
+import com.example.user.sports.utils.UrlUtils;
+import com.example.user.sports.view.UploadView;
+import com.google.gson.Gson;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Author : yufeng.cao
@@ -30,18 +33,15 @@ import java.util.Map;
  */
 
 
-public class LoginActivity extends BaseActivity implements View.OnClickListener, SignUpView {
+public class LoginActivity extends BaseActivity implements View.OnClickListener, UploadView {
 
     private TextView mRegistTv, mFindPwdTv, mProbationTv;
     private EditText mPhoneEt, mPasswordEt;
     private Button mLoginBtn;
-    private SignUpPresenter presenter;
-
-    private final static String SUCCEED = "登录成功";
-    private final static String FALSE = "密码错误";
-    private final static String NULL = "用户不存在";
 
     private App app;
+
+    private UploadPresenter presenter;
     private LoadingDialog loadingDialog;
 
 
@@ -53,7 +53,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
         setContentView(R.layout.activity_login);
 
         initView();
-        presenter = new SignUpPresenterCompl(this);
+        presenter = new UploadPresenterImp(this);
     }
 
     private void initView() {
@@ -92,10 +92,13 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
                 String password = mPasswordEt.getText().toString();
                 if (!TextUtils.isEmpty(phone) && !TextUtils.isEmpty(password)) {
                     try {
-                        presenter.login(phone, password);
+                        presenter.upload(UrlUtils.LOGIN, new Gson().toJson(new Json_0_sign_in(phone, password)));
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
+
+                    mPhoneEt.setText("");
+                    mPasswordEt.setText("");
                 }else {
                     Toast.makeText(LoginActivity.this, "手机号或密码不能为空", Toast.LENGTH_LONG).show();
                 }
@@ -106,41 +109,25 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
     }
 
     @Override
-    public void mResult(int result) {
-        Message message = new Message();
-        message.what = result;
-        handler.sendMessage(message);
-    }
-
-    Handler handler = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-            if (loadingDialog.isShowing()) {
-                loadingDialog.dismiss();
-            }
-
-            switch (msg.what) {
-                case -1:
-                    Toast.makeText(LoginActivity.this, "用户不存在！请重新登录!", Toast.LENGTH_LONG).show();
-                    mPhoneEt.setText("");
-                    mPasswordEt.setText("");
-                    break;
-                case 0:
-                    Toast.makeText(LoginActivity.this, "密码错误！", Toast.LENGTH_LONG).show();
-                    mPhoneEt.setText("");
-                    mPasswordEt.setText("");
-                    break;
-                case 1:
-                    rememberToSP();
-                    Toast.makeText(LoginActivity.this, "欢迎您!", Toast.LENGTH_LONG).show();
-                    IntentUtils.turnTo(LoginActivity.this, MainActivity.class, true);
-                    WelcomeActivity.instance.finish();
-                    break;
-                default:
-                    break;
-            }
+    public void mResult(String result) throws JSONException {
+        if (loadingDialog != null) {
+            loadingDialog.dismiss();
         }
-    };
+
+        JSONObject jsonObject = new JSONObject(result);
+        String toast = jsonObject.getString("result");
+
+        if (ResultUtils.Login.SIGNIN_RESULT_SUCCESS.equals(toast)) {
+            rememberToSP();
+            Toast.makeText(LoginActivity.this, "欢迎您!", Toast.LENGTH_LONG).show();
+            IntentUtils.turnTo(LoginActivity.this, MainActivity.class, true);
+            WelcomeActivity.instance.finish();
+        }else if (ResultUtils.Login.SIGNIN_RESULT_FAIL_USERNOTEXIT.equals(toast)) {
+            Toast.makeText(LoginActivity.this, "用户不存在！请重新登录!", Toast.LENGTH_LONG).show();
+        }else if (ResultUtils.Login.SIGNIN_RESULT_FAIL_WRONGPASSWORD.equals(toast)) {
+            Toast.makeText(LoginActivity.this, "密码错误！", Toast.LENGTH_LONG).show();
+        }
+    }
 
     //保存登录信息到本地
     private void rememberToSP() {
