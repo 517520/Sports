@@ -17,6 +17,7 @@ public class CheckInView extends View {
 
     private int mNOColor = 0xFF757575;
     private int mYESColor  = 0xFF15A9E6;
+    private int checkInDayNumber=0;
     private int widthsize;
     private int heightsize;
 
@@ -59,16 +60,35 @@ public class CheckInView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        canvas.drawLine(5,40,widthsize,40,mPaint);
-        mPaint.setColor(mYESColor);
-        canvas.drawLine(5,40,200,40,mPaint);
-        canvas.drawCircle(200,40,20,mPaint);
-        canvas.drawCircle(20,40,20,mPaint);
+        mPaint.setColor(mNOColor);
+        canvas.drawLine(5,40,widthsize-5,40,mPaint);
+        int distance = (widthsize-40)/6;
+        int k = 20;
+        for(int i=0;i<7;i++){
+            canvas.drawCircle(k,40,20,mPaint);
+            k=k+distance;
+
+        }
+        if (checkInDayNumber>0){
+            mPaint.setColor(mYESColor);
+            canvas.drawLine(5,40,checkInDayNumber*distance,40,mPaint);
+            k = 20;
+            for(int j=0;j<checkInDayNumber;j++){
+                canvas.drawCircle(k,40,20,mPaint);
+                k=k+distance;
+            }
+        }
+
+
     }
 
     private void initPaint(){
-        mPaint.setColor(Color.GRAY);
         mPaint.setStrokeWidth(15f);
         mPaint.setStyle(Paint.Style.FILL);
+    }
+
+    public void setCheckInDayNumber(int dayNumber){
+        checkInDayNumber = dayNumber;
+        invalidate();
     }
 }

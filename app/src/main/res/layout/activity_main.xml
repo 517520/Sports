@@ -54,7 +54,7 @@
                 android:id="@+id/cycle_main_Rbtn"
                 android:text="@string/cycle"
                 android:checked="false"
-                android:drawableTop="@drawable/ic_cycle"
+                android:drawableTop="@drawable/ic_selector_cycle"
                 style="@style/RadioButton" />
 
             <RadioButton

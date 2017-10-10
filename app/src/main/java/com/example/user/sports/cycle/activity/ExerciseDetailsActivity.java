@@ -11,7 +11,7 @@ import com.example.user.sports.R;
 import com.example.user.sports.ui.AppHeadView;
 
 
-public class ActivityDetails extends AppCompatActivity {
+public class ExerciseDetailsActivity extends AppCompatActivity {
     private AppHeadView headView;
     private TextView mTextViewJoinIn;
 

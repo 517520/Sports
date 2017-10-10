@@ -19,80 +19,86 @@
             android:layout_height="wrap_content">
         </com.example.user.sports.ui.AppHeadView>
 
-        <RelativeLayout
+        <LinearLayout
+            android:background="@color/background_gray"
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/space_150">
-
-            <ImageView
+            android:layout_height="wrap_content">
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="130dp"
-                android:background="@drawable/bg_create_team"/>
-            <ImageView
-                android:id="@+id/head_team_detail_iv"
-                android:layout_width="@dimen/space_80"
-                android:layout_height="@dimen/space_80"
-                android:background="@drawable/bg_imageview"
-                android:layout_marginLeft="@dimen/space_15"
-                android:padding="@dimen/space_2"
-                android:layout_alignParentBottom="true"
-                android:src="@drawable/bg_create_team_head"/>
-        </RelativeLayout>
-        <View
-            android:layout_marginTop="@dimen/space_40"
-            style="@style/ViewLine_near_black"></View>
+                android:layout_height="@dimen/space_150">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/background_gray"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="群组名称"
-                android:textColor="@color/input_hint_gray"
-                android:layout_weight="1"
-                android:gravity="center_vertical"
-                android:textSize="@dimen/text_size_14"
-                android:padding="@dimen/space_20"/>
-            <TextView
-                android:id="@+id/name_team_detail_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="right"
-                android:padding="@dimen/space_20"
-                android:textColor="@color/text_blue"
-                android:textSize="@dimen/text_size_16"/>
-        </LinearLayout>
-        <View style="@style/ViewLine_near_black"
-            android:layout_marginLeft="@dimen/space_15"
-            android:layout_marginRight="@dimen/space_15"></View>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
+                    android:background="@drawable/bg_create_team"/>
+                <ImageView
+                    android:id="@+id/head_team_detail_iv"
+                    android:layout_width="@dimen/space_80"
+                    android:layout_height="@dimen/space_80"
+                    android:background="@drawable/bg_imageview"
+                    android:layout_marginLeft="@dimen/space_15"
+                    android:padding="@dimen/space_2"
+                    android:layout_alignParentBottom="true"
+                    android:src="@drawable/fg_imageview"/>
+            </RelativeLayout>
+            <View
+                android:layout_marginTop="@dimen/space_40"
+                style="@style/ViewLine_near_black"></View>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/background_gray"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="群组位置"
-                android:textColor="@color/input_hint_gray"
-                android:layout_weight="1"
-                android:textSize="@dimen/text_size_14"
-                android:gravity="center_vertical"
-                android:padding="@dimen/space_20"/>
-            <TextView
-                android:id="@+id/location_team_detail_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text=""
-                android:padding="@dimen/space_20"
-                android:textColor="@color/text_blue"
-                android:gravity="center_vertical"
-                android:textSize="@dimen/text_size_16"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="群组名称"
+                    android:textColor="@color/input_hint_gray"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:textSize="@dimen/text_size_14"
+                    android:padding="@dimen/space_20"/>
+                <TextView
+                    android:id="@+id/name_team_detail_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="right"
+                    android:padding="@dimen/space_20"
+                    android:textColor="@color/text_blue"
+                    android:textSize="@dimen/text_size_16"/>
+            </LinearLayout>
+            <View style="@style/ViewLine_near_black"
+                  android:layout_marginLeft="@dimen/space_15"
+                  android:layout_marginRight="@dimen/space_15"></View>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="群组位置"
+                    android:textColor="@color/input_hint_gray"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/text_size_14"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/space_20"/>
+                <TextView
+                    android:id="@+id/location_team_detail_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text=""
+                    android:padding="@dimen/space_20"
+                    android:textColor="@color/text_blue"
+                    android:gravity="center_vertical"
+                    android:textSize="@dimen/text_size_16"/>
+            </LinearLayout>
+            <View style="@style/ViewLine_near_black"></View>
         </LinearLayout>
-        <View style="@style/ViewLine_near_black"></View>
+
+
 
 
         <View style="@style/ViewLine_near_black"

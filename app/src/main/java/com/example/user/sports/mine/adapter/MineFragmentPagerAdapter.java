@@ -23,12 +23,12 @@ public class MineFragmentPagerAdapter extends FragmentStatePagerAdapter {
     @Override
     public Fragment getItem(int position) {
         if (position == 0)
-        return new SportsHistoryFragment();
+        return new HistoryDetailsFragment();
         else if (position == 1)
-            return new HistoryChartFragment();
+            return new HistoryDetailsFragment();
         else if (position == 2)
             return new HistoryDetailsFragment();
-        else return new SportsHistoryFragment();
+        else return new HistoryDetailsFragment();
     }
 
     @Override

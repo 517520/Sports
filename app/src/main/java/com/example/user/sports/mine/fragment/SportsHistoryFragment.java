@@ -38,11 +38,13 @@ if (chartFragment==null){
 }
 
 
+if (detailsFragent == null){
+    detailsFragent = new HistoryDetailsFragment();
+    fragmentManager.beginTransaction()
+            .add(R.id.details_spotrs_history_mine,detailsFragent)
+            .commit();
 
-            detailsFragent = new HistoryDetailsFragment();
-            fragmentManager.beginTransaction()
-                    .add(R.id.details_spotrs_history_mine,detailsFragent)
-                    .commit();
+}
 
         return view;
     }

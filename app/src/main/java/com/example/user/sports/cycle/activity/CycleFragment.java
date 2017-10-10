@@ -47,12 +47,17 @@ public class CycleFragment extends Fragment {
         headView = (AppHeadView)view.findViewById(R.id.header_cycle);
         headView.setVisibility(View.VISIBLE, View.GONE, View.GONE, View.VISIBLE);
         headView.setTitle("运动圈");
-//        headView.setLeftImage(R.drawable.ic_header_cycle);
-
+        headView.setLeftImage(R.drawable.ic_header_cycle);
         headView.setOnClickListenerBack(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                IntentUtils.turnTo(getActivity(),ActivityDetails.class,false);
+                IntentUtils.turnTo(getActivity(),ExerciseDetailsActivity.class,false);
+            }
+        });
+        headView.setOnClickListenerAdd(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                IntentUtils.turnTo(getActivity(),ExerciseCreateActivity.class,false);
             }
         });
 

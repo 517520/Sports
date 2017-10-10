@@ -45,7 +45,7 @@ public class CreateActivity extends BaseActivity implements View.OnClickListener
     private File file;
     private LinearLayout ll_popup;
     private PopUtil pop;
-    private String filename = System.currentTimeMillis() + ".png";
+    private final String filename = System.currentTimeMillis() + ".png";
     public final static int CONSULT_DOC_PICTURE = 1000;
     public final static int CONSULT_DOC_CAMERA = 1001;
     public final static int CONSULT_DOC_CUTTING = 1002;
