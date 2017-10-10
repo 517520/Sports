@@ -87,6 +87,7 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/builds" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/classes" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/dependency-cache" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/DataRangePicker-library-0.2.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/SmartTableLayout-1.6.1/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.android.support.constraint/constraint-layout/1.0.0-alpha7/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.android.support.test.espresso/espresso-core/2.2.2/jars" />
@@ -138,6 +139,7 @@
     <orderEntry type="library" exported="" name="tinypinyin-1.0.0" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="hamcrest-library-1.3" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="hamcrest-integration-1.3" level="project" />
+    <orderEntry type="library" exported="" name="DataRangePicker-library-0.2.0-" level="project" />
     <orderEntry type="library" exported="" name="constraint-layout-solver-1.0.0-alpha7" level="project" />
     <orderEntry type="library" exported="" name="transition-25.1.0" level="project" />
     <orderEntry type="library" exported="" name="support-fragment-25.1.0" level="project" />
