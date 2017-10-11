@@ -73,7 +73,7 @@ public class MineFragment extends Fragment implements View.OnClickListener{
                 IntentUtils.turnTo(getActivity(), LoginActivity.class, false);
                 break;
             case R.id.sports_history_mine_linearlayout:
-                IntentUtils.turnTo(getActivity(),SportsHistoryActivity.class,false);
+                IntentUtils.turnTo(getActivity(),HistoryActivity.class,false);
                 break;
             case R.id.setting_mine_linearlayout:
                 IntentUtils.turnTo(getActivity(),SettingsActivity.class,false);
