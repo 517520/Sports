@@ -90,8 +90,6 @@ public class RegistActivity extends BaseActivity implements View.OnClickListener
                         e.printStackTrace();
                     }
 
-                    mPhoneEt.setText("");
-                    mPassWordEt.setText("");
                 }else {
                     Toast.makeText(RegistActivity.this, "手机号或密码不能为空", Toast.LENGTH_LONG).show();
                 }
@@ -118,6 +116,8 @@ public class RegistActivity extends BaseActivity implements View.OnClickListener
             Map<String, Object> map = new HashMap<>();
             map.put("phone", mPhoneEt.getText().toString());
             IntentUtils.turnTo(RegistActivity.this, HeadActivity.class, true, map);
+            mPhoneEt.setText("");
+            mPassWordEt.setText("");
         }else if (ResultUtils.Login.SIGNUP_RESULT_FAIL_USERNAMEREPEAT.equals(toast)) {
             Toast.makeText(RegistActivity.this, "用户名重复，请重新输入！", Toast.LENGTH_LONG).show();
         }else if (ResultUtils.Login.SIGNUP_RESULT_FAIL_DATABASEWRONG.equals(toast)) {

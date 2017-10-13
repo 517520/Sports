@@ -52,6 +52,9 @@ public final class ResultUtils {
         //更新时时数据库操作错误
         public static final String FORGETPASSWORD_RESULT_FAIL_DATABASEWRONG="fail_databse_operation_wrong";
 
+
+
+
     }
 
 
@@ -70,6 +73,47 @@ public final class ResultUtils {
 
     public static final class Sport{
 
+        /**
+         * 存放步行数据
+         */
+        //如果是步行数据，传过来的Json数据的spoType字段要为walk
+        public static final String WALK_SPOTYPE="walk";
+        //存放成功
+        public static final String WALK_RESULT_SUCCESS="success";
+        //添加失败-用户没找到
+        public static final String WALK_RESULT_FAIL_USERNOTEXIST="fail_user_not_exist";
+        //添加失败-数据库操作错误
+        public static final String WALK_RESULT_FAIL_DATABASEWRONG="fail_database_wrong";
+
+
+
+
+        /**
+         * 存放跑步数据
+         */
+        //如果是跑步数据，传过来的Json数据的spoType字段要为run
+        public static final String RUN_SPOTYPE="run";
+        //存放成功
+        public static final String RUN_RESULT_SUCCESS="success";
+        //添加失败-用户没找到
+        public static final String RUN_RESULT_FAIL_USERNOTEXIST="fail_user_not_exist";
+        //添加失败-数据库操作错误
+        public static final String RUN_RESULT_FAIL_DATABASEWRONG="fail_database_wrong";
+
+
+
+
+        /**
+         * 存放骑行数据
+         */
+        //如果是骑行数据，传过来的Json数据的spoType字段要为ride
+        public static final String RIDE_SPOTYPE="ride";
+        //存放成功
+        public static final String RIDE_RESULT_SUCCESS="success";
+        //添加失败-用户没找到
+        public static final String RIDE_RESULT_FAIL_USERNOTEXIST="fail_user_not_exist";
+        //添加失败-数据库操作错误
+        public static final String RIDE_RESULT_FAIL_DATABASEWRONG="fail_database_wrong";
     }
 
 
@@ -79,6 +123,146 @@ public final class ResultUtils {
     //******************************3.运动圈*******************************************//
 
     public static final class SportActivity{
+
+
+        /**
+         * 创建活动
+         */
+        //创建活动成功
+        public static final String CREATEACTIVITY_RESULT_SUCCESS="success";
+        //创建活动失败-数据库操作错误
+        public static final String CREATEACTIVITY_RESULT_FAIL_DATABASEWRONG="fail_database_wrong";
+
+
+        /**
+         * 所有活动
+         *
+         * 活动--返回所有的活动
+         *
+         */
+        //查找所有活动成功
+        public static final String ALLACTIVITIES_ALL_RESULT_SUCCESS="success";
+
+
+        /**
+         * 所有活动
+         *
+         * 活动--返回其中一个活动详情
+         *
+         */
+        //查找单个活动成功
+        public static final String ALLACTIVITIES_SINGLE_RESULT_SUCCESS="success";
+        //查找失败，该活动不存在
+        public static final String ALLACTIVITIES_SINGLE_RESULT_FAIL_NOTEXIST="fail_activity_not_exist";
+
+
+
+        /**
+         * 所有活动
+         *
+         * 活动-获取某个活动所有评论
+         *
+         */
+        //json数据中的followId，如果是评论活动则为0，评论他人的评论则为他人评论的ID
+        public static final int ALLACTIVITIES_ALLCOMMENTS_FOLLOWID_FOLLOWACTIVITY=0;
+        //获取某个活动所有评论成功
+        public static final String ALLACTIVITIES_ALLCOMMENTS_RESULT_SUCCESS="success";
+
+
+        /**
+         * 所有活动
+         *
+         * 活动-在某个活动下进行评论
+         *
+         */
+        //json数据中的followId，如果是评论活动则为0，评论他人的评论则为他人评论的ID
+        public static final int ALLACTIVITIES_COMMENT_FOLLOWID_FOLLOWACTIVITY=0;
+        //评论成功
+        public static final String ALLACTIVITIES_COMMENT_RESULT_SUCCESS="success";
+        //评论失败，数据库操作错误
+        public static final String ALLACTIVITIES_COMMENT_RESULT_FAIL_DATABASEWRONG="fail_database_wrong";
+
+
+
+        /**
+         * 所有活动
+         *
+         * 活动-申请参加某个活动
+         *
+         */
+        //申请加入活动成功
+        public static final String ALLACTIVITIES_JOIN_RESULT_SUCCESS="success";
+        //申请加入活动失败，我已经加入了这个活动了，无需再次加入了！
+        public static final String ALLACTIVITIES_JOIN_RESULT_FAIL_ALREADYIN="fail_already_in_activity";
+        //申请加入活动失败，数据库操作错误
+        public static final String ALLACTIVITIES_JOIN_RESULT_FAIL_DATABASEWRONG="fail_database_wrong";
+
+
+
+        /**
+         * 我发布的
+         *
+         * 我发布的--返回我发布的所有的活动
+         *
+         */
+        //查找所有活动成功
+        public static final String MYRELEASE_ALL_RESULT_SUCCESS="success";
+
+
+        /**
+         * 我发布的
+         *
+         * 我发布的--返回我发布的其中一个活动详情
+         *
+         */
+        //查找单个活动成功
+        public static final String MYRELEASE_SINGLE_RESULT_SUCCESS="success";
+        //查找失败，该活动不存在
+        public static final String MYRELEASE_SINGLE_RESULT_FAIL_NOTEXIST="fail_activity_not_exist";
+
+
+
+        /**
+         * 我发布的
+         *
+         * 我发布的-获取我发布的某个活动所有评论
+         *
+         */
+        //json数据中的followId，如果是评论活动则为0，评论他人的评论则为他人评论的ID
+        public static final int MYRELEASE_ALLCOMMENTS_FOLLOWID_FOLLOWACTIVITY=0;
+        //获取某个活动所有评论成功
+        public static final String MYRELEASE_ALLCOMMENTS_RESULT_SUCCESS="success";
+
+
+        /**
+         * 我发布的
+         *
+         * 我发布的-在我发布的某个活动下进行评论
+         *
+         */
+        //json数据中的followId，如果是评论活动则为0，评论他人的评论则为他人评论的ID
+        public static final int MYRELEASE_COMMENT_FOLLOWID_FOLLOWACTIVITY=0;
+        //评论成功
+        public static final String MYRELEASE_COMMENT_RESULT_SUCCESS="success";
+        //评论失败，数据库操作错误
+        public static final String MYRELEASE_COMMENT_RESULT_FAIL_DATABASEWRONG="fail_database_wrong";
+
+
+
+        /**
+         * 我发布的
+         *
+         * 我发布的-取消我发布的某个活动
+         *
+         */
+        //取消成功
+        public static final String MYRELEASE_CANCEL_RESULT_SUCCESS="success";
+        //取消活动失败，我不是这个活动的管理者，我没有权限管理这个活动
+        public static final String MYRELEASE_CANCEL_RESULT_FAIL_NOAUTHORITY="fail_no_authority";
+        //取消活动失败，数据库操作错误
+        public static final String MYRELEASE_CANCEL_RESULT_FAIL_DATABASEWRONG="fail_database_wrong";
+
+
 
     }
 

@@ -20,16 +20,17 @@ import com.baidu.mapapi.map.MapView;
 import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.map.PolylineOptions;
 import com.baidu.mapapi.model.LatLng;
+import com.example.user.sports.App;
 import com.example.user.sports.BaseActivity;
 import com.example.user.sports.R;
 import com.example.user.sports.dialog.GiveUpDialog;
 import com.example.user.sports.dialog.LoadingDialog;
-import com.example.user.sports.model.jsonModel.Json_2_state_walk;
+import com.example.user.sports.model.jsonModel.JsonLocation;
+import com.example.user.sports.model.jsonModel.Json_2_state_plus;
 import com.example.user.sports.presenter.UploadPresenter;
 import com.example.user.sports.presenter.UploadPresenterImp;
 import com.example.user.sports.view.UploadView;
 import com.example.user.sports.utils.SharePreferenceUtil;
-import com.example.user.sports.model.UploadModelImp;
 import com.example.user.sports.utils.UrlUtils;
 import com.google.gson.Gson;
 
@@ -37,6 +38,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -48,8 +50,10 @@ import java.util.List;
 public class UploadActivity extends BaseActivity implements View.OnClickListener, UploadView {
 
     //控件
-    private String distance, speed, time, calorie;
+    private String distance, speed, time, calorie, starTime, endTime, type;
     private List<LatLng> latLngList;
+    private List<JsonLocation> locations;
+
     private TextView mUnSaveTv, mDistanceTv, mSpeedTv, mTimeTv, mCalorieTv, mStateTv;
     private Button mContinueBtn, mFinishBtn, mUploadBtn;
 
@@ -64,6 +68,7 @@ public class UploadActivity extends BaseActivity implements View.OnClickListener
     private SharePreferenceUtil sharePreferenceUtil;
     private LoadingDialog loadingDialog;
     private UploadPresenter uploadPresenter;
+    private App app;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,9 +81,15 @@ public class UploadActivity extends BaseActivity implements View.OnClickListener
         Bundle map = intent.getExtras();
         distance = map.getString("distance");
         speed = map.getString("speed");
-        time = map.getString("time");
         calorie = map.getString("calorie");
         latLngList = map.getParcelableArrayList("list");
+        starTime = map.getString("starTime");
+        endTime = map.getString("endTime");
+        type = map.getString("type");
+        time = map.getString("time");
+        locations = new ArrayList<JsonLocation>();
+        locations = (List<JsonLocation>) map.getSerializable("location");
+
         sharePreferenceUtil = new SharePreferenceUtil(this);
         state = sharePreferenceUtil.getState();
 
@@ -91,6 +102,7 @@ public class UploadActivity extends BaseActivity implements View.OnClickListener
         if (loadingDialog == null) {
             loadingDialog = new LoadingDialog(this, R.style.Dialog_Fullscreen);
         }
+        app = (App) getApplicationContext();
 
         mStateTv = (TextView) findViewById(R.id.state_upload_tv);
         mUnSaveTv = (TextView) findViewById(R.id.unsave_upload_tv);
@@ -173,8 +185,25 @@ public class UploadActivity extends BaseActivity implements View.OnClickListener
 
                 break;
             case R.id.upload_btn:
+                String temp = "";
+                for (int i = 0; i < locations.size(); i++) {
+                    temp = temp + locations.get(i).getLatitude() + "," + locations.get(i).getLongitude() + ";";
+                }
+
                 try {
-                    uploadPresenter.upload(UrlUtils.STATE_WALK, new Gson().toJson(new Json_2_state_walk("55","2017-10-18 14:00:00", "2017-10-18 14:00:30", "w", 10.0f, 20.0f, 30.0f, 10000, 50.0f)));
+                    uploadPresenter.upload(UrlUtils.STATE_PLUS,
+                            new Gson().toJson(
+                                    new Json_2_state_plus(
+                                            app.getSp().getPhone(),
+                                            starTime,
+                                            endTime,
+                                            type,
+                                            Float.valueOf(distance),
+                                            Float.valueOf(speed),
+                                            Float.valueOf(calorie),
+                                            0,
+                                            temp,
+                                            "")));
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

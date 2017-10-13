@@ -33,6 +33,7 @@ import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.utils.DistanceUtil;
 import com.example.user.sports.BaseActivity;
 import com.example.user.sports.R;
+import com.example.user.sports.model.jsonModel.JsonLocation;
 import com.example.user.sports.utils.MyOrientationListener;
 import com.example.user.sports.view.athletics.receive.AdminManageReceiver;
 import com.example.user.sports.dialog.AbandonDialog;
@@ -41,7 +42,9 @@ import com.example.user.sports.utils.IntentUtils;
 import com.example.user.sports.utils.SharePreferenceUtil;
 
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -101,6 +104,15 @@ public class CountActivity extends BaseActivity implements View.OnClickListener 
     private int state;
     public static  CountActivity instance = null;
 
+    //时间
+    private String starTime;
+    private String endTime;
+
+    //类型
+    private String type;
+
+    private List<JsonLocation> locationList;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -124,12 +136,15 @@ public class CountActivity extends BaseActivity implements View.OnClickListener 
         switch (state) {
             case 1:
                 mStateTv.setText("步行中");
+                type = "walk";
                 break;
             case 2:
                 mStateTv.setText("跑步中");
+                type = "run";
                 break;
             case 3:
                 mStateTv.setText("骑行中");
+                type = "ride";
                 break;
             default:
                 break;
@@ -138,6 +153,7 @@ public class CountActivity extends BaseActivity implements View.OnClickListener 
 
     //初始化控件
     private void initView() {
+        locationList = new ArrayList<>();
         mStopBtn = (Button) findViewById(R.id.stop_count_btn);
         mPauseBtn = (Button) findViewById(R.id.pause_count_btn);
         mContinueBtn = (Button) findViewById(R.id.continue_count_btn);
@@ -260,12 +276,14 @@ public class CountActivity extends BaseActivity implements View.OnClickListener 
                 MarkerOptions options = new MarkerOptions().icon(bitmap).position(ll);
                 baiduMap.addOverlay(options);
 
-
                 baiduMap.animateMapStatus(status);
                 isFirst = false;
             }
-            LatLng latLng = new LatLng(bdLocation.getLatitude(), bdLocation.getLongitude());
+            LatLng latLng = new LatLng(bdLocation.getLatitude() + x, bdLocation.getLongitude() + y);
+            locationList.add(new JsonLocation(bdLocation.getLatitude() + y, bdLocation.getLongitude() + x));
             adapter(latLng);
+            x = x +0.00005;
+            y = y +0.00005;
         }
     }
 
@@ -311,10 +329,16 @@ public class CountActivity extends BaseActivity implements View.OnClickListener 
                 });
             }
         };
+
+        SimpleDateFormat formatter = new SimpleDateFormat ("yyyy-MM-dd HH:mm:ss");
+        Date curDate = new Date(System.currentTimeMillis());//获取当前时间
+        starTime = formatter.format(curDate);
+
         timer.schedule(timerTask,0,1000);
         mLocationClient.registerLocationListener(myListener);
         mLocationClient.start();
     }
+
 
     //停止计时
     public void stopReckon() {
@@ -343,6 +367,9 @@ public class CountActivity extends BaseActivity implements View.OnClickListener 
                 }
             });
         }else {
+            SimpleDateFormat formatter = new SimpleDateFormat ("yyyy-MM-dd HH:mm:ss");
+            Date curDate = new Date(System.currentTimeMillis());//获取当前时间
+            endTime = formatter.format(curDate);
             haveStop();
         }
     }
@@ -357,12 +384,16 @@ public class CountActivity extends BaseActivity implements View.OnClickListener 
     //跳转上传数据页面
     private void haveStop() {
         Map<String, Object> map = new HashMap<>();
+        map.put("starTime", starTime);
+        map.put("endTime", endTime);
         map.put("distance", mDistanceTv.getText().toString());
         map.put("speed", mSpeedTv.getText().toString());
         map.put("time", mTimeTv.getText().toString());
         map.put("calorie", mCalorieTv.getText().toString());
-        map.put("state",state);
+        map.put("type", type);
         map.put("list", latLngList);
+        map.put("location", locationList);
+
         IntentUtils.turnTo(CountActivity.this, UploadActivity.class, true, map);
     }
 

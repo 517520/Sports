@@ -5,6 +5,7 @@ import android.os.Message;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -13,21 +14,30 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.user.sports.App;
 import com.example.user.sports.BaseActivity;
 import com.example.user.sports.R;
+import com.example.user.sports.dialog.LoadingDialog;
+import com.example.user.sports.model.jsonModel.Json_0_sign_in;
+import com.example.user.sports.presenter.UploadPresenter;
+import com.example.user.sports.presenter.UploadPresenterImp;
 import com.example.user.sports.ui.DividerItemDecoration2;
+import com.example.user.sports.view.UploadView;
 import com.example.user.sports.view.contacts.adapter.RunFriendAdapter;
 import com.example.user.sports.view.contacts.model.RunFriend;
 import com.example.user.sports.model.jsonModel.Json_4_add_findpeople;
 import com.example.user.sports.ui.AppHeadView;
 import com.example.user.sports.utils.IntentUtils;
 import com.example.user.sports.utils.UrlUtils;
+import com.example.user.sports.view.main.activity.LoginActivity;
 import com.google.gson.Gson;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.Callback;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -52,9 +62,6 @@ public class AddFriendActivity extends BaseActivity implements View.OnClickListe
     private RunFriendAdapter runFriendAdapter;
     private List<RunFriend> friendList;
 
-    private String result;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,7 +83,6 @@ public class AddFriendActivity extends BaseActivity implements View.OnClickListe
                 finish();
             }
         });
-
     }
 
     private void initView() {
@@ -93,11 +99,11 @@ public class AddFriendActivity extends BaseActivity implements View.OnClickListe
         mSearchEt.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             public boolean onEditorAction(TextView v, int actionId,KeyEvent event)  {
                 if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                    Map<String, Object> map = new HashMap<String, Object>();
-                    map.put("state", 1);
-                    map.put("tagPhone", mSearchEt.getText().toString());
-                    mSearchEt.setText("");
-                    IntentUtils.turnTo(AddFriendActivity.this, SearchActivity.class, false, map);
+                    if (!TextUtils.isEmpty(mSearchEt.getText().toString())) {
+                        searchFriend();
+                    }else {
+                        Toast.makeText(AddFriendActivity.this, "输入手机号不能为空", Toast.LENGTH_LONG).show();
+                    }
                 }
                 return false;
             }
@@ -105,12 +111,10 @@ public class AddFriendActivity extends BaseActivity implements View.OnClickListe
 
         mSearchTeamEt.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                    Map<String, Object> map = new HashMap<String, Object>();
-                    map.put("state", 2);
-                    map.put("tagName", mSearchTeamEt.getText().toString());
-                    mSearchTeamEt.setText("");
-                    IntentUtils.turnTo(AddFriendActivity.this, SearchActivity.class, false, map);
+                if (!TextUtils.isEmpty(mSearchTeamEt.getText().toString())) {
+                    searchTeam();
+                }else {
+                    Toast.makeText(AddFriendActivity.this, "输入群名称不能为空", Toast.LENGTH_LONG).show();
                 }
                 return false;
             }
@@ -124,21 +128,22 @@ public class AddFriendActivity extends BaseActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.search_add_friend_iv:
-//                Map<String, Object> map = new HashMap<String, Object>();
-//                map.put("state", 1);
-//                mSearchEt.setText("");
-//                map.put("tagPhone", mSearchEt.getText().toString());
-//                IntentUtils.turnTo(AddFriendActivity.this, SearchActivity.class, false, map);
+                if (!TextUtils.isEmpty(mSearchEt.getText().toString())) {
+                    searchFriend();
+                }else {
+                    Toast.makeText(AddFriendActivity.this, "输入手机号不能为空", Toast.LENGTH_LONG).show();
+                }
 
-                search();
                 break;
             case R.id.search_add_team_iv:
-                Map<String, Object> map2 = new HashMap<String, Object>();
-                map2.put("state", 2);
-                map2.put("tagName", mSearchTeamEt.getText().toString());
-                mSearchTeamEt.setText("");
-                IntentUtils.turnTo(AddFriendActivity.this, SearchActivity.class, false, map2);
+                if (!TextUtils.isEmpty(mSearchTeamEt.getText().toString())) {
+                    searchTeam();
+                }else {
+                    Toast.makeText(AddFriendActivity.this, "输入群名称不能为空", Toast.LENGTH_LONG).show();
+                }
                 break;
+
+
             case R.id.weibo_add_friend_tv:
 
                 break;
@@ -156,41 +161,21 @@ public class AddFriendActivity extends BaseActivity implements View.OnClickListe
         }
     }
 
-    private void search() {
-        OkHttpUtils
-                .postString()
-                .url(UrlUtils.ADD_FINDFRIEND)
-                .content(new Gson().toJson(new Json_4_add_findpeople("55", "123456")))
-                .mediaType(MediaType.parse("application/json; charset=utf-8"))
-                .build()
-                .execute(new Callback() {
-                    @Override
-                    public Object parseNetworkResponse(Response response, int i) throws Exception {
-                        JSONObject jsonObject = new JSONObject(response.body().string());
-                        result = jsonObject.getString("findIcon");
-                        handler.sendEmptyMessage(1);
-                        return null;
-                    }
-
-                    @Override
-                    public void onError(Call call, Exception e, int i) {
-
-                    }
-
-                    @Override
-                    public void onResponse(Object o, int i) {
-
-                    }
-                });
+    private void searchFriend() {
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("state", 1);
+        map.put("tagPhone", mSearchEt.getText().toString());
+        mSearchEt.setText("");
+        IntentUtils.turnTo(AddFriendActivity.this, SearchActivity.class, false, map);
     }
 
-    Handler handler = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-            super.handleMessage(msg);
-            Toast.makeText(AddFriendActivity.this , result, Toast.LENGTH_LONG).show();
-        }
-    };
+    private void searchTeam() {
+        Map<String, Object> map2 = new HashMap<String, Object>();
+        map2.put("state", 2);
+        map2.put("tagName", mSearchTeamEt.getText().toString());
+        mSearchTeamEt.setText("");
+        IntentUtils.turnTo(AddFriendActivity.this, SearchActivity.class, false, map2);
+    }
 
     private void initData() {
         friendList = new ArrayList<>();
@@ -217,4 +202,5 @@ public class AddFriendActivity extends BaseActivity implements View.OnClickListe
     private void details(int position) {
         Toast.makeText(this, friendList.get(position).getName(), Toast.LENGTH_LONG).show();
     }
+
 }

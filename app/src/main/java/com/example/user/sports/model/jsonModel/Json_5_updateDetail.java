@@ -7,13 +7,14 @@ package com.example.user.sports.model.jsonModel;
 public class Json_5_updateDetail {
 
     private String phoneNumber;
-    private String icon;
+    private String iconString;
     private String nickname;
     private int sex;
     private String birthday;
     private Float weight;
     private int height;
     private int walkNumGoal;
+    private String iconURL;
     private String result;
 
     public Json_5_updateDetail(){ }
@@ -26,12 +27,12 @@ public class Json_5_updateDetail {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getIcon() {
-        return icon;
+    public String getIconString() {
+        return iconString;
     }
 
-    public void setIcon(String icon) {
-        this.icon = icon;
+    public void setIconString(String iconString) {
+        this.iconString = iconString;
     }
 
     public String getNickname() {
@@ -82,6 +83,14 @@ public class Json_5_updateDetail {
         this.walkNumGoal = walkNumGoal;
     }
 
+    public String getIconURL() {
+        return iconURL;
+    }
+
+    public void setIconURL(String iconURL) {
+        this.iconURL = iconURL;
+    }
+
     public String getResult() {
         return result;
     }
@@ -90,11 +99,11 @@ public class Json_5_updateDetail {
         this.result = result;
     }
 
-    public Json_5_updateDetail(String phoneNumber, String icon, String nickname
+    public Json_5_updateDetail(String phoneNumber, String iconString, String nickname
             , int sex, String birthday, Float weight, int height, int walkNumGoal){
 
         this.phoneNumber=phoneNumber;
-        this.icon=icon;
+        this.iconString=iconString;
         this.nickname=nickname;
         this.sex=sex;
         this.birthday=birthday;

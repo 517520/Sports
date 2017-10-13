@@ -3,12 +3,13 @@ package com.example.user.sports.model.jsonModel;
 public class Json_3_createActivity {
 
     private String phoneNumber;
-    private String icon;
+    private String iconString;
     private String theam;
     private String beginTime;
     private String endTime;
     private String location;
     private String brief;
+    private String iconURL;
     private String result;
 
     public String getPhoneNumber() {
@@ -19,12 +20,12 @@ public class Json_3_createActivity {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getIcon() {
-        return icon;
+    public String getIconString() {
+        return iconString;
     }
 
-    public void setIcon(String icon) {
-        this.icon = icon;
+    public void setIconString(String iconString) {
+        this.iconString = iconString;
     }
 
     public String getTheam() {
@@ -67,6 +68,14 @@ public class Json_3_createActivity {
         this.brief = brief;
     }
 
+    public String getIconURL() {
+        return iconURL;
+    }
+
+    public void setIconURL(String iconURL) {
+        this.iconURL = iconURL;
+    }
+
     public String getResult() {
         return result;
     }
@@ -77,10 +86,10 @@ public class Json_3_createActivity {
 
     public Json_3_createActivity(){ }
 
-    public Json_3_createActivity(String phoneNumber,String icon,String theam,String beginTime
+    public Json_3_createActivity(String phoneNumber,String iconString,String theam,String beginTime
             ,String endTime,String location,String brief){
         this.phoneNumber=phoneNumber;
-        this.icon=icon;
+        this.iconString=iconString;
         this.theam=theam;
         this.beginTime=beginTime;
         this.endTime=endTime;

@@ -9,6 +9,7 @@ import android.os.Message;
 import android.provider.MediaStore;
 import android.support.v4.content.FileProvider;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -17,18 +18,31 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.user.sports.App;
 import com.example.user.sports.BaseActivity;
 import com.example.user.sports.BuildConfig;
 import com.example.user.sports.R;
 import com.example.user.sports.dialog.LoadingDialog;
+import com.example.user.sports.model.jsonModel.JsonImageString;
+import com.example.user.sports.model.jsonModel.JsonUserImg;
+import com.example.user.sports.model.jsonModel.Json_0_set;
+import com.example.user.sports.presenter.UploadPresenter;
+import com.example.user.sports.presenter.UploadPresenterImp;
 import com.example.user.sports.ui.CircleImageView;
 import com.example.user.sports.utils.IntentUtils;
 import com.example.user.sports.utils.PictureCutUtil;
 import com.example.user.sports.utils.PopUtil;
+import com.example.user.sports.utils.UrlUtils;
+import com.example.user.sports.view.UploadView;
+import com.google.gson.Gson;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.Callback;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -41,7 +55,7 @@ import okhttp3.Response;
  * Description : chose your headphoto and input your nickname;
  */
 
-public class HeadActivity extends BaseActivity implements View.OnClickListener{
+public class HeadActivity extends BaseActivity implements View.OnClickListener, UploadView{
 
     private View view;
     private CircleImageView circleImageView;
@@ -51,7 +65,7 @@ public class HeadActivity extends BaseActivity implements View.OnClickListener{
     private String phone;
 
     private PictureCutUtil pictureCutUtil;
-    private File file;
+    private File file, uploadFile;
     private LinearLayout ll_popup;
     private PopUtil pop;
     private String filename = System.currentTimeMillis() + ".png";
@@ -61,6 +75,7 @@ public class HeadActivity extends BaseActivity implements View.OnClickListener{
     private Uri outputFileUri;
 
     private LoadingDialog loadingDialog;
+    private UploadPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,7 +94,10 @@ public class HeadActivity extends BaseActivity implements View.OnClickListener{
 
     private void initView() {
         pictureCutUtil = new PictureCutUtil(this);
-        loadingDialog = new LoadingDialog(this);
+        if (loadingDialog == null) {
+            loadingDialog = new LoadingDialog(this);
+        }
+        presenter = new UploadPresenterImp(this);
 
         circleImageView = (CircleImageView) findViewById(R.id.photo_head_civ);
         mNickNameEt = (EditText) findViewById(R.id.nickname_head_et);
@@ -97,7 +115,18 @@ public class HeadActivity extends BaseActivity implements View.OnClickListener{
                 pop.showAtLocation(view, Gravity.BOTTOM, 0, 0);
                 break;
             case R.id.complete_head_btn:
-                IntentUtils.turnTo(HeadActivity.this, LoginActivity.class, true);
+                if (uploadFile != null && !TextUtils.isEmpty(mNickNameEt.getText())){
+                    String path = JsonImageString.getImageStr(uploadFile.getAbsolutePath());
+                    String nickname = mNickNameEt.getText().toString();
+                    try {
+                        presenter.upload(UrlUtils.SET, new Gson().toJson(new Json_0_set(phone, nickname, path)));
+                    }catch (IOException e){
+
+                    }
+                }else {
+                    Toast.makeText(HeadActivity.this, "头像或者昵称不能为空！", Toast.LENGTH_LONG).show();
+                }
+
                 break;
             default:
 
@@ -226,57 +255,69 @@ public class HeadActivity extends BaseActivity implements View.OnClickListener{
             Bitmap photo = extras.getParcelable("data");
             circleImageView.setImageBitmap(photo);
 
-            if (loadingDialog != null) {
-                loadingDialog.show();
-            }
-
-            File imageFile = pictureCutUtil.cutPictureQuality(photo, "headImage");
-            Toast.makeText(this, imageFile.getName(), Toast.LENGTH_LONG).show();
-            upload(imageFile, mNickNameEt.getText().toString());
+            uploadFile = pictureCutUtil.cutPictureQuality(photo, "headImage");
         }
     }
 
-    private void upload(File file, String nickname) {
-        if (!file.exists())
-        {
-            Toast.makeText(HeadActivity.this, "文件不存在，请修改文件路径", Toast.LENGTH_SHORT).show();
-            return;
+    @Override
+    public void mResult(String result) throws JSONException {
+        if (loadingDialog.isShowing()) {
+            loadingDialog.dismiss();
         }
-
-        Map<String, String> params = new HashMap<>();
-        params.put("phone", phone);
-        params.put("nickname", nickname);
-
-        OkHttpUtils.post()
-                .addFile("image", file.getName(), file)
-                .url("")
-                .params(params)
-                .build()
-                .execute(new Callback() {
-                    @Override
-                    public Object parseNetworkResponse(Response response, int i) throws Exception {
-
-                        return null;
-                    }
-
-                    @Override
-                    public void onError(Call call, Exception e, int i) {
-
-                    }
-
-                    @Override
-                    public void onResponse(Object o, int i) {
-
-                    }
-                });
+        JSONObject jsonObject = new JSONObject(result);
+        String url = jsonObject.getString("result");
+        Toast.makeText(HeadActivity.this, "设置成功！", Toast.LENGTH_LONG).show();
+        IntentUtils.turnTo(HeadActivity.this, LoginActivity.class, true);
     }
 
-    Handler handler = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-            if (loadingDialog != null) {
-                loadingDialog.dismiss();
-            }
+    @Override
+    public void showDialog() {
+        if (loadingDialog != null) {
+            loadingDialog.show();
         }
-    };
+    }
+
+//    private void upload(File file, String nickname) {
+//        if (!file.exists())
+//        {
+//            Toast.makeText(HeadActivity.this, "文件不存在，请修改文件路径", Toast.LENGTH_SHORT).show();
+//            return;
+//        }
+//
+//        Map<String, String> params = new HashMap<>();
+//        params.put("phone", phone);
+//        params.put("nickname", nickname);
+//
+//        OkHttpUtils.post()
+//                .addFile("image", file.getName(), file)
+//                .url("")
+//                .params(params)
+//                .build()
+//                .execute(new Callback() {
+//                    @Override
+//                    public Object parseNetworkResponse(Response response, int i) throws Exception {
+//
+//                        return null;
+//                    }
+//
+//                    @Override
+//                    public void onError(Call call, Exception e, int i) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onResponse(Object o, int i) {
+//
+//                    }
+//                });
+//    }
+//
+//    Handler handler = new Handler() {
+//        @Override
+//        public void handleMessage(Message msg) {
+//            if (loadingDialog != null) {
+//                loadingDialog.dismiss();
+//            }
+//        }
+//    };
 }

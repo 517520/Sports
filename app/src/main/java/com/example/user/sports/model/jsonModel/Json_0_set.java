@@ -8,15 +8,16 @@ public class Json_0_set {
 
     private String phoneNumber;
     private String nickname;
-    private String icon;
+    private String iconString;
+    private String iconURL;
     private String result;
 
     public Json_0_set(){ }
 
-    public Json_0_set(String phoneNumber,String nickname,String icon){
+    public Json_0_set(String phoneNumber,String nickname,String iconString){
         this.phoneNumber=phoneNumber;
         this.nickname=nickname;
-        this.icon=icon;
+        this.iconString=iconString;
     }
 
     public String getPhoneNumber() {
@@ -27,7 +28,6 @@ public class Json_0_set {
         this.phoneNumber = phoneNumber;
     }
 
-
     public String getNickname() {
         return nickname;
     }
@@ -36,12 +36,20 @@ public class Json_0_set {
         this.nickname = nickname;
     }
 
-    public String getIcon() {
-        return icon;
+    public String getIconString() {
+        return iconString;
     }
 
-    public void setIcon(String icon) {
-        this.icon = icon;
+    public void setIconString(String iconString) {
+        this.iconString = iconString;
+    }
+
+    public String getIconURL() {
+        return iconURL;
+    }
+
+    public void setIconURL(String iconURL) {
+        this.iconURL = iconURL;
     }
 
     public String getResult() {

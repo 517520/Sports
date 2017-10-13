@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.user.sports.R;
+import com.example.user.sports.model.jsonModel.Json_4_add_findpeople;
 import com.example.user.sports.view.contacts.model.Friend;
 
 import java.util.List;
@@ -22,11 +23,11 @@ import java.util.List;
 public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.MyViewHolder> {
 
     private Context context;
-    private List<Friend> list;
+    private List<Json_4_add_findpeople> list;
 
     private SearchAdapter.OnItemClickLitener mOnItemClickLitener;
 
-    public SearchAdapter(Context context, List<Friend> list) {
+    public SearchAdapter(Context context, List<Json_4_add_findpeople> list) {
         this.context = context;
         this.list = list;
     }
@@ -42,8 +43,8 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.MyViewHold
 
     @Override
     public void onBindViewHolder(final MyViewHolder myViewHolder, int i) {
-        myViewHolder.tvName.setText(list.get(i).getName());
-        myViewHolder.tvDetail.setText(list.get(i).getDetail());
+        myViewHolder.tvName.setText(list.get(i).getFindNickname());
+        myViewHolder.tvDetail.setText(list.get(i).getFindBrief());
 
         if (mOnItemClickLitener != null) {
             myViewHolder.mAddBtn.setOnClickListener(new View.OnClickListener() {
@@ -77,7 +78,6 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.MyViewHold
 
     public interface OnItemClickLitener {
         void onItemClick(View view, int position);
-
     }
 
     public void setOnItemClickLitener(SearchAdapter.OnItemClickLitener mOnItemClickLitener) {

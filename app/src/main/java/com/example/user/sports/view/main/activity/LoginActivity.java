@@ -97,8 +97,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
                         e.printStackTrace();
                     }
 
-                    mPhoneEt.setText("");
-                    mPasswordEt.setText("");
+
                 }else {
                     Toast.makeText(LoginActivity.this, "手机号或密码不能为空", Toast.LENGTH_LONG).show();
                 }
@@ -135,6 +134,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
         app.getSp().setPhone(mPhoneEt.getText().toString());
         app.getSp().setPassword(mPasswordEt.getText().toString());
         app.getSp().setState(0);
+        mPhoneEt.setText("");
+        mPasswordEt.setText("");
     }
 
     @Override

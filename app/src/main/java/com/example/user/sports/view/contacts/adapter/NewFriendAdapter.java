@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.user.sports.R;
+import com.example.user.sports.model.jsonModel.Json_4_newFriend_list;
 import com.example.user.sports.view.contacts.model.Friend;
 
 import java.util.List;
@@ -22,11 +23,11 @@ import java.util.List;
 public class NewFriendAdapter extends RecyclerView.Adapter<NewFriendAdapter.MyViewHolder> {
 
     private Context context;
-    private List<Friend> list;
+    private List<Json_4_newFriend_list> list;
 
     private NewFriendAdapter.OnItemClickLitener mOnItemClickLitener;
 
-    public NewFriendAdapter(Context context, List<Friend> list) {
+    public NewFriendAdapter(Context context, List<Json_4_newFriend_list> list) {
         this.context = context;
         this.list = list;
     }
@@ -42,8 +43,8 @@ public class NewFriendAdapter extends RecyclerView.Adapter<NewFriendAdapter.MyVi
 
     @Override
     public void onBindViewHolder(final MyViewHolder myViewHolder, int i) {
-        myViewHolder.tvName.setText(list.get(i).getName());
-        myViewHolder.tvDetail.setText(list.get(i).getDetail());
+        myViewHolder.tvName.setText(list.get(i).getLinkNickname());
+        myViewHolder.tvDetail.setText(list.get(i).getLinkBrief());
         if (mOnItemClickLitener != null) {
             myViewHolder.mAddBtn.setOnClickListener(new View.OnClickListener() {
                 @Override

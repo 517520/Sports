@@ -7,18 +7,32 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.user.sports.App;
 import com.example.user.sports.BaseActivity;
 import com.example.user.sports.R;
+import com.example.user.sports.dialog.LoadingDialog;
+import com.example.user.sports.model.jsonModel.Json_4_add_addpeople;
+import com.example.user.sports.model.jsonModel.Json_4_add_findgroup;
+import com.example.user.sports.model.jsonModel.Json_4_add_findpeople;
+import com.example.user.sports.presenter.UploadPresenter;
+import com.example.user.sports.presenter.UploadPresenterImp;
+import com.example.user.sports.utils.IntentUtils;
+import com.example.user.sports.utils.ResultUtils;
+import com.example.user.sports.utils.UrlUtils;
+import com.example.user.sports.view.UploadView;
 import com.example.user.sports.view.contacts.adapter.SearchAdapter;
 import com.example.user.sports.view.contacts.model.Friend;
 import com.example.user.sports.ui.AppHeadView;
 import com.example.user.sports.ui.DividerItemDecoration;
 import com.example.user.sports.utils.SharePreferenceUtil;
+import com.google.gson.Gson;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.Callback;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,14 +44,19 @@ import okhttp3.Response;
  * Date : 2017.09.06 11:44
  * Description :
  */
-public class SearchActivity extends BaseActivity {
+public class SearchActivity extends BaseActivity implements UploadView{
 
     private RecyclerView mSearchRv;
     private AppHeadView headView;
     private SearchAdapter searchAdapter;
-    private List<Friend> friendList;
-    private SharePreferenceUtil sharePreferenceUtil;
+    private List<Json_4_add_findpeople> friendList;
     private String phone, name;
+    private int type;
+    private int state = 0;
+
+    private App app;
+    private UploadPresenter presenter;
+    private LoadingDialog loadingDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,22 +66,17 @@ public class SearchActivity extends BaseActivity {
 
         Intent intent = getIntent();
         Bundle map = intent.getExtras();
-        if (map.getInt("state") == 1) {
-            name = map.getString("tagPhone");
-        }else if (map.getInt("state") == 2) {
+        type = map.getInt("state");
+        if (type == 1) {
+            phone = map.getString("tagPhone");
+        }else if (type == 2) {
             name = map.getString("tagName");
         }
 
         initHeadView();
         initView();
         initData();
-    }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        sharePreferenceUtil = new SharePreferenceUtil(this);
-        phone = sharePreferenceUtil.getPhone();
     }
 
     private void initHeadView() {
@@ -78,59 +92,94 @@ public class SearchActivity extends BaseActivity {
     }
 
     private void initView() {
+        if (loadingDialog == null) {
+            loadingDialog = new LoadingDialog(this);
+        }
+        app = (App) getApplicationContext();
+
         mSearchRv = (RecyclerView) findViewById(R.id.friend_search_rv);
         mSearchRv.setLayoutManager(new LinearLayoutManager(this));
     }
 
     private void initData() {
-        friendList = new ArrayList<>();
-        Friend friend1 = new Friend();
-        friend1.setName("原子弹");
-        friend1.setDetail("傻逼就是我!");
-        friendList.add(friend1);
-        Friend friend2 = new Friend();
-        friend2.setName("贝尔格里尔斯");
-        friend2.setDetail("这个世界上压根就没有没有我不敢吃的东西");
-        friendList.add(friend2);
+        presenter = new UploadPresenterImp(this);
+        if (type == 1) {
+            try {
+                presenter.upload(UrlUtils.ADD_FINDFRIEND, new Gson().toJson(new Json_4_add_findpeople(app.getSp().getPhone(), phone)));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }else if (type == 2) {
+            try {
+                presenter.upload(UrlUtils.ADD_FINDGROUP, new Gson().toJson(new Json_4_add_findgroup(app.getSp().getPhone(), name)));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
+    @Override
+    public void mResult(String result) throws JSONException {
+        if (loadingDialog.isShowing()) {
+            loadingDialog.dismiss();
+        }
+
+        JSONObject jsonObject = new JSONObject(result);
+        String toast = jsonObject.getString("result");
+
+        if (state == 0) {
+            //查找陌生人
+            if (ResultUtils.LinkPeople.AFP_RESULT_SUCCESS.equals(toast)) {
+                show(result);
+            }else if (ResultUtils.LinkPeople.AFP_RESULT_FAIL_OTHERNOTEXIST.equals(toast)) {
+                Toast.makeText(SearchActivity.this, "未找到该用户", Toast.LENGTH_LONG).show();
+            }else if (ResultUtils.LinkPeople.AFP_RESULT_FAIL_OTHERALREADY.equals(toast)) {
+                Toast.makeText(SearchActivity.this, "您已添加此人为好友！", Toast.LENGTH_LONG).show();
+            }
+        }else if (state == 1) {
+            //添加此人
+            if (ResultUtils.LinkPeople.AAP_RESULT_SUCCESS.equals(toast)) {
+                Toast.makeText(SearchActivity.this, "添加成功,请等待对方接受", Toast.LENGTH_LONG).show();
+                finish();
+            }else if (ResultUtils.LinkPeople.AAP_RESULT_FAIL_DATABASEWRONG.equals(toast)) {
+                Toast.makeText(SearchActivity.this, "添加失败！", Toast.LENGTH_LONG).show();
+                finish();
+            }
+        }
+    }
+
+    private void show(String result) {
+        friendList = new ArrayList<>();
+        Json_4_add_findpeople json_4_add_findpeople = new Gson().fromJson(result, Json_4_add_findpeople.class);
+        friendList.add(json_4_add_findpeople);
         searchAdapter = new SearchAdapter(this, friendList);
         mSearchRv.setAdapter(searchAdapter);
         mSearchRv.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL_LIST));
         searchAdapter.setOnItemClickLitener(new SearchAdapter.OnItemClickLitener() {
             @Override
             public void onItemClick(View view, int position) {
-                add(position);
+                switch (view.getId()) {
+                    case R.id.add_search_item_btn:
+                        state = 1;
+                        addFriend(friendList.get(position).getFindPhoneNumber());
+                        break;
+                }
             }
         });
     }
 
-    private void request() {
-        OkHttpUtils
-                .post()
-                .url("")
-                .addParams("phoneNumber", phone)
-                .build()
-                .execute(new Callback() {
-                    @Override
-                    public Object parseNetworkResponse(Response response, int i) throws Exception {
-                        JSONObject object = new JSONObject(response.body().string());
-
-                        return null;
-                    }
-
-                    @Override
-                    public void onError(Call call, Exception e, int i) {
-
-                    }
-
-                    @Override
-                    public void onResponse(Object o, int i) {
-
-                    }
-                });
+    private void addFriend(String findPhoneNumber) {
+        try {
+            presenter.upload(UrlUtils.ADD_ADDFRIEND, new Gson().toJson(new Json_4_add_addpeople(app.getSp().getPhone(), findPhoneNumber)));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    private void add(int position) {
-        Toast.makeText(this, "你添加了" + friendList.get(position).getName() + "为好友", Toast.LENGTH_LONG).show();
+    @Override
+    public void showDialog() {
+        if (loadingDialog != null) {
+            loadingDialog.show();
+        }
     }
 }
