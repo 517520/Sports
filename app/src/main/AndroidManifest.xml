@@ -36,6 +36,7 @@
         android:name="android.hardware.sensor.stepdetector"
         android:required="true"/>
 
+
     <application
         android:name=".App"
         android:allowBackup="true"
