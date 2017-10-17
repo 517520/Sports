@@ -1,5 +1,6 @@
 package com.example.user.sports.view.contacts.adapter;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +9,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.example.user.sports.App;
 import com.example.user.sports.R;
 import com.example.user.sports.view.contacts.model.Chat;
 
@@ -21,7 +24,9 @@ import java.util.List;
 
 public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
 
+    private Context context;
     private List<Chat> list;
+    private App app;
 
     static class ViewHolder extends RecyclerView.ViewHolder {
 
@@ -41,7 +46,8 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
         }
     }
 
-    public ChatAdapter(List<Chat> list){
+    public ChatAdapter(Context context, List<Chat> list){
+        this.context = context;
         this.list = list;
     }
 
@@ -67,7 +73,10 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
         }else if (chat.getType() == Chat.Send) {
             viewHolder.leftLayout.setVisibility(View.GONE);
             viewHolder.rightLayout.setVisibility(View.VISIBLE);
-            viewHolder.rightIv.setImageBitmap(chat.getBitmap());
+
+            app = (App) context.getApplicationContext();
+            Glide.with(this.context).load(app.getSp().getIcon()).into(viewHolder.rightIv);
+//            viewHolder.rightIv.setImageBitmap(chat.getBitmap());
             viewHolder.rightTv.setText(chat.getMessage());
         }
     }

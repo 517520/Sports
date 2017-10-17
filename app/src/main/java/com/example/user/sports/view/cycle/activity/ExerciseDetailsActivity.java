@@ -7,11 +7,11 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.user.sports.BaseActivity;
 import com.example.user.sports.R;
 import com.example.user.sports.ui.AppHeadView;
 
-
-public class ExerciseDetailsActivity extends AppCompatActivity {
+public class ExerciseDetailsActivity extends BaseActivity {
     private AppHeadView headView;
     private TextView mTextViewJoinIn;
 
@@ -19,10 +19,9 @@ public class ExerciseDetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
+        setallowFullScreen(true);
         initHeaderView();
         initView();
-
-
     }
 
     private void initView() {

@@ -211,8 +211,8 @@ public class CountActivity extends BaseActivity implements View.OnClickListener 
                 MyLocationData data = new MyLocationData.Builder()
                         .accuracy(mCurrentAccracy)
                         .direction(mLastX)
-                        .latitude(mCurrentLantitude)
-                        .longitude(mCurrentLongitude)
+                        .latitude(mCurrentLantitude+ x)
+                        .longitude(mCurrentLongitude + y)
                         .build();
                 baiduMap.setMyLocationData(data);
 
@@ -254,8 +254,8 @@ public class CountActivity extends BaseActivity implements View.OnClickListener 
             MyLocationData data = new MyLocationData.Builder()
                     .accuracy(bdLocation.getRadius())
                     .direction(mLastX)
-                    .latitude(bdLocation.getLatitude())
-                    .longitude(bdLocation.getLongitude())
+                    .latitude(bdLocation.getLatitude() + x)
+                    .longitude(bdLocation.getLongitude() + y)
                     .build();
             baiduMap.setMyLocationData(data);
             mCurrentAccracy = bdLocation.getRadius();
@@ -282,8 +282,8 @@ public class CountActivity extends BaseActivity implements View.OnClickListener 
             LatLng latLng = new LatLng(bdLocation.getLatitude() + x, bdLocation.getLongitude() + y);
             locationList.add(new JsonLocation(bdLocation.getLatitude() + y, bdLocation.getLongitude() + x));
             adapter(latLng);
-            x = x +0.00005;
-            y = y +0.00005;
+            x = x +0.0002;
+            y = y +0.0002;
         }
     }
 

@@ -96,7 +96,7 @@ public class ChatActivity extends BaseActivity {
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         mChatRv.setLayoutManager(layoutManager);
-        chatAdapter = new ChatAdapter(chatList);
+        chatAdapter = new ChatAdapter(this, chatList);
         mChatRv.setAdapter(chatAdapter);
         mChatRv.scrollToPosition(chatList.size() - 1);
     }

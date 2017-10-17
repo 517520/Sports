@@ -1,5 +1,6 @@
 package com.example.user.sports.view.cycle.activity;
 
+import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
@@ -10,10 +11,13 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.user.sports.BaseActivity;
 import com.example.user.sports.R;
 import com.example.user.sports.model.jsonModel.Json_3_createActivity;
 import com.example.user.sports.ui.AppHeadView;
 import com.example.user.sports.utils.UrlUtils;
+import com.example.user.sports.view.contacts.activity.CreateActivity;
+import com.example.user.sports.view.contacts.activity.LocationActivity;
 import com.google.gson.Gson;
 import com.leavjenn.smoothdaterangepicker.date.SmoothDateRangePickerFragment;
 import com.zhy.http.okhttp.OkHttpUtils;
@@ -25,21 +29,24 @@ import okhttp3.Call;
 import okhttp3.MediaType;
 import okhttp3.Response;
 
-public class ExerciseCreateActivity extends AppCompatActivity {
+public class ExerciseCreateActivity extends BaseActivity {
     private AppHeadView headView;
     private RelativeLayout mRelativeLayoutExerciseDate;
     private TextView mTextViewExerciseDate;
     private Button mButtonCreate;
+    private TextView mSettingTv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exercise_create);
+        setallowFullScreen(true);
         initHeadView();
         initView();
     }
 
     private void initView() {
+        mSettingTv = (TextView) findViewById(R.id.exercise_address_cycle_tv);
         mTextViewExerciseDate = (TextView)findViewById(R.id.exercise_time_cycle_tv);
         mRelativeLayoutExerciseDate = (RelativeLayout)findViewById(R.id.exercise_time_cycle_relativelayout);
         mRelativeLayoutExerciseDate.setOnClickListener(new View.OnClickListener() {
@@ -63,10 +70,31 @@ public class ExerciseCreateActivity extends AppCompatActivity {
         mButtonCreate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                upload();
+//                upload();
+
+                Toast.makeText(ExerciseCreateActivity.this, "创建成功！", Toast.LENGTH_LONG).show();
+                finish();
+            }
+        });
+        mSettingTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ExerciseCreateActivity.this, LocationActivity.class);
+                startActivityForResult(intent,1);
             }
         });
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch (requestCode){
+            case 1:
+                mSettingTv.setText(data.getStringExtra("location"));
+                break;
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
 
     //上传数据
     private void upload() {

@@ -134,6 +134,8 @@ public class MineFragment extends Fragment implements View.OnClickListener, Uplo
                 break;
             case R.id.check_in_mine_Btn:
                 mCheckInView.setCheckInDayNumber(1);
+                mButtonCheckInView.setBackgroundColor(getResources().getColor(R.color.gray));
+                mButtonCheckInView.setText("已签到");
                 break;
             default:
                 break;
@@ -149,6 +151,7 @@ public class MineFragment extends Fragment implements View.OnClickListener, Uplo
         JSONObject jsonObject = new JSONObject(result);
         String url = jsonObject.getString("icon");
         String path = UrlUtils.HOST + url;
+        app.getSp().setIcon(path);
         Glide.with(this).load(path).into(mHeadViewCiv);
 
         mNickName.setText(jsonObject.getString("nickname"));

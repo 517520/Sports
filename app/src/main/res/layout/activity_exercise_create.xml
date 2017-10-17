@@ -37,18 +37,6 @@
             android:layout_width="match_parent"
             android:layout_height="130dp"
             android:background="@drawable/bg_create_team"/>
-        <TextView
-            android:background="@drawable/replace_background"
-            android:layout_marginBottom="@dimen/space_40"
-            android:layout_marginRight="@dimen/space_20"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:gravity="center"
-            android:text="更换背景"
-            android:textSize="@dimen/text_size_12"
-            android:textColor="@color/white"
-            android:layout_width="80dp"
-            android:layout_height="25dp"/>
     </RelativeLayout>
 
     <LinearLayout

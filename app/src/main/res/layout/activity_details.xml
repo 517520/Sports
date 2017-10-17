@@ -5,6 +5,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:fitsSystemWindows="true"
+    android:clipToPadding="true"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -22,7 +24,7 @@
         android:padding="16dp"
         android:layout_below="@id/header_cycle_details"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/space_80">
+        android:layout_height="@dimen/space_100">
         <TextView
             android:text="每日晨跑打卡"
             android:textColor="@color/white"

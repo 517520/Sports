@@ -73,8 +73,6 @@ public class CycleFragment extends Fragment {
         viewPager.setAdapter(adapter);
         SmartTabLayout smartTabLayout = (SmartTabLayout)view.findViewById(R.id.viewpagertab_cycle);
         smartTabLayout.setViewPager(viewPager);
-
-
     }
 
 }
