@@ -20,14 +20,13 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 /**
- * Created by user on 9/28/17.
+ * Created by user on 10/17/17.
  */
 
-public class AllExerciseFragment extends Fragment {
-
+public class MyExerciseFragment extends Fragment {
     private View view;
     private RecyclerView mRecyclerView;
-    private ActivityAdapter mActivityAdapter;
+    private MyExerciseFragment.ActivityAdapter mActivityAdapter;
 
 
     @Override
@@ -63,7 +62,7 @@ public class AllExerciseFragment extends Fragment {
         }
 
 
-        mActivityAdapter = new ActivityAdapter(activities);
+        mActivityAdapter = new MyExerciseFragment.ActivityAdapter(activities);
         mRecyclerView.setAdapter(mActivityAdapter);
 
     }
@@ -74,6 +73,9 @@ public class AllExerciseFragment extends Fragment {
         private Activity mActivity;
 
         //先只绑定加入按钮,其他的之后添加
+
+
+
 
         public ActivityHolder(LayoutInflater inflater,ViewGroup parent){
             super(inflater.inflate(R.layout.list_item_activity,parent,false));
@@ -105,7 +107,7 @@ public class AllExerciseFragment extends Fragment {
         }
     }
 
-    private class ActivityAdapter extends RecyclerView.Adapter<ActivityHolder>{
+    private class ActivityAdapter extends RecyclerView.Adapter<MyExerciseFragment.ActivityHolder>{
         private ArrayList<Activity> mActivities;
 
         public ActivityAdapter(ArrayList<Activity> activities){
@@ -113,13 +115,13 @@ public class AllExerciseFragment extends Fragment {
         }
 
         @Override
-        public ActivityHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        public MyExerciseFragment.ActivityHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
-            return new ActivityHolder(layoutInflater,parent);
+            return new MyExerciseFragment.ActivityHolder(layoutInflater,parent);
         }
 
         @Override
-        public void onBindViewHolder(ActivityHolder holder, int position) {
+        public void onBindViewHolder(MyExerciseFragment.ActivityHolder holder, int position) {
             Activity activity = mActivities.get(position);
             holder.bind(activity);
 
@@ -127,8 +129,7 @@ public class AllExerciseFragment extends Fragment {
 
         @Override
         public int getItemCount() {
-            return mActivities.size();
+            return 10;
         }
     }
-
 }

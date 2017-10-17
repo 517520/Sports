@@ -102,11 +102,21 @@ public class WalkNumberFragment extends Fragment {
         float start = 0f;
 
         ArrayList<BarEntry> yVals1 = new ArrayList<BarEntry>();
-        for (int i = (int) start; i < start + count + 1; i++) {
-            float mult = (range + 1);
-            float val = (float) (Math.random() * mult);
-            yVals1.add(new BarEntry(i, val));
-        }
+        yVals1.add(new BarEntry(0,3566));
+        yVals1.add(new BarEntry(1,4373));
+        yVals1.add(new BarEntry(2,3525));
+        yVals1.add(new BarEntry(3,5858));
+        yVals1.add(new BarEntry(4,6206));
+        yVals1.add(new BarEntry(5,5434));
+        yVals1.add(new BarEntry(6,6942));
+
+
+
+//        for (int i = (int) start; i < start + count + 1; i++) {
+//            float mult = (range + 1);
+//            float val = (float) (Math.random() * mult);
+//            yVals1.add(new BarEntry(i, val));
+//        }
 
         BarDataSet set1;
 

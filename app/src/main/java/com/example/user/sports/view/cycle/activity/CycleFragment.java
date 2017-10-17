@@ -51,7 +51,7 @@ public class CycleFragment extends Fragment {
         headView.setOnClickListenerBack(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                IntentUtils.turnTo(getActivity(),ExerciseDetailsActivity.class,false);
+                IntentUtils.turnTo(getActivity(),MyExerciseActivity.class,false);
             }
         });
         headView.setOnClickListenerAdd(new View.OnClickListener() {
