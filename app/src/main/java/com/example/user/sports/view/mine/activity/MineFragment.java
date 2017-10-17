@@ -69,6 +69,7 @@ public class MineFragment extends Fragment implements View.OnClickListener, Uplo
 
         initHeadView();
         initView();
+        mCheckInView.setCheckInDayNumber(2);
         return mView;
     }
 
@@ -133,8 +134,8 @@ public class MineFragment extends Fragment implements View.OnClickListener, Uplo
                 IntentUtils.turnTo(getActivity(),SettingsActivity.class,false);
                 break;
             case R.id.check_in_mine_Btn:
-                mCheckInView.setCheckInDayNumber(1);
-                mButtonCheckInView.setBackgroundColor(getResources().getColor(R.color.gray));
+                mCheckInView.setCheckInDayNumber(3);
+                mButtonCheckInView.setBackground(getResources().getDrawable(R.drawable.circle_button_click));
                 mButtonCheckInView.setText("已签到");
                 break;
             default:

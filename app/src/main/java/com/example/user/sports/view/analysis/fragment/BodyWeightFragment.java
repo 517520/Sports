@@ -24,6 +24,8 @@ import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * Created by user on 9/26/17.
@@ -65,8 +67,10 @@ public class BodyWeightFragment extends Fragment {
         xAxis.setValueFormatter(new IAxisValueFormatter() {
             @Override
             public String getFormattedValue(float v, AxisBase axisBase) {
-                int day = (int) v+20;
-                String date = "9月"+day+"号";
+                Calendar calendar = Calendar.getInstance();
+
+                int month = 10;
+                String date = (month-9+(int)v)+"月";
                 return date;
             }
         });
@@ -97,10 +101,22 @@ public class BodyWeightFragment extends Fragment {
 
     private void setData(int count, float range) {
         ArrayList<Entry> values = new ArrayList<>();
-        for (int i = 0; i < count; i++) {
-            float val = (float) (Math.random() * range) + 10;
-            values.add(new Entry(i, val));
-        }
+        values.add(new Entry(0, (float) 64));
+        values.add(new Entry(1, (float) 65));
+        values.add(new Entry(2, (float) 62));
+        values.add(new Entry(3, (float) 63));
+        values.add(new Entry(4, (float) 63));
+        values.add(new Entry(5, (float) 65));
+        values.add(new Entry(6, (float) 67));
+        values.add(new Entry(7, (float) 69));
+        values.add(new Entry(8, (float) 67));
+        values.add(new Entry(9, (float) 68));
+
+
+//        for (int i = 0; i < count; i++) {
+//            float val = (float) (Math.random() * range) + 10;
+//            values.add(new Entry(i, val));
+//        }
 
         LineDataSet set1;
 

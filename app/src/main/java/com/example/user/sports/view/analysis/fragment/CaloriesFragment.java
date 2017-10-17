@@ -92,11 +92,14 @@ public class CaloriesFragment extends Fragment {
         float start = 0f;
 
         ArrayList<BarEntry> yVals1 = new ArrayList<BarEntry>();
-        for (int i = (int) start; i < start + count + 1; i++) {
-            float mult = (range + 1);
-            float val = (float) (Math.random() * mult);
-            yVals1.add(new BarEntry(i, val));
-        }
+        yVals1.add(new BarEntry(0,1245));
+        yVals1.add(new BarEntry(1,1499));
+        yVals1.add(new BarEntry(2,1289));
+        yVals1.add(new BarEntry(3,1703));
+        yVals1.add(new BarEntry(4,1892));
+        yVals1.add(new BarEntry(5,1602));
+        yVals1.add(new BarEntry(6,2021));
+
 
         BarDataSet set1;
 

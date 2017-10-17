@@ -26,7 +26,7 @@
             <TextView
                 android:textColor="#249AE6"
                 android:textSize="36sp"
-                android:text="23"
+                android:text="134.5"
                 android:gravity="center_horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
@@ -48,7 +48,7 @@
             <TextView
                 android:textColor="#249AE6"
                 android:textSize="36sp"
-                android:text="115"
+                android:text="1345"
                 android:gravity="center_horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>

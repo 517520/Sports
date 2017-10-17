@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:background="@color/background_black"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:fitsSystemWindows="true"
+    android:clipToPadding="true"
+    android:id="@+id/activity_my_exercise"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context="com.example.user.sports.view.cycle.activity.MyExerciseActivity">
+    <com.example.user.sports.ui.AppHeadView
+        android:layout_alignParentTop="true"
+        android:id="@+id/header_cycle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </com.example.user.sports.ui.AppHeadView>
+
+    <FrameLayout
+        android:background="@color/background_gray"
+        android:overScrollMode="never"
+        android:id="@+id/fragment_my_cycle"
+        android:layout_below="@id/header_cycle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </FrameLayout>
+
+</RelativeLayout>

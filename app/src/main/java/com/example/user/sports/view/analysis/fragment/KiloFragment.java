@@ -23,6 +23,7 @@ import com.github.mikephil.charting.formatter.IAxisValueFormatter;
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 /**
  * Created by user on 9/26/17.
@@ -46,8 +47,6 @@ public class KiloFragment extends Fragment{
         mLineChart.setTouchEnabled(true);                //支持触控手势
         mLineChart.setDragEnabled(false);                 //设置缩放
         mLineChart.setScaleEnabled(false);                 //设置推动
-
-
         setData(10,13);
 
 
@@ -63,8 +62,8 @@ public class KiloFragment extends Fragment{
         xAxis.setValueFormatter(new IAxisValueFormatter() {
             @Override
             public String getFormattedValue(float v, AxisBase axisBase) {
-                int day = (int) v+20;
-                String date = "9月"+day+"号";
+                int month = 10;
+                String date = (month-9+(int)v)+"月";
                 return date;
             }
         });
@@ -78,7 +77,7 @@ public class KiloFragment extends Fragment{
         leftAxis.enableGridDashedLine(10f,10f,0f);
         leftAxis.setDrawZeroLine(false);
 
-        leftAxis.setAxisMaximum(15f);
+        leftAxis.setAxisMaximum(200f);
         leftAxis.setAxisMinimum(0f);
 
         Legend legend = mLineChart.getLegend();
@@ -93,10 +92,21 @@ public class KiloFragment extends Fragment{
 
     private void setData(int count, float range) {
         ArrayList<Entry> values = new ArrayList<>();
-        for (int i = 0; i < count; i++) {
-            float val = (float) (Math.random() * range)+1;
-            values.add(new Entry(i, val));
-        }
+        values.add(new Entry(0, (float)149));
+        values.add(new Entry(1, (float)168));
+        values.add(new Entry(2, (float)135));
+        values.add(new Entry(3, (float)140));
+        values.add(new Entry(4, (float)127));
+        values.add(new Entry(5, (float)165));
+        values.add(new Entry(6, (float)123));
+        values.add(new Entry(7, (float)97));
+        values.add(new Entry(8, (float)112));
+        values.add(new Entry(9, (float)129));
+
+//        for (int i = 0; i < count; i++) {
+//            float val = (float) (Math.random() * range)+1;
+//            values.add(new Entry(i, val));
+//        }
 
         LineDataSet set1;
 

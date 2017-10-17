@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.user.sports.R;
+import com.example.user.sports.utils.IntentUtils;
+import com.example.user.sports.view.cycle.activity.ExerciseDetailsActivity;
 import com.example.user.sports.view.cycle.model.Activity;
 import com.example.user.sports.view.cycle.model.ActivityLab;
 import com.example.user.sports.view.cycle.model.User;
@@ -73,6 +75,12 @@ public class NearByExerciseFragment  extends Fragment{
         //先只绑定加入按钮,其他的之后添加
         public ActivityHolder(LayoutInflater inflater,ViewGroup parent){
             super(inflater.inflate(R.layout.list_item_activity,parent,false));
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    IntentUtils.turnTo(getActivity(), ExerciseDetailsActivity.class,false);
+                }
+            });
 //            mAddActivityButton = (Button)itemView.findViewById(R.id.add_cycle_button);
 
 //            itemView.setOnClickListener(new View.OnClickListener() {
