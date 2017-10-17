@@ -11,6 +11,7 @@ public class Json_4_group {
     private String groupIcon;
     private String groupName;
     private String groupIntroduce;
+    private String location;
     private String result;
 
     public Json_4_group(){ }
@@ -59,6 +60,14 @@ public class Json_4_group {
 
     public void setGroupIntroduce(String groupIntroduce) {
         this.groupIntroduce = groupIntroduce;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 
     public String getResult() {

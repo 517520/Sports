@@ -8,7 +8,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.user.sports.R;
+import com.example.user.sports.model.jsonModel.Json_4_group;
+import com.example.user.sports.utils.UrlUtils;
 import com.example.user.sports.view.contacts.model.Team;
 
 import java.util.List;
@@ -21,12 +24,12 @@ import java.util.List;
 public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.MyViewHolder>{
 
     private Context context;
-    private List<Team> list;
+    private List<Json_4_group> list;
 
     private OnItemClickLitener mOnItemClickLitener;
 
 
-    public TeamAdapter(Context context, List<Team> list) {
+    public TeamAdapter(Context context, List<Json_4_group> list) {
         this.context = context;
         this.list = list;
     }
@@ -40,8 +43,11 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.MyViewHolder>{
 
     @Override
     public void onBindViewHolder(final MyViewHolder myViewHolder, int i) {
-        myViewHolder.tvName.setText(list.get(i).getName());
-        myViewHolder.tvDetail.setText(list.get(i).getDetail());
+        myViewHolder.tvName.setText(list.get(i).getGroupName());
+        myViewHolder.tvDetail.setText(list.get(i).getGroupIntroduce());
+        myViewHolder.tvLocation.setText(list.get(i).getLocation());
+        String path = UrlUtils.HOST + list.get(i).getGroupIcon();
+        Glide.with(this.context).load(path).into(myViewHolder.imageView);
 
         if (mOnItemClickLitener != null) {
             myViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -61,13 +67,14 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.MyViewHolder>{
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView tvName, tvDetail;
+        TextView tvName, tvDetail, tvLocation;
         ImageView imageView;
 
         public MyViewHolder(View itemView) {
             super(itemView);
             tvName = (TextView) itemView.findViewById(R.id.name_team_item_tv);
             tvDetail = (TextView) itemView.findViewById(R.id.detail_team_item_tv);
+            tvLocation = (TextView) itemView.findViewById(R.id.location_team_item_tv);
             imageView = (ImageView) itemView.findViewById(R.id.headview_team_item_civ);
         }
     }

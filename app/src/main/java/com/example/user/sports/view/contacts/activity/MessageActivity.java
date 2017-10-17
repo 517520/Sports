@@ -59,19 +59,6 @@ public class MessageActivity extends BaseActivity {
 
     private void initData() {
         messageList = new ArrayList<>();
-        Message message1 = new Message();
-        message1.setName("原子弹");
-        message1.setMessage("哈哈哈哈哈傻逼");
-        message1.setTime("10分钟前");
-        message1.setNumber(1);
-        messageList.add(message1);
-
-        Message message2 = new Message();
-        message2.setName("小李子");
-        message2.setMessage("今晚八点，把欠你的5000W美金还给你");
-        message2.setTime("5小时前");
-        message2.setNumber(2);
-        messageList.add(message2);
 
         messageAdapter = new MessageAdapter(this, messageList);
         mMessageRv.setAdapter(messageAdapter);

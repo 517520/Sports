@@ -45,5 +45,4 @@ public class UploadModelImp implements UploadModel{
                     }
                 });
     }
-
 }

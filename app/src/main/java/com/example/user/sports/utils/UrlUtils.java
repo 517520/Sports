@@ -32,6 +32,9 @@ public class UrlUtils {
     public final static String ADD_ADDFRIEND = "http://tclhw1.alish.wang:8080/4/add_addpeople";
     public final static String NEWFRIEND_LIST = "http://tclhw1.alish.wang:8080/4/newFriend_list";
     public final static String NEWFRIEND_HANDLE = "http://tclhw1.alish.wang:8080/4/newFriend_handle";
+    public final static String GROUP = "http://tclhw1.alish.wang:8080/4/group";
+    public final static String CREATE_GROUP = "http://tclhw1.alish.wang:8080/4/creategroup";
+
 
     public final static String DETAIL = "http://tclhw1.alish.wang:8080/5/detail";
 }

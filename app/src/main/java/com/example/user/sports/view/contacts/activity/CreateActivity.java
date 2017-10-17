@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v4.content.FileProvider;
+import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -16,21 +17,35 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.user.sports.App;
 import com.example.user.sports.BaseActivity;
 import com.example.user.sports.BuildConfig;
 import com.example.user.sports.R;
+import com.example.user.sports.dialog.LoadingDialog;
+import com.example.user.sports.model.jsonModel.JsonImageString;
+import com.example.user.sports.model.jsonModel.Json_4_creategroup;
+import com.example.user.sports.presenter.UploadPresenter;
+import com.example.user.sports.presenter.UploadPresenterImp;
 import com.example.user.sports.ui.AppHeadView;
 import com.example.user.sports.utils.PictureCutUtil;
 import com.example.user.sports.utils.PopUtil;
+import com.example.user.sports.utils.ResultUtils;
+import com.example.user.sports.utils.UrlUtils;
+import com.example.user.sports.view.UploadView;
+import com.google.gson.Gson;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.File;
+import java.io.IOException;
 
 /**
  * Author : yufeng.cao
  * Date : 2017.09.06 11:44
  * Description :
  */
-public class CreateActivity extends BaseActivity implements View.OnClickListener{
+public class CreateActivity extends BaseActivity implements View.OnClickListener, UploadView{
     private View view;
     private AppHeadView headView;
     private ImageView mHeadIv, mCameraIv;
@@ -40,7 +55,7 @@ public class CreateActivity extends BaseActivity implements View.OnClickListener
 
     //头像
     private PictureCutUtil pictureCutUtil;
-    private File file;
+    private File file, uploadFile;
     private LinearLayout ll_popup;
     private PopUtil pop;
     private final String filename = System.currentTimeMillis() + ".png";
@@ -48,6 +63,12 @@ public class CreateActivity extends BaseActivity implements View.OnClickListener
     public final static int CONSULT_DOC_CAMERA = 1001;
     public final static int CONSULT_DOC_CUTTING = 1002;
     private Uri outputFileUri;
+
+    //上传数据
+    private App app;
+    private UploadPresenter presenter;
+    private LoadingDialog loadingDialog;
+    private String phone;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +95,13 @@ public class CreateActivity extends BaseActivity implements View.OnClickListener
     }
 
     private void initView() {
+        if (loadingDialog == null) {
+            loadingDialog = new LoadingDialog(this);
+        }
+        app = (App) getApplicationContext();
+        phone = app.getSp().getPhone();
+        presenter = new UploadPresenterImp(this);
+
         pictureCutUtil = new PictureCutUtil(this);
         mHeadIv = (ImageView) findViewById(R.id.head_create_iv);
         mNameEt = (EditText) findViewById(R.id.name_create_et);
@@ -209,8 +237,7 @@ public class CreateActivity extends BaseActivity implements View.OnClickListener
             mHeadIv.setImageBitmap(photo);
             mCameraIv.setVisibility(View.GONE);
 
-            File imageFile = pictureCutUtil.cutPictureQuality(photo, "headImage");
-            Toast.makeText(this, imageFile.getAbsolutePath(), Toast.LENGTH_LONG).show();
+            uploadFile = pictureCutUtil.cutPictureQuality(photo, "headImage");
         }
     }
 
@@ -221,6 +248,20 @@ public class CreateActivity extends BaseActivity implements View.OnClickListener
                 pop.showAtLocation(view, Gravity.BOTTOM, 0, 0);
                 break;
             case R.id.create_btn:
+                String path = JsonImageString.getImageStr(uploadFile.getAbsolutePath());
+                if (!TextUtils.isEmpty(mNameEt.getText()) &&
+                        !TextUtils.isEmpty(mLocationTv.getText()) &&
+                        !TextUtils.isEmpty(mDetailEt.getText())) {
+                    try {
+                        presenter.upload(UrlUtils.CREATE_GROUP, new Gson().toJson(new Json_4_creategroup(
+                                phone, path, mNameEt.getText().toString(), mLocationTv.getText().toString(),
+                                mDetailEt.getText().toString())));
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }else {
+                    Toast.makeText(this, "请输入完整信息", Toast.LENGTH_LONG).show();
+                }
 
                 break;
             case R.id.location_create_tv:
@@ -229,6 +270,29 @@ public class CreateActivity extends BaseActivity implements View.OnClickListener
                 break;
             default:
                 break;
+        }
+    }
+
+    @Override
+    public void mResult(String result) throws JSONException {
+        if (loadingDialog.isShowing()) {
+            loadingDialog.dismiss();
+        }
+
+        JSONObject jsonObject= new JSONObject(result);
+        String toast = jsonObject.getString("result");
+        if (ResultUtils.LinkPeople.CREATEGROUP_RESULT_SUCCESS.equals(toast)) {
+            Toast.makeText(this, "创建成功", Toast.LENGTH_LONG).show();
+            finish();
+        }else {
+            Toast.makeText(this, "创建失败", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    @Override
+    public void showDialog() {
+        if (loadingDialog != null) {
+            loadingDialog.show();
         }
     }
 }

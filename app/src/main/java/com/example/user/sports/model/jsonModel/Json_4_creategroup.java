@@ -7,19 +7,20 @@ package com.example.user.sports.model.jsonModel;
 public class Json_4_creategroup {
 
     private String phoneNumber;
-    private String groupIcon;
+    private String groupIconString;
     private String groupName;
     private String location;
     private String groupIntroduce;
+    private String groupIconURL;
     private String result;
 
     public Json_4_creategroup(){ }
 
-    public Json_4_creategroup(String phoneNumber,String groupIcon,String groupName
+    public Json_4_creategroup(String phoneNumber,String groupIconString,String groupName
             ,String location,String groupIntroduce){
 
         this.phoneNumber=phoneNumber;
-        this.groupIcon=groupIcon;
+        this.groupIconString=groupIconString;
         this.groupName=groupName;
         this.location=location;
         this.groupIntroduce=groupIntroduce;
@@ -33,12 +34,12 @@ public class Json_4_creategroup {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getGroupIcon() {
-        return groupIcon;
+    public String getGroupIconString() {
+        return groupIconString;
     }
 
-    public void setGroupIcon(String groupIcon) {
-        this.groupIcon = groupIcon;
+    public void setGroupIconString(String groupIconString) {
+        this.groupIconString = groupIconString;
     }
 
     public String getGroupName() {
@@ -63,6 +64,14 @@ public class Json_4_creategroup {
 
     public void setGroupIntroduce(String groupIntroduce) {
         this.groupIntroduce = groupIntroduce;
+    }
+
+    public String getGroupIconURL() {
+        return groupIconURL;
+    }
+
+    public void setGroupIconURL(String groupIconURL) {
+        this.groupIconURL = groupIconURL;
     }
 
     public String getResult() {

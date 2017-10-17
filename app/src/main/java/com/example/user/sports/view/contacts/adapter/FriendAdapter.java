@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.user.sports.R;
@@ -40,12 +41,14 @@ public class FriendAdapter extends RecyclerView.Adapter<FriendAdapter.ViewHolder
     public void onBindViewHolder(final FriendAdapter.ViewHolder holder, final int position) {
         final Friend friend = friendList.get(position);
         holder.tvName.setText(friend.getName());
+        holder.imageView.setImageBitmap(friend.getPhoto());
+
         if (mOnItemClickLitener != null) {
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     int position = holder.getPosition();
-                    mOnItemClickLitener.onItemClick(holder.itemView, position);
+                    mOnItemClickLitener.onItemClick(holder.tvName.getText().toString(), position);
                 }
             });
         }
@@ -58,14 +61,16 @@ public class FriendAdapter extends RecyclerView.Adapter<FriendAdapter.ViewHolder
 
     class ViewHolder extends RecyclerView.ViewHolder {
         TextView tvName;
+        ImageView imageView;
 
         public ViewHolder(View itemView) {
             super(itemView);
             tvName = (TextView) itemView.findViewById(R.id.name_friend_item_tv);
+            imageView = (ImageView) itemView.findViewById(R.id.head_friend_item_iv);
         }
     }
     public interface OnItemClickLitener {
-        void onItemClick(View view, int position);
+        void onItemClick(String name, int position);
 
     }
 

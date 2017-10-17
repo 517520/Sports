@@ -1,14 +1,20 @@
 package com.example.user.sports.view.contacts.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.user.sports.BaseActivity;
 import com.example.user.sports.R;
 import com.example.user.sports.ui.AppHeadView;
 import com.example.user.sports.utils.IntentUtils;
+import com.example.user.sports.utils.UrlUtils;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Author : yufeng.cao
@@ -22,16 +28,25 @@ public class TeamDetailActivity extends BaseActivity implements View.OnClickList
     private TextView mNameTv, mLocationTv, mDetailTv, mExitTv, mChatTv;
 
 
-    private String name = "动次大次", location = "TCL科技大厦", power = "退出群聊", detail ="去你妈的垃圾东西";
+    private String name, location, power, detail, icon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_team_detail);
         setallowFullScreen(true);
+
+        Intent intent = getIntent();
+        Bundle map = intent.getExtras();
+        name = map.getString("name");
+        location = map.getString("location");
+        detail = map.getString("detail");
+        icon = map.getString("icon");
+        power = "退出群聊";
+
         initHeadView();
         initView();
-
+        initData();
     }
 
     private void initHeadView() {
@@ -59,9 +74,16 @@ public class TeamDetailActivity extends BaseActivity implements View.OnClickList
         mDetailTv.setText(detail);
         mExitTv.setText(power);
 
-
         mExitTv.setOnClickListener(this);
         mChatTv.setOnClickListener(this);
+    }
+
+    private void initData() {
+        String path = UrlUtils.HOST + icon;
+        Glide.with(this).load(path).into(mHeadIv);
+        mNameTv.setText(name);
+        mLocationTv.setText(location);
+        mDetailTv.setText(detail);
     }
 
     @Override
@@ -71,7 +93,9 @@ public class TeamDetailActivity extends BaseActivity implements View.OnClickList
                 finish();
                 break;
             case R.id.chat_team_detail_tv:
-                IntentUtils.turnTo(this, ChatActivity.class, true);
+                Map<String, Object> map = new HashMap<>();
+                map.put("name", name);
+                IntentUtils.turnTo(this, ChatActivity.class, true, map);
                 break;
             default:
                 break;

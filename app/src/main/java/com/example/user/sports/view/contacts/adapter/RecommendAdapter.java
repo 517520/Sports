@@ -43,6 +43,7 @@ public class RecommendAdapter extends RecyclerView.Adapter<RecommendAdapter.MyVi
     public void onBindViewHolder(final MyViewHolder myViewHolder, int i) {
         myViewHolder.tvName.setText(list.get(i).getName());
         myViewHolder.tvDetails.setText(list.get(i).getDetail());
+        myViewHolder.imageView.setImageBitmap(list.get(i).getBitmap());
         if (mOnItemClickLitener != null) {
             myViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

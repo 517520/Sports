@@ -10,6 +10,16 @@ import android.graphics.Bitmap;
 public class Team {
     private String name;
     private String detail;
+    private String location;
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
     private Bitmap bitmap;
 
     public String getName() {

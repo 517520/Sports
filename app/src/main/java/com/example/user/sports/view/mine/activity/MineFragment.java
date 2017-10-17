@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -43,13 +44,14 @@ public class MineFragment extends Fragment implements View.OnClickListener, Uplo
      */
     private View mView;//根布局
     private TextView mTextViewLogIn;//登录按钮
+    private TextView mNickName;
     private LinearLayout mLinearLayoutSportsHistory;//运动历史
     private LinearLayout mLinearLayoutSettings;//设置
     private AppHeadView headView;
     private CheckInView mCheckInView;
     private Button mButtonCheckInView;
     private CircleImageView mHeadViewCiv;
-
+    private RelativeLayout relativeLayout;
 
     private App app;
     private LoadingDialog loadingDialog;
@@ -67,7 +69,6 @@ public class MineFragment extends Fragment implements View.OnClickListener, Uplo
 
         initHeadView();
         initView();
-        initData();
         return mView;
     }
 
@@ -94,7 +95,10 @@ public class MineFragment extends Fragment implements View.OnClickListener, Uplo
         app = (App) getActivity().getApplicationContext();
         presenter = new UploadPresenterImp(this);
 
+
+        mNickName = (TextView)mView.findViewById(R.id.nickname_mine_tv);
         mTextViewLogIn = (TextView)mView.findViewById(R.id.log_in_mine_TV);
+        relativeLayout = (RelativeLayout)mView.findViewById(R.id.my_message_mine_relativeLayout);
         mLinearLayoutSportsHistory = (LinearLayout)mView.findViewById(R.id.sports_history_mine_linearlayout);
         mLinearLayoutSettings = (LinearLayout)mView.findViewById(R.id.setting_mine_linearlayout);
         mCheckInView = (CheckInView)mView.findViewById(R.id.check_in_mine);
@@ -104,6 +108,16 @@ public class MineFragment extends Fragment implements View.OnClickListener, Uplo
         mTextViewLogIn.setOnClickListener(this);
         mLinearLayoutSportsHistory.setOnClickListener(this);
         mLinearLayoutSettings.setOnClickListener(this);
+        mButtonCheckInView.setOnClickListener(this);
+
+        if (app.getSp().getIsLogin()) {
+            mTextViewLogIn.setVisibility(View.GONE);
+            relativeLayout.setVisibility(View.VISIBLE);
+            initData();
+        }else {
+            mTextViewLogIn.setVisibility(View.VISIBLE);
+            relativeLayout.setVisibility(View.GONE);
+        }
     }
 
     @Override
@@ -118,6 +132,9 @@ public class MineFragment extends Fragment implements View.OnClickListener, Uplo
             case R.id.setting_mine_linearlayout:
                 IntentUtils.turnTo(getActivity(),SettingsActivity.class,false);
                 break;
+            case R.id.check_in_mine_Btn:
+                mCheckInView.setCheckInDayNumber(1);
+                break;
             default:
                 break;
         }
@@ -125,14 +142,23 @@ public class MineFragment extends Fragment implements View.OnClickListener, Uplo
 
     @Override
     public void mResult(String result) throws JSONException {
+        if (loadingDialog.isShowing()) {
+            loadingDialog.dismiss();
+        }
+
         JSONObject jsonObject = new JSONObject(result);
         String url = jsonObject.getString("icon");
         String path = UrlUtils.HOST + url;
         Glide.with(this).load(path).into(mHeadViewCiv);
+
+        mNickName.setText(jsonObject.getString("nickname"));
+        mCheckInView.setCheckInDayNumber(0);
     }
 
     @Override
     public void showDialog() {
-
+        if (loadingDialog != null) {
+            loadingDialog.show();
+        }
     }
 }

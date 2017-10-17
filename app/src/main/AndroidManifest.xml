@@ -69,12 +69,10 @@
             android:name=".view.athletics.activity.CountActivity"
             android:launchMode="singleInstance"/>
         //contacts
-        <activity android:name=".view.contacts.activity.InformationActivity"/>
         <activity android:name=".view.contacts.activity.ChatActivity"/>
         <activity android:name=".view.contacts.activity.NewFriendActivity"/>
         <activity android:name=".view.contacts.activity.AddFriendActivity"/>
         <activity android:name=".view.contacts.activity.CreateActivity"/>
-        <activity android:name=".view.contacts.activity.RecommendActivity"/>
         <activity android:name=".view.contacts.activity.SearchActivity"/>
         <activity android:name=".view.contacts.activity.TeamDetailActivity"/>
         <activity android:name=".view.contacts.activity.MessageActivity"/>
@@ -88,6 +86,7 @@
         <activity android:name=".view.mine.activity.PersonalMessageActivity"/>
         <activity android:name=".view.mine.activity.NumberTargerActivity"/>
         <activity android:name=".view.mine.activity.MessageNoticeActivity"/>
+        <activity android:name=".view.contacts.activity.LocationActivity"/>
         //计步
         <service
             android:name=".view.athletics.stepservice.StepService"

@@ -113,30 +113,30 @@ public class SharePreferenceUtil {
         return sp.getInt("state", 0);
     }
 
-    // 用户自己的头像
-//    public void setImg(Bitmap bitmap) {
-//        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-//        bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
-//        String imageBase64 = new String(Base64.encode(baos.toByteArray(), Base64.DEFAULT));
-//        editor.putString("image", imageBase64);
-//        editor.commit();
-//    }
-//
-//    public Bitmap getImg(Bitmap defaultValue) {
-//        String imageBase64 = sp.getString("image", "");
-//        if (TextUtils.isEmpty(imageBase64)) {
-//            return defaultValue;
-//        }
-//
-//        byte[] base64Bytes = Base64.decode(imageBase64.getBytes(),Base64.DEFAULT);
-//        ByteArrayInputStream bais = new ByteArrayInputStream(base64Bytes);
-//        Bitmap ret = BitmapFactory.decodeStream(bais);
-//        if (ret != null) {
-//            return ret;
-//        } else {
-//            return defaultValue;
-//        }
-//    }
+    //用户自己的头像
+    public void setImg(Bitmap bitmap) {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
+        String imageBase64 = new String(Base64.encode(baos.toByteArray(), Base64.DEFAULT));
+        editor.putString("image", imageBase64);
+        editor.commit();
+    }
+
+    public Bitmap getImg(Bitmap defaultValue) {
+        String imageBase64 = sp.getString("image", "");
+        if (TextUtils.isEmpty(imageBase64)) {
+            return defaultValue;
+        }
+
+        byte[] base64Bytes = Base64.decode(imageBase64.getBytes(),Base64.DEFAULT);
+        ByteArrayInputStream bais = new ByteArrayInputStream(base64Bytes);
+        Bitmap ret = BitmapFactory.decodeStream(bais);
+        if (ret != null) {
+            return ret;
+        } else {
+            return defaultValue;
+        }
+    }
 
     //用户头像
     public void setIcon(String icon) {

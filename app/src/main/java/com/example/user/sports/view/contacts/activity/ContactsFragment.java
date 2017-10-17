@@ -1,5 +1,7 @@
 package com.example.user.sports.view.contacts.activity;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -26,7 +28,10 @@ import com.zhy.http.okhttp.callback.Callback;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 import okhttp3.Call;
 import okhttp3.Response;
@@ -149,10 +154,17 @@ public class ContactsFragment extends Fragment implements View.OnClickListener{
 
 
     private void adapterData() {
-        String[] strings = new String[]{"河源","惠州","广州","潮州","东莞","深圳","佛山","湛江","梅州"};
+        final String[] strings = new String[]{"袁紫玲","陈泽洪","王富华","郭毅民","曹宇锋"};
+        Bitmap[] bitmaps = new Bitmap[]{
+                BitmapFactory.decodeResource(getResources(), R.mipmap.yuanziling),
+                    BitmapFactory.decodeResource(getResources(), R.mipmap.chenzehong),
+                        BitmapFactory.decodeResource(getResources(), R.mipmap.wangfuhua),
+                            BitmapFactory.decodeResource(getResources(), R.mipmap.guoyimin),
+                                BitmapFactory.decodeResource(getResources(), R.mipmap.caoyufeng)};
         for (int i = 0; i < strings.length; i++) {
             Friend friend = new Friend();
-            friend.setName(strings[i]);//设置城市名称
+            friend.setName(strings[i]);
+            friend.setPhoto(bitmaps[i]);
             friendList.add(friend);
         }
         if (friendAdapter == null) {
@@ -160,8 +172,10 @@ public class ContactsFragment extends Fragment implements View.OnClickListener{
             mContactsRv.setAdapter(friendAdapter);
             friendAdapter.setOnItemClickLitener(new FriendAdapter.OnItemClickLitener() {
                 @Override
-                public void onItemClick(View view, int position) {
-                    IntentUtils.turnTo(getActivity(), ChatActivity.class, false);
+                public void onItemClick(String name, int position) {
+                    Map<String, Object> map = new HashMap<String, Object>();
+                    map.put("name", name);
+                    IntentUtils.turnTo(getActivity(), ChatActivity.class, false, map);
                 }
             });
         }
